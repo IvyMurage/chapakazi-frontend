@@ -27,4 +27,18 @@
 
 }
 
+/* form container styling */
+.right-container {
+    background: #0A3971;
+    display: grid;
+    grid-template-areas: "." ".";
+    width: 500px;
+  }
+
+  .right-container .set {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+
 
