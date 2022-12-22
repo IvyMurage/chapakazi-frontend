@@ -20,6 +20,19 @@ function SignUpForm() {
     description:""
   })
 
+  function handleFormSubmit(e){
+    e.preventDefault()
+    fetch("/customers", {
+        method: "POST",
+        headers: {
+            "content-type":"application/json"
+        },
+        body: JSON.stringify(formData)
+    })
+    .then((res) => res.json())
+  }
+
+
 }
 
 export default SignUpForm;
