@@ -1,9 +1,17 @@
 import './App.css';
+import React from "react";
+// import { Routes, Route } from "react-router-dom";
+import Signup from "./components/Signup";
+
+
 
 function App() {
   return (
     <div className="App">
-      Chapakazi
+      <Signup/>
+      {/* <Routes>
+        <Route exact="true" path="/customerform" element={<Signup/>}/>
+      </Routes> */}
     </div>
   );
 }
