@@ -59,7 +59,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   width: 90%;
   margin: 0 auto;
 }
@@ -72,6 +71,7 @@
   color: var(--primary-color);
   font-weight: bold;
   font-size: 14px;
+  cursor: pointer;
 }
 
 .top-review-header-left,
@@ -97,8 +97,30 @@
   margin-bottom: 30px;
   background-color: var(--secondary-color);
   color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 .review-body > p {
   font-size: 15px;
   word-spacing: 5px;
+}
+
+#trash-can {
+  display: block;
+  align-self: flex-end;
+  width: fit-content;
+}
+
+.dislike-like{
+  align-self: flex-start;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+#thumbs-up, #thumbs-down {
+  font-size: 20px;
 }
