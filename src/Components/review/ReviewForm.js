@@ -5,6 +5,8 @@ function ReviewForm() {
     <div id="review-form-container">
       <form className="review-form">
         <h3>Add a Review</h3>
+        <hr />
+        <br />
         <textarea cols="50" rows="10" />
         <div className="review-form-btn">
           <button className="btn-review">Cancel</button>

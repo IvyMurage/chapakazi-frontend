@@ -4,6 +4,7 @@ import CustomerForm from "./Components/customer/CustomerForm";
 import LandingPage from "./Components/landingPage/LandingPage";
 import HandymanForm from "./Components/handyman/HandymanForm";
 import ReviewForm from "./Components/review/ReviewForm";
+import ReviewContainer from "./Components/review/ReviewContainer";
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       {/* <LandingPage/> */}
       {/* <CustomerForm /> */}
       {/* <HandymanForm /> */}
-      <ReviewForm />
+      {/* <ReviewForm /> */}
+      <ReviewContainer />
     </div>
   );
 }
