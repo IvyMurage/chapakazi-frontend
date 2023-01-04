@@ -74,6 +74,7 @@ function HandymanForm() {
         <div className="handyman-submit-btn">
           <button>Submit</button>
         </div>
+        <h2>Already have an account? Login</h2>
       </form>
     </div>
   );
