@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import MessageForm from "./MessageForm";
 
 function MessageContainer() {
   return (
-    <div>MessageContainer</div>
-  )
+    <div>
+      <MessageForm />
+    </div>
+  );
 }
 
-export default MessageContainer
+export default MessageContainer;

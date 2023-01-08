@@ -7,7 +7,7 @@ import reviewReducer from "./Components/review/ReviewSlice"
 
 export default combineReducers({
         customer: customerReducer,
-        // handyman: handymanReducer,
+        handyman: handymanReducer,
         reviews: reviewReducer
     }
 

@@ -1,18 +1,66 @@
 export const addhandyman = (handyman) => {
-    return {
-        type: "add/handyman",
-        payload: handyman
+    return async function (dispatch) {
+        dispatch({
+            type: "handyman/loading"
+        })
+        const response = await fetch("handymen", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(
+                handyman
+            )
+        })
+
+        const data = await response.json()
+
+        if (response.ok) {
+            dispatch({
+                type: "add/handyman",
+                payload: data.handyman
+            })
+            localStorage.setItem("handyman", data.jwt)
+        } else {
+            dispatch({
+                type: "error/handyman",
+                payload: data.errors
+            })
+        }
     }
 }
 
-const initialState = {}
-export default function handymanReducer (state=initialState, action) {
 
-    switch(action.type) {
-        case "add/handyman":
-            {
-                return state
+const initialState = {
+    loading: false,
+    errors: [],
+    handyman: {}
+}
+export default function handymanReducer(state = initialState, action) {
+
+    switch (action.type) {
+        case "add/handyman": {
+            return {
+                ...state,
+                handyman: action.payload,
             }
+        }
+        case "handyman/loading": {
+            return {
+                ...state,
+                loading: true
+            }
+        }
+
+        case "error/handyman": {
+            return {
+                ...state,
+                errors: action.payload.errors
+            }
+
+        }
+        default:
+            return state;
     }
 
 }
