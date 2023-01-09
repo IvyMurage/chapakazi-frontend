@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import "./Customer.css";
+import { signupCustomer } from "./customerSlice";
 
 function CustomerForm() {
+  const dispatch = useDispatch();
+
   function handleInputChange(event) {
     setFormData({
       ...formData,
@@ -10,24 +14,18 @@ function CustomerForm() {
   }
 
   const [formData, setFormData] = useState({
-    name: "",
+    username: "",
     location: "",
-    email: "",
     password: "",
+    password_confirmation:"",
     image: "",
     id: 0,
-    description: "",
+    admin_id: 1,
   });
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    fetch("/customers", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    }).then((res) => res.json());
+    dispatch(signupCustomer(formData));
   }
 
   return (
@@ -35,14 +33,14 @@ function CustomerForm() {
       <div className="signup-container">
         <div className="right-container" onSubmit={handleFormSubmit}>
           <header>
-            <div className="set"></div>
+            <div className="set"> </div>
             <div className="set">
               <div className="customer-name">
                 <label htmlFor="customer-name"> Name </label>
                 <input
                   id="customer-name"
                   //   placeholder="Name..."
-                  name="name"
+                  name="username"
                   type="text"
                   value={formData.name}
                   onChange={handleInputChange}
@@ -64,18 +62,6 @@ function CustomerForm() {
             </div>
             <div className="set">
               <div className="customer-name">
-                <label htmlFor="customer-email"> Email </label>
-                <input
-                  id="customer-name"
-                  //   placeholder="Email..."
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                ></input>
-              </div>
-              <div className="customer-name">
                 <label htmlFor="customer-password"> Password </label>
                 <input
                   id="customer-name"
@@ -87,7 +73,21 @@ function CustomerForm() {
                   required
                 ></input>
               </div>
+
+              <div className="customer-name">
+                <label htmlFor="customer-password"> Password Confirmation </label>
+                <input
+                  id="customer-name"
+                  //   placeholder="Password..."
+                  name="password_confirmation"
+                  type="password"
+                  value={formData.password_confirmation}
+                  onChange={handleInputChange}
+                  required
+                ></input>
+              </div>
             </div>
+           
             <div className="set">
               <div className="customer-name">
                 <label htmlFor="customer-image"> Image </label>
@@ -101,7 +101,7 @@ function CustomerForm() {
                   required
                 ></input>
               </div>
-              <div className="customer-location">
+              {/* <div className="customer-location">
                 <label htmlFor="customer-id"> Admin ID </label>
                 <input
                   id="customer-ID"
@@ -112,9 +112,9 @@ function CustomerForm() {
                   onChange={handleInputChange}
                   required
                 ></input>
-              </div>
+              </div> */}
             </div>
-            <div className="customer-description">
+            {/* <div className="customer-description">
               <label htmlFor="customer-weight-0-25"> Description </label>
               <div className="description-container">
                 <input
@@ -125,7 +125,7 @@ function CustomerForm() {
                   required
                 />
               </div>
-            </div>
+            </div> */}
           </header>
           <footer>
             <div className="set">
