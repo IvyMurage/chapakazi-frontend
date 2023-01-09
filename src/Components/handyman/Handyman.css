@@ -65,3 +65,53 @@ color: var(--secondary-color);
 text-align: center;
 margin-top: 10px;
 }
+
+.button{
+  background-color: #FEB800;
+  width: 90px;
+  color: black;
+}
+.image{
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  padding-left: 10%;
+  padding-top: 10%;
+}
+.name{
+  color: #FEB800;
+  font-family: Poppins;
+  font-size: 21px;
+}
+.occupation{
+  font-size: 21px;
+  font-family: Poppins;
+  color: #f4f4f4;
+
+}
+.handymancard{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 20px;
+  width: 900px;
+  height: 350px;
+  border-radius: 10%;
+  border-style: solid;
+  border-width: 1px;
+}
+.info-bottom{
+  padding-top: 30px ;
+}
+.rating, 
+.button-span{
+  padding-left: 15px;
+}
+.rating,
+.location{
+  font-weight: 600;
+}
+.info{
+  padding-top: 10%;
+  padding-left: 0%;
+}
