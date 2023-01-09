@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState } from "react";
+import CustomerForm from "./Components/customer/CustomerForm";
+import LandingPage from "./Components/landingPage/LandingPage";
+import HandymanForm from "./Components/handyman/HandymanForm";
+import ReviewForm from "./Components/review/ReviewForm";
+import ReviewContainer from "./Components/review/ReviewContainer";
+import MessageForm from "./Components/message/MessageForm";
+import MessageContainer from "./Components/message/MessageContainer";
 
 function App() {
+  const [trigger, setTrigger] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <LandingPage/> */}
+      {/* <CustomerForm /> */}
+      <HandymanForm />
+
+      {/* <ReviewForm/> */}
+      {/* <ReviewContainer /> */}
+      {/* <MessageContainer /> */}
+      
     </div>
   );
 }
