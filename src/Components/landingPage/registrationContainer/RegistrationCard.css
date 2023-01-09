@@ -49,4 +49,8 @@
   width: 100%;
   color: var(--secondary-color);
   font-size: 20px;
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
 }
