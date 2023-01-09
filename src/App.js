@@ -7,8 +7,7 @@ import React, { useState } from "react";
 // import ReviewContainer from "./Components/review/ReviewContainer";
 // import MessageForm from "./Components/message/MessageForm";
 // import MessageContainer from "./Components/message/MessageContainer";
-import HandymanCard from "./Components/handyman/HandymanCard";
-
+import HandymanContainer from "./Components/handyman/HandymanContainer";
 function App() {
   const [trigger, setTrigger] = useState(false);
 
@@ -16,7 +15,7 @@ function App() {
     <div className="App">
       {/* <LandingPage/> */}
       {/* <CustomerForm /> */}
-      <HandymanCard />
+      <HandymanContainer />
 
       {/* <ReviewForm/> */}
       {/* <ReviewContainer /> */}

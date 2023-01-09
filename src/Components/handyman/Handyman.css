@@ -75,8 +75,10 @@ margin-top: 10px;
   border-radius: 50%;
   width: 150px;
   height: 150px;
-  padding-left: 10%;
-  padding-top: 10%;
+  padding-left: 5%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+
 }
 .name{
   color: #FEB800;
@@ -90,28 +92,36 @@ margin-top: 10px;
 
 }
 .handymancard{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  /* grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
-  grid-gap: 20px;
+  grid-gap: 20px; */
   width: 900px;
-  height: 350px;
-  border-radius: 10%;
+  height: 320px;
+  /* border-radius: 10%;
   border-style: solid;
-  border-width: 1px;
+  border-width: 1px; */
 }
 .info-bottom{
   padding-top: 30px ;
 }
 .rating, 
 .button-span{
-  padding-left: 15px;
+  padding-left: 30px;
 }
 .rating,
 .location{
   font-weight: 600;
+  font-size: 22px;
 }
 .info{
-  padding-top: 10%;
-  padding-left: 0%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 8%;
+  flex: 1;
+}
+.container{
+  border: 2px solid;
+  width: 45%;
+
 }
