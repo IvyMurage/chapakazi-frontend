@@ -16,13 +16,14 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/handyman/signup" element={<HandymanForm />} />
+        <Route path="/signup" element={<HandymanForm />} />
         <Route path="/customer/signup" element={<CustomerForm />} />
         <Route path="/handyman" element={<HandymanPage />} />
       </Routes>
       {/* <ReviewForm/> */}
       {/* <ReviewContainer /> */}
       {/* <MessageContainer /> */}
+      {/* <HandymanForm/> */}
     </div>
   );
 }
