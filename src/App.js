@@ -7,6 +7,7 @@ import ReviewContainer from "./Components/review/ReviewContainer";
 import MessageForm from "./Components/message/MessageForm";
 import MessageContainer from "./Components/message/MessageContainer";
 import { Route, Routes } from "react-router-dom";
+import HandymanPage from "./Components/handymanPage/HandymanPage";
 
 function App() {
   const [trigger, setTrigger] = useState(false);
@@ -17,8 +18,8 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/handyman/signup" element={<HandymanForm />} />
         <Route path="/customer/signup" element={<CustomerForm />} />
+        <Route path="/handyman" element={<HandymanPage />} />
       </Routes>
-
       {/* <ReviewForm/> */}
       {/* <ReviewContainer /> */}
       {/* <MessageContainer /> */}
