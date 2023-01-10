@@ -115,13 +115,22 @@ margin-top: 10px;
   font-size: 22px;
 }
 .info{
-  padding-top: 5%;
+  padding-top: 2%;
   padding-bottom: 5%;
   padding-left: 8%;
   flex: 1;
 }
 .container{
-  border: 2px solid;
-  width: 45%;
+  width: 930px;
+  height: 280px;
+  background-color: #0a3971;
+  border-radius: 7%;
 
+}
+.description-heading{
+  font-size: 23px;
+  font-weight: 520;
+}
+.paragraph{
+  padding-top: 3%;
 }

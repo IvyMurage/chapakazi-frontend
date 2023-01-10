@@ -1,0 +1,40 @@
+.message-page{
+    background-color: #0a3971 ;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    display: flex;
+}
+
+.message-container{
+    border: 1px solid;
+    width: 65%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+   
+}
+.chat{
+    flex: auto;
+    background-color: #f4f4f4;
+    height: 100%;
+    width: 50%;
+
+
+}
+.sidebar{
+    background-color: #feb800;
+    height: 100%;
+    flex: auto;
+    border-right: 2px solid;
+    
+}
+.chat-user{
+    display: flex;
+    padding-top: 10%;
+}
+.user-image{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
