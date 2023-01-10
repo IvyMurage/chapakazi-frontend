@@ -32,9 +32,22 @@
 .chat-user{
     display: flex;
     padding-top: 10%;
+    padding-bottom: 5%;
+    padding-left: 5%;
+    border-bottom: 1px solid #f4f4f4  ;
 }
 .user-image{
     border-radius: 50%;
     width: 60px;
     height: 60px;
+    object-fit: cover;
+}
+.user-name{
+    font-weight: 600;
+    font-size: 17px;
+
+}
+.users{
+    padding-left: 5%;
+    
 }
