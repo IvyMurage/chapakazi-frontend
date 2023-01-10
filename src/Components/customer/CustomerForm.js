@@ -75,7 +75,10 @@ function CustomerForm() {
               </div>
 
               <div className="customer-name">
-                <label htmlFor="customer-password"> Password Confirmation </label>
+                <label htmlFor="customer-password">
+                  {" "}
+                  Password Confirmation{" "}
+                </label>
                 <input
                   id="customer-name"
                   //   placeholder="Password..."
@@ -87,7 +90,7 @@ function CustomerForm() {
                 ></input>
               </div>
             </div>
-           
+
             <div className="set">
               <div className="customer-name">
                 <label htmlFor="customer-image"> Image </label>

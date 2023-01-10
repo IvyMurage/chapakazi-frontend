@@ -22,28 +22,36 @@ const [password, setPassword] = useState("");
   };
 
   return (
-    <div className="login">
-      <form className="login__form">
+    <div className="form">
+      <div className="right-container" onSubmit={handleFormSubmit}>
         <h1>Login</h1>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <div className="customer-submit-btn">
-          <button onClick={(e) => handleFormSubmit(e)}>
-            Login
+        <header>
+          <div className="set">
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+        </header>
+
+        <footer>
+          <div className="set">
+            <button id="next" type="submit" onClick={handleFormSubmit}>
+              Login
             </button>
-        </div>
+          </div>
+        </footer>
+
         <h2> Do not have an account ? Sign Up </h2>
-      </form>
+      </div>
     </div>
   );
 };

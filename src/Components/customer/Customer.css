@@ -105,6 +105,17 @@
   align-items: center;
 }
 
+.right-container h1 {
+  float: center;
+  align-items: center;
+  color: #fff;
+  font-weight: bold;
+}
+
+.right-container h2{
+    float: center;
+      align-items: center;
+}
 .customer-name label,
 .customer-location label,
 .customer-description label {
