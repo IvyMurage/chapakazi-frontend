@@ -12,18 +12,19 @@ import { Route, Routes } from "react-router-dom";
 import JobForm from "./Components/job/JobForm";
 import HandymanContainer from "./Components/handyman/HandymanContainer";
 import Header from "./Components/handyman/header/Header";
+import JobContainer from "./Components/job/JobContainer";
 
 function App() {
   // const [trigger, setTrigger] = useState(false);
 
   return (
     <div className="App">
-      <Header/>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/handymanSignup" element={<HandymanForm />} />
         <Route path="/customerSignup" element={<CustomerForm />} />
         <Route path="/jobform" element={<JobForm />} />
+        <Route path="/jobs" element={<JobContainer />} />
         <Route path="/customerLogin" element={<CustomerLogin />} />
         <Route path="/handymanProfiles" element={<HandymanContainer />} />
       </Routes>

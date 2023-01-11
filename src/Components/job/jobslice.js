@@ -49,7 +49,7 @@ export const removeJobs = (jobId) => {
 
 }
 
-export const FetchJobs = (token) => {
+export const fetchJobs = (token) => {
 
     return async function (dispatch) {
         dispatch({
@@ -90,34 +90,35 @@ export default function jobReducer(state = initialState, action) {
         case 'jobs':
             return {
                 ...state,
-                jobs: action.payload
+                jobs: action.payload,
+                status: 'idle'
             }
-            case 'job/loading':
-                return {
-                    ...state,
-                    status: "loading"
-                }
+        case 'job/loading':
+            return {
+                ...state,
+                status: "loading"
+            }
 
-                case 'jobs/add':
-                    return {
-                        ...state,
-                        jobs: [...state.jobs, action.payload]
-                    }
+        case 'jobs/add':
+            return {
+                ...state,
+                jobs: [...state.jobs, action.payload]
+            }
 
 
-                    case 'jobs/remove':
-                        return {
-                            ...state,
-                            jobs: state.jobs.filter(job => job.id !== action.payload)
-                        }
+        case 'jobs/remove':
+            return {
+                ...state,
+                jobs: state.jobs.filter(job => job.id !== action.payload)
+            }
 
-                        case 'jobs/errors':
-                            return {
-                                ...state,
-                                errors: action.payload
-                            }
-                            default:
-                                return state;
+        case 'jobs/errors':
+            return {
+                ...state,
+                errors: action.payload
+            }
+        default:
+            return state;
     }
 
 }
