@@ -60,7 +60,13 @@ function CustomerLogin() {
             </div>
           </div>
 
-          {errors.length > 0 ? errors.map((error) => <h2  id="login-error" key={error}>{error}</h2>) : null}
+          {errors.length > 0 ? (
+            <h2 id="login-error">
+              {errors.find((error) =>
+                error.includes("Invalid username or password")
+              )}
+            </h2>
+          ) : null}
         </header>
 
         <footer>

@@ -144,6 +144,16 @@
 .sign-up{
   color: #feb800;
 }
+
+.signup-errors{
+ position: relative;
+ left: -360px;
+ width:50%;
+ color:var(--tertiary-color);
+ font-size: 15px;
+ font-weight: 400;
+
+}
 .customer-name label,
 .customer-location label,
 .customer-description label {

@@ -11,7 +11,7 @@ export function signupCustomer(customer) {
             body: JSON.stringify(customer)
         })
         const data = await response.json()
-        console.log(data)
+        console.log("This is the data",data)
         if (response.ok) {
             dispatch({
                 type: "customer/signup",
@@ -45,7 +45,7 @@ export function loginCustomer(customer, navigate) {
 
 
         const data = await response.json()
-        console.log(data)
+        // console.log(data)
 
         if (response.ok) {
             dispatch({
@@ -58,7 +58,7 @@ export function loginCustomer(customer, navigate) {
         } else {
             dispatch({
                 type: "customer/error",
-                payload: data.errors
+                payload: data
             })
         }
     }
@@ -88,7 +88,7 @@ export default function customerReducer(state = initialState, action) {
                 case "customer/error":
                     return {
                         ...state,
-                        errors: action.payload
+                        errors: action.payload.errors
                     }
                     default:
                         return state;
