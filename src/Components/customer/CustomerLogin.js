@@ -50,7 +50,9 @@ const [password, setPassword] = useState("");
           </div>
         </footer>
 
-        <h2> Do not have an account ? Sign Up </h2>
+        <h2>
+          Do not have an account ? <span className='sign-up'>Sign Up</span>
+        </h2>
       </div>
     </div>
   );
