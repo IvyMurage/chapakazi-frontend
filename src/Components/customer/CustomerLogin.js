@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-
+import "./Customer.css";
 
 const CustomerLogin = () => {
 // const [name, setName] = useState("");
