@@ -1,11 +1,15 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import "./Customer.css";
 import { loginCustomer } from "./customerSlice";
 // import { useHistory } from "react-router-dom";
 
 function CustomerLogin() {
+  const errors = useSelector((state) => state.customer.errors);
+
+  // console.log("This is the error:,", errors);
+  const navigate = useNavigate();
   const [customerLogin, setCustomerLogin] = useState({
     username: "",
     password: "",
@@ -24,7 +28,7 @@ function CustomerLogin() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    dispatch(loginCustomer(customerLogin));
+    dispatch(loginCustomer(customerLogin, navigate));
     setCustomerLogin({
       username: "",
       password: "",
@@ -55,6 +59,8 @@ function CustomerLogin() {
               />
             </div>
           </div>
+
+          {errors.length > 0 ? errors.map((error) => <h2  id="login-error" key={error}>{error}</h2>) : null}
         </header>
 
         <footer>

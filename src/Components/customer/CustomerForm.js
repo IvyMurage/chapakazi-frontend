@@ -75,10 +75,7 @@ function CustomerForm() {
               </div>
 
               <div className="customer-name">
-                <label htmlFor="customer-password">
-                  {" "}
-                  Password Confirmation{" "}
-                </label>
+                <label htmlFor="customer-password">Password Confirmation</label>
                 <input
                   id="customer-name"
                   //   placeholder="Password..."
@@ -104,31 +101,9 @@ function CustomerForm() {
                   required
                 ></input>
               </div>
-              {/* <div className="customer-location">
-                <label htmlFor="customer-id"> Admin ID </label>
-                <input
-                  id="customer-ID"
-                  //   placeholder="ID..."
-                  name="id"
-                  type="number"
-                  value={formData.id}
-                  onChange={handleInputChange}
-                  required
-                ></input>
-              </div> */}
+             
             </div>
-            {/* <div className="customer-description">
-              <label htmlFor="customer-weight-0-25"> Description </label>
-              <div className="description-container">
-                <input
-                  type="text"
-                  name="description"
-                  value={formData.description}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-            </div> */}
+
           </header>
           <footer>
             <div className="set">
@@ -139,7 +114,7 @@ function CustomerForm() {
 
             <Link to="/customerLogin">
               <h2>
-                Do not have an account ?<span className="sign-up">Sign Up</span>
+                Do not have an account ?<span className="Login">Sign Up</span>
               </h2>
             </Link>
           </footer>

@@ -10,6 +10,7 @@ import CustomerLogin from "./Components/customer/CustomerLogin";
 import { Route, Routes } from "react-router-dom";
 import HandymanPage from "./Components/handymanPage/HandymanPage";
 import JobForm from "./Components/job/JobForm";
+import HandymanContainer from "./Components/handyman/HandymanContainer";
 
 function App() {
   const [trigger, setTrigger] = useState(false);
@@ -22,6 +23,7 @@ function App() {
         <Route path="/customerSignup" element={<CustomerForm />} />
         <Route path="/jobform" element={<JobForm />} />
         <Route path="/customerLogin" element={<CustomerLogin />} />
+        <Route path="/handymanProfiles" element={<HandymanContainer />} />
       </Routes>
       {/* <ReviewForm/> */}
       {/* <ReviewContainer /> */}

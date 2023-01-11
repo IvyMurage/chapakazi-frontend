@@ -11,13 +11,14 @@ export function signupCustomer(customer) {
             body: JSON.stringify(customer)
         })
         const data = await response.json()
-
+        console.log(data)
         if (response.ok) {
             dispatch({
                 type: "customer/signup",
                 payload: data
             })
             localStorage.setItem("customer", data.jwt)
+            
         } else {
             dispatch({
                 type: "customer/error",
@@ -28,7 +29,7 @@ export function signupCustomer(customer) {
 }
 
 
-export function loginCustomer(customer) {
+export function loginCustomer(customer, navigate) {
     return async function (dispatch) {
         dispatch({
             type: "customer/loading"
@@ -53,6 +54,7 @@ export function loginCustomer(customer) {
             })
 
             localStorage.setItem("customer", data.jwt)
+            navigate('/handymanProfiles')
         } else {
             dispatch({
                 type: "customer/error",
@@ -86,7 +88,7 @@ export default function customerReducer(state = initialState, action) {
                 case "customer/error":
                     return {
                         ...state,
-                        errors: action.payload.errors
+                        errors: action.payload
                     }
                     default:
                         return state;
