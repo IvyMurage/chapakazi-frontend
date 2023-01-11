@@ -1,12 +1,13 @@
-export const addJob = (job) => {
-    return async function (dispatch, token) {
+export const addJob = (job, token, navigate) => {
+    return async function (dispatch) {
         dispatch({
             type: "job/loading"
         })
         const response = await fetch('jobs', {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${token}`
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'Application/json'
             },
             body: JSON.stringify(job)
 
@@ -14,14 +15,17 @@ export const addJob = (job) => {
 
         const data = await response.json()
 
+
         if (response.ok) {
             dispatch({
                 type: "jobs/add",
                 payload: data
             })
+
+            navigate('/jobs');
         } else {
             dispatch({
-                type: "jobs/error",
+                type: "jobs/errors",
                 payload: data.errors
             })
         }
@@ -31,6 +35,7 @@ export const addJob = (job) => {
 export const removeJobs = (jobId) => {
     return async function (dispatch) {
         const response = await fetch(`/jobs/${jobId}`)
+
         if (response.ok) {
             dispatch({
                 type: "jobs/remove",
@@ -109,7 +114,7 @@ export default function jobReducer(state = initialState, action) {
                         case 'jobs/errors':
                             return {
                                 ...state,
-                                errors: [...state.errors, action.payload.errors]
+                                errors: action.payload
                             }
                             default:
                                 return state;
