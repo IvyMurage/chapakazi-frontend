@@ -6,8 +6,11 @@ import ReviewForm from "./Components/review/ReviewForm";
 import ReviewContainer from "./Components/review/ReviewContainer";
 import MessageForm from "./Components/message/MessageForm";
 import MessageContainer from "./Components/message/MessageContainer";
+import CustomerLogin from "./Components/customer/CustomerLogin";
 import { Route, Routes } from "react-router-dom";
 import HandymanPage from "./Components/handymanPage/HandymanPage";
+import JobForm from "./Components/job/JobForm";
+import HandymanContainer from "./Components/handyman/HandymanContainer";
 
 function App() {
   const [trigger, setTrigger] = useState(false);
@@ -16,13 +19,16 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/handyman/signup" element={<HandymanForm />} />
-        <Route path="/customer/signup" element={<CustomerForm />} />
-        <Route path="/handyman" element={<HandymanPage />} />
+        <Route path="/handymanSignup" element={<HandymanForm />} />
+        <Route path="/customerSignup" element={<CustomerForm />} />
+        <Route path="/jobform" element={<JobForm />} />
+        <Route path="/customerLogin" element={<CustomerLogin />} />
+        <Route path="/handymanProfiles" element={<HandymanContainer />} />
       </Routes>
       {/* <ReviewForm/> */}
       {/* <ReviewContainer /> */}
       {/* <MessageContainer /> */}
+      {/* <HandymanForm/> */}
     </div>
   );
 }

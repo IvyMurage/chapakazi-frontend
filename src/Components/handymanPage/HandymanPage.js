@@ -2,7 +2,7 @@ import { faHeart, faMessage, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import ReviewContainer from "../review/ReviewContainer";
-import ReviewForm from "../review/ReviewForm";
+// import ReviewForm from "../review/ReviewForm";
 import "./HandymanPage.css";
 
 function HandymanPage() {

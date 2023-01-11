@@ -23,6 +23,7 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+ 
 }
 
 /* form container styling */
@@ -31,14 +32,24 @@
   display: grid;
   grid-template-areas: "." ".";
   width: 1000px;
+  border-radius: 15px;
 }
 
 .right-container .set {
   display: flex;
   justify-content: space-between;
   margin: 10px 0;
+  border-radius: 15px;
 }
 
+.right-container .set .email {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 240px;
+
+}
 /* input styling */
 .right-container input {
   background: transparent;
@@ -49,6 +60,14 @@
   border-bottom: 2px solid #fff;
 }
 
+/* .right-container .inputs input {
+  background: transparent;
+  border: none;
+  height: 38px;
+  line-height: 100px;
+  padding-left: 5px;
+  border-bottom: 2px solid #fff;
+} */
 .radio-container input {
   width: 100%;
 
@@ -75,6 +94,7 @@
   padding: 5px 40px;
   float: center;
   align-items: center;
+  border-radius: 15px;
 }
 /* button */
 .right-container footer button {
@@ -85,12 +105,13 @@
   border-radius: 9px;
   float: center;
   align-items: center;
+  
 }
 
 .right-container footer #next {
   background: #feb800;
   border: 1px solid transparent;
-  color: black;
+  color: var(--primary-color);
   float: center;
   align-items: center;
   font-weight: bold;
@@ -107,13 +128,43 @@
   align-items: center;
 }
 
+.right-container h1 {
+  float: center;
+  align-items: center;
+  color: #fff;
+  font-weight: bold;
+  margin-left: 440px;
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
+
+.right-container h2{
+    float: center;
+    align-items: center;
+    margin-left: 360px;
+}
+.sign-up{
+  color: #feb800;
+}
+
+.signup-errors{
+ position: relative;
+ left: -360px;
+ width:50%;
+ color:var(--tertiary-color);
+ font-size: 15px;
+ font-weight: 400;
+
+}
 .customer-name label,
 .customer-location label,
 .customer-description label {
   display: block;
   margin-bottom: 5px;
   color: #fff;
-  font-weight: bold;
+  font-weight: 400;
+  font-size: 15px;
+  outline: none;
 }
 
 .radio-container {
@@ -122,6 +173,17 @@
   border-radius: 4px;
   display: inline-block;
   padding: 0;
+}
+
+footer > a{
+text-decoration: none;
+color: var(--secondary-color);
+}
+
+#login-error{
+  color:var(--tertiary-color);
+  font-size:15px;
+  font-weight: 500;
 }
 
 /* responsive */
