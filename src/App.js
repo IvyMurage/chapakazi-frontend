@@ -11,12 +11,14 @@ import { Route, Routes } from "react-router-dom";
 // import HandymanPage from "./Components/handymanPage/HandymanPage";
 import JobForm from "./Components/job/JobForm";
 import HandymanContainer from "./Components/handyman/HandymanContainer";
+import Header from "./Components/handyman/header/Header";
 
 function App() {
   // const [trigger, setTrigger] = useState(false);
 
   return (
     <div className="App">
+      <Header/>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/handymanSignup" element={<HandymanForm />} />
