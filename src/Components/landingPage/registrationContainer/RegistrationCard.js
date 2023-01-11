@@ -7,7 +7,7 @@ function RegistrationCard() {
     <div className="registration-card">
       <h2 id="join-intro"> Join Us Now </h2>
       <div id="bottom-container">
-        <Link to="/signup">
+        <Link to="/handymanSignup">
           <div className="register-card">
             <h3>
               As a <br />
@@ -16,7 +16,7 @@ function RegistrationCard() {
           </div>
         </Link>
 
-        <Link to="/customer/signup">
+        <Link to="/customerSignup">
         <div className="register-card">
           <h3>
             As a <br />

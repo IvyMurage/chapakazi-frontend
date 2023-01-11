@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Customer.css";
+import { loginCustomer } from "./customerSlice";
 // import { useHistory } from "react-router-dom";
 
-const CustomerLogin = () => {
-  // const [name, setName] = useState("");
-
+function CustomerLogin() {
   const [customerLogin, setCustomerLogin] = useState({
     username: "",
     password: "",
@@ -22,9 +21,14 @@ const CustomerLogin = () => {
 
     setCustomerLogin({ ...customerLogin, [name]: value });
   };
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    dispatch(CustomerLogin());
+    dispatch(loginCustomer(customerLogin));
+    setCustomerLogin({
+      username: "",
+      password: "",
+    });
   };
 
   return (
@@ -37,12 +41,15 @@ const CustomerLogin = () => {
               <input
                 type="text"
                 placeholder="username"
+                name="username"
                 value={customerLogin.username}
                 onChange={handleChange}
               />
               <input
                 type="password"
                 placeholder="Password"
+                name="password"
+                autoComplete="current-password"
                 value={customerLogin.password}
                 onChange={handleChange}
               />
@@ -66,6 +73,6 @@ const CustomerLogin = () => {
       </div>
     </div>
   );
-};
+}
 
 export default CustomerLogin;

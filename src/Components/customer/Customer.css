@@ -163,6 +163,10 @@
   padding: 0;
 }
 
+footer > a{
+text-decoration: none;
+color: var(--secondary-color);
+}
 /* responsive */
 @media (max-width: 540px) {
   .form {

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import "./Customer.css";
 import { signupCustomer } from "./customerSlice";
 
@@ -17,7 +18,7 @@ function CustomerForm() {
     username: "",
     location: "",
     password: "",
-    password_confirmation:"",
+    password_confirmation: "",
     image: "",
     id: 0,
     admin_id: 1,
@@ -33,7 +34,6 @@ function CustomerForm() {
       <div className="signup-container">
         <div className="right-container" onSubmit={handleFormSubmit}>
           <header>
-         
             <div className="set">
               <div className="customer-name">
                 <label htmlFor="customer-name"> Name </label>
@@ -136,6 +136,12 @@ function CustomerForm() {
                 Submit
               </button>
             </div>
+
+            <Link to="/customerLogin">
+              <h2>
+                Do not have an account ?<span className="sign-up">Sign Up</span>
+              </h2>
+            </Link>
           </footer>
         </div>
       </div>
