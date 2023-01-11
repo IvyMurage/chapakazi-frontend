@@ -4,7 +4,7 @@ import "./Handyman.css";
 import { addhandyman } from "./HandymanSlice";
 
 function HandymanForm() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const [handyman, setHandyman] = useState({
     username: "",
@@ -15,25 +15,41 @@ function HandymanForm() {
     speciality: "",
     image: "",
     description: "",
-    rating:"",
+    rating: "",
     admin_id: 1,
   });
 
+  console.log(handyman);
   function handleChange(event) {
-    const name = event.target.name
-    const value = event.target.value
-    setHandyman({...handyman, [name]: value })
-  }
+    const name = event.target.name;
+    const value = event.target.value;
 
+    setHandyman({ ...handyman, [name]: value });
+  }
 
   function handleSubmit(event) {
     event.preventDefault();
-    dispatch(addhandyman(handyman))
-
+    dispatch(addhandyman(handyman));
+    setHandyman({
+      username: "",
+      email: "",
+      password: "",
+      password_confirmation: "",
+      location: "",
+      speciality: "",
+      image: "",
+      description: "",
+      rating: "",
+      admin_id: 1,
+    });
   }
   return (
     <div className="handyman-form-container">
-      <form id="handyman-signup" onSubmit={handleSubmit}>
+      <form
+        id="handyman-signup"
+        onSubmit={handleSubmit}
+        encType="multipart/form-data"
+      >
         <div className="row-1">
           <div className="col-1">
             <label> Name </label> <br />
@@ -73,6 +89,7 @@ function HandymanForm() {
               type="text"
               className="handyman-input"
               value={handyman.speciality}
+              placeholder="plumbering, capentry, painting"
               name="speciality"
               onChange={handleChange}
             />
@@ -106,6 +123,7 @@ function HandymanForm() {
           <div className="col-1">
             <label> Image </label> <br />
             <input
+              // type="file"
               type="text"
               className="handyman-input"
               value={handyman.image}

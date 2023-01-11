@@ -8,6 +8,7 @@ import MessageForm from "./Components/message/MessageForm";
 import MessageContainer from "./Components/message/MessageContainer";
 import CustomerLogin from "./Components/customer/CustomerLogin"
 import { Route, Routes } from "react-router-dom";
+import HandymanPage from "./Components/handymanPage/HandymanPage";
 
 function App() {
   const [trigger, setTrigger] = useState(false);
@@ -16,14 +17,14 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/handyman/signup" element={<HandymanForm />} />
+        <Route path="/signup" element={<HandymanForm />} />
         <Route path="/customer/signup" element={<CustomerForm />} />
         <Route path="/customer/login" element={<CustomerLogin />} />
       </Routes>
-
       {/* <ReviewForm/> */}
       {/* <ReviewContainer /> */}
       {/* <MessageContainer /> */}
+      {/* <HandymanForm/> */}
     </div>
   );
 }

@@ -7,7 +7,7 @@ function RegistrationCard() {
     <div className="registration-card">
       <h2 id="join-intro"> Join Us Now </h2>
       <div id="bottom-container">
-        <Link to="/handyman/signup">
+        <Link to="/signup">
           <div className="register-card">
             <h3>
               As a <br />
