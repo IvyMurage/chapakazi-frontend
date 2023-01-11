@@ -8,8 +8,8 @@
 
 .message-container{
     border: 1px solid;
-    width: 65%;
-    height: 80%;
+    width: 80%;
+    height: 100%;
     display: flex;
     align-items: center;
    
@@ -20,7 +20,6 @@
     height: 100%;
     width: 50%;
     position: relative;
-
 
 }
 .sidebar{
@@ -57,6 +56,8 @@
     height: 7%;
     text-align: center;
     padding-top: 1%;
+    border-bottom: 2px solid;
+    margin-bottom: 20px;
 
 }
 .chat-username{
@@ -67,9 +68,42 @@
     height: 50px;
     width: 100%;
 }
-.inputdiv{
+.input{
     position: absolute;
     bottom: 0;
     height: 50px;
     width: 100%;
+    display: flex;
+}
+.inputdiv{
+    flex: auto;
+}
+.text{
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+.text-content{
+    background-color: #feb800;
+    padding: 10px 20px;
+    border-radius: 30px;
+
+}
+.text-info{
+    display: flex;
+    flex-direction: column;
+    font-weight: 300;
+    margin-bottom: 20px;
+    gap: 20px;
+    border-radius: 20%;
+}
+.text-message{
+    overflow: scroll;
+    max-height: 100%;
+}
+.send-button{
+    width: 100px;
+    background-color: #feb800;
 }

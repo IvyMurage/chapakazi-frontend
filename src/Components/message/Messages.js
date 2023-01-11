@@ -3,7 +3,19 @@ import Text from "./Text";
 
 function Messages(){
     return(
-        <div>
+        <div className="text-veiw">
+            <Text/>
+            <Text/>
+            <Text/>
+            <Text/>
+            <Text/>
+            <Text/>
+            <Text/>
+            <Text/>
+            <Text/>
+            <Text/>
+            <Text/>
+            <Text/>
             <Text/>
             <Text/>
             <Text/>

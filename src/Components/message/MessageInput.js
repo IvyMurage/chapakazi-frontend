@@ -8,6 +8,7 @@ function MessageInput(){
                     <input placeholder="Write a message" className="message-input"/>
                 </form>
             </div>
+            <button className="send-button">send</button>
         </div>
     )
 }

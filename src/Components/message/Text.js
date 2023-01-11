@@ -2,8 +2,10 @@ import React from "react";
 
 function Text(){
     return(
-        <div>
-            <p>message</p>
+        <div className="text-info">
+            <div className="text">
+                <p className="text-content">Hello John Doe. I'm looking for a plumber</p>
+            </div>
         </div>
     )
 }
