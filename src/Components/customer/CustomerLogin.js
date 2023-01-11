@@ -1,49 +1,69 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import "./Customer.css";
+// import { useHistory } from "react-router-dom";
 
 const CustomerLogin = () => {
   // const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+
+  const [customerLogin, setCustomerLogin] = useState({
+    username: "",
+    password: "",
+  });
+
+  //  const history = useHistory();
 
   const dispatch = useDispatch();
 
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+
+    setCustomerLogin({ ...customerLogin, [name]: value });
+  };
   const handleFormSubmit = (e) => {
     e.preventDefault();
-
-    dispatch(
-      CustomerLogin({
-        email: email,
-        password: password,
-        loggedIn: true,
-      })
-    );
+    dispatch(CustomerLogin());
   };
 
   return (
-    <div className="login">
-      <form className="login__form">
-        <h1> Login </h1>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <div className="customer-submit-btn">
-          <button onClick={(e) => handleFormSubmit(e)}>Login </button>
-        </div>
-        <Link to="/customer/signup">
-          <h2> Do not have an account ? Sign Up </h2>
+    <div className="form">
+      <div className="right-container" onSubmit={handleFormSubmit}>
+        <h1>Login</h1>
+        <header>
+          <div className="set">
+            <div className="email">
+              <input
+                type="text"
+                placeholder="username"
+                value={customerLogin.username}
+                onChange={handleChange}
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                value={customerLogin.password}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+        </header>
+
+        <footer>
+          <div className="set">
+            <button id="next" type="submit" onClick={handleFormSubmit}>
+              Login
+            </button>
+          </div>
+        </footer>
+
+        <Link to="/customerSignup">
+          <h2>
+            Do not have an account ? <span className="sign-up">Sign Up</span>
+          </h2>
         </Link>
-      </form>
+      </div>
     </div>
   );
 };

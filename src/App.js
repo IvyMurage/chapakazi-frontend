@@ -18,11 +18,10 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/signup" element={<HandymanForm />} />
-        <Route path="/customer/signup" element={<CustomerForm />} />
-        <Route path="/customer/login" element={<CustomerLogin />} />
+        <Route path="/handymanSignup" element={<HandymanForm />} />
+        <Route path="/customerSignup" element={<CustomerForm />} />
         <Route path="/jobform" element={<JobForm />} />
-        <Routes path="/handymanpage" element={<HandymanPage />} />
+        <Route path="/customerLogin" element={<CustomerLogin />} />
       </Routes>
       {/* <ReviewForm/> */}
       {/* <ReviewContainer /> */}
