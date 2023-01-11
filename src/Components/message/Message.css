@@ -19,6 +19,7 @@
     background-color: #f4f4f4;
     height: 100%;
     width: 50%;
+    position: relative;
 
 
 }
@@ -50,4 +51,25 @@
 .users{
     padding-left: 5%;
     
+}
+.chatbar{
+    background-color: #feb800;
+    height: 7%;
+    text-align: center;
+    padding-top: 1%;
+
+}
+.chat-username{
+    font-weight: 600;
+    font-size: 25px;
+}
+.message-input{
+    height: 50px;
+    width: 100%;
+}
+.inputdiv{
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
 }
