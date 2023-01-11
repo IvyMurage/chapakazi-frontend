@@ -126,6 +126,7 @@ margin-top: 10px;
   height: 280px;
   background-color: #0a3971;
   border-radius: 50px;
+  margin-bottom: 70px;
   
 
 }
@@ -141,7 +142,7 @@ margin-top: 10px;
   background-color: #f4f4f4;
   height: 100%;
   padding-left: 10%;
-  padding-top: 10%;
+  padding-top: 5%;
   padding-bottom: 10%;
 }
 .top-image{
@@ -168,6 +169,8 @@ margin-top: 10px;
 }
 .search-input{
   border-radius: 10px;
+  height: 40px;
+  width: 500px;
   
 }
 .handyman-search{
@@ -177,9 +180,20 @@ margin-top: 10px;
   padding-left: 30%;
 }
 .search-icon{
-  height: 30px;
-  width: 30px;
+  height: 40px;
+  width: 40px;
 }
 .sidebar-card{
   display: flex;
-gap: 300px;}
+gap: 10%;
+}
+.filter{
+  height: 40px;
+  width: 300px;
+}
+.option-div{
+  padding-bottom: 20%;
+}
+.option-div > h3{
+  font-size: 20px;
+}
