@@ -78,6 +78,7 @@ margin-top: 10px;
   padding-left: 5%;
   padding-top: 5%;
   padding-bottom: 5%;
+  object-fit: cover;
 
 }
 .name{
@@ -124,7 +125,8 @@ margin-top: 10px;
   width: 930px;
   height: 280px;
   background-color: #0a3971;
-  border-radius: 7%;
+  border-radius: 50px;
+  
 
 }
 .description-heading{
@@ -133,4 +135,12 @@ margin-top: 10px;
 }
 .paragraph{
   padding-top: 3%;
+}
+
+.handy-page{
+  background-color: #f4f4f4;
+  height: 100%;
+  padding-left: 10%;
+  padding-top: 10%;
+  padding-bottom: 10%;
 }

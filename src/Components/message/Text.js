@@ -3,7 +3,7 @@ import React from "react";
 function Text(){
     return(
         <div className="text-info">
-            <div className="text">
+            <div className="text owner">
                 <p className="text-content">Hello John Doe. I'm looking for a plumber</p>
             </div>
         </div>
