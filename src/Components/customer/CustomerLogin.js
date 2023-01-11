@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import "./Customer.css";
+// import { useHistory } from "react-router-dom";
+
 
 const CustomerLogin = () => {
 // const [name, setName] = useState("");
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState("");
+//  const history = useHistory();
+
 
   const dispatch = useDispatch();
 
@@ -27,18 +32,20 @@ const [password, setPassword] = useState("");
         <h1>Login</h1>
         <header>
           <div className="set">
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+            <div className="email">
+                <input
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+            </div>
           </div>
         </header>
 
@@ -51,7 +58,7 @@ const [password, setPassword] = useState("");
         </footer>
 
         <h2>
-          Do not have an account ? <span className='sign-up'>Sign Up</span>
+          Do not have an account ? <span className="sign-up">Sign Up</span>
         </h2>
       </div>
     </div>
