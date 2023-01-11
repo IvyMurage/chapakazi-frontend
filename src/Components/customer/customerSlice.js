@@ -17,7 +17,7 @@ export function signupCustomer(customer) {
                 type: "customer/signup",
                 payload: data
             })
-            localStorage.setItem("token", data.jwt)
+            localStorage.setItem("customer", data.jwt)
         } else {
             dispatch({
                 type: "customer/error",
@@ -25,6 +25,43 @@ export function signupCustomer(customer) {
             })
         }
     }
+}
+
+
+export function loginCustomer(customer) {
+    return async function (dispatch) {
+        dispatch({
+            type: "customer/loading"
+        })
+
+        const response = await fetch('customer/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'Application/json'
+            },
+            body: JSON.stringify(customer)
+        })
+
+
+        const data = await response.json()
+        console.log(data)
+
+        if (response.ok) {
+            dispatch({
+                type: "customer/login",
+                paylaod: data
+            })
+
+            localStorage.setItem("customer", data.jwt)
+        } else {
+            dispatch({
+                type: "customer/error",
+                payload: data.errors
+            })
+        }
+    }
+
+
 }
 
 
@@ -39,7 +76,7 @@ export default function customerReducer(state = initialState, action) {
         case "customer/signup":
             return {
                 ...state,
-                customer: action.payload.customer
+                customer: action.payload
             }
             case "customer/loading":
                 return {

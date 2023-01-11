@@ -18,7 +18,7 @@ export const addhandyman = (handyman) => {
         if (response.ok) {
             dispatch({
                 type: "add/handyman",
-                payload: data.handyman
+                payload: data
             })
             localStorage.setItem("handyman", data.jwt)
         } else {

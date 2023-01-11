@@ -1,30 +1,30 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 const CustomerLogin = () => {
-// const [name, setName] = useState("");
-const [email, setEmail] = useState("");
-const [password, setPassword] = useState("");
+  // const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
 
-  const handleFormSubmit = (e) =>{
+  const handleFormSubmit = (e) => {
     e.preventDefault();
 
-   dispatch(
-    CustomerLogin({
-    email: email,
-    password: password,
-    loggedIn: true,
-     })
-   );
+    dispatch(
+      CustomerLogin({
+        email: email,
+        password: password,
+        loggedIn: true,
+      })
+    );
   };
 
   return (
     <div className="login">
       <form className="login__form">
-        <h1>Login</h1>
+        <h1> Login </h1>
         <input
           type="email"
           placeholder="Email"
@@ -38,11 +38,11 @@ const [password, setPassword] = useState("");
           onChange={(e) => setPassword(e.target.value)}
         />
         <div className="customer-submit-btn">
-          <button onClick={(e) => handleFormSubmit(e)}>
-            Login
-            </button>
+          <button onClick={(e) => handleFormSubmit(e)}>Login </button>
         </div>
-        <h2> Do not have an account ? Sign Up </h2>
+        <Link to="/customer/signup">
+          <h2> Do not have an account ? Sign Up </h2>
+        </Link>
       </form>
     </div>
   );
