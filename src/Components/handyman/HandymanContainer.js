@@ -1,6 +1,8 @@
 import React from "react";
 import HandymanCard from "./HandymanCard";
 import LandingTop from "../landingPage/landingTopContainer/LandingTop";
+import HandymanTop from "./HandymanTop";
+import HandyManSideBar from "./HandyManSideBar";
 
 function HandymanContainer(){
 
@@ -8,7 +10,11 @@ function HandymanContainer(){
         <div className="home">
             <LandingTop/>
             <div className="handy-page">
-                <HandymanCard />
+                <HandymanTop/>
+                <div className="sidebar-card">
+                    <HandyManSideBar />
+                    <HandymanCard />
+                </div>
             </div>
         </div>
     )

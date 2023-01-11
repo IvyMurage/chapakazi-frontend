@@ -144,3 +144,42 @@ margin-top: 10px;
   padding-top: 10%;
   padding-bottom: 10%;
 }
+.top-image{
+  height: 300px;
+  width: 300px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.page-top{
+  display: flex;
+  gap: 100px;
+  margin-bottom: 100px;
+}
+.top-div{
+  align-items: center;
+}
+.header1{
+  font-size: 30px;
+  padding-left: 30%;
+}
+.top-header{
+  font-weight: 200;
+  font-size: 28px;
+}
+.search-input{
+  border-radius: 10px;
+  
+}
+.handyman-search{
+  margin-bottom: 50px;
+  align-items: center;
+  display: flex;
+  padding-left: 30%;
+}
+.search-icon{
+  height: 30px;
+  width: 30px;
+}
+.sidebar-card{
+  display: flex;
+gap: 300px;}
