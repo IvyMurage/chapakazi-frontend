@@ -1,129 +1,153 @@
 export const addJob = (job, token, navigate) => {
-    return async function (dispatch) {
-        dispatch({
-            type: "job/loading"
-        })
-        const response = await fetch('jobs', {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'Application/json'
-            },
-            body: JSON.stringify(job)
+  return async function (dispatch) {
+    dispatch({
+      type: "job/loading",
+    });
+    const response = await fetch("jobs", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "Application/json",
+      },
+      body: JSON.stringify(job),
+    });
 
-        })
+    const data = await response.json();
 
-        const data = await response.json()
+    if (response.ok) {
+      dispatch({
+        type: "jobs/add",
+        payload: data,
+      });
 
-
-        if (response.ok) {
-            dispatch({
-                type: "jobs/add",
-                payload: data
-            })
-
-            navigate('/myjobs');
-        } else {
-            dispatch({
-                type: "jobs/errors",
-                payload: data.errors
-            })
-        }
+      navigate("/myjobs");
+    } else {
+      dispatch({
+        type: "jobs/errors",
+        payload: data.errors,
+      });
     }
-}
+  };
+};
 
 export const removeJobs = (jobId, token) => {
-    return async function (dispatch) {
-        const response = await fetch(`/jobs/${jobId}`, {
-            method: 'DELETE',
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
+  return async function (dispatch) {
+    const response = await fetch(`/jobs/${jobId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
-        if (response.ok) {
-            dispatch({
-                type: "jobs/remove",
-                payload: jobId
-            })
-        }
-
-
-
+    if (response.ok) {
+      dispatch({
+        type: "jobs/remove",
+        payload: jobId,
+      });
     }
-
-}
+  };
+};
 
 export const fetchJobs = (token) => {
+  return async function (dispatch) {
+    dispatch({
+      type: "job/loading",
+    });
 
-    return async function (dispatch) {
-        dispatch({
-            type: "job/loading"
-        })
+    const response = await fetch("jobs", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
-        const response = await fetch("jobs", {
-            headers: {
-                "Authorization": `Bearer ${token}`
-            }
-        })
+    const jobs = await response.json();
 
-        const jobs = await response.json()
-
-        if (response.ok) {
-            dispatch({
-                type: "jobs",
-                payload: jobs
-            })
-        } else {
-            dispatch({
-                type: "jobs/error",
-                payload: jobs.errors
-            })
-        }
+    if (response.ok) {
+      dispatch({
+        type: "jobs",
+        payload: jobs,
+      });
+    } else {
+      dispatch({
+        type: "jobs/error",
+        payload: jobs.errors,
+      });
     }
-}
+  };
+};
+
+export const fetchJob = (jobId, token, navigate) => {
+  return async function (dispatch) {
+    dispatch({
+      type: "job/loading",
+    });
+
+    const response = await fetch(`/jobs/${jobId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      dispatch({ type: "job", payload: data });
+      console.log(data);
+      JSON.stringify(localStorage.setItem("job", JSON.stringify(data)));
+      navigate(`/jobs/jobprofile/${jobId}`);
+    } else {
+      dispatch({ type: "jobs/error", payload: data.errors });
+    }
+  };
+};
 
 const initialState = {
-    jobs: [],
-    errors: [],
-    status: 'idle'
-}
+  jobs: [],
+  job: {},
+  errors: [],
+  status: "idle",
+};
 
 export default function jobReducer(state = initialState, action) {
-    switch (action.type) {
+  switch (action.type) {
+    case "jobs":
+      return {
+        ...state,
+        jobs: action.payload,
+        status: "idle",
+      };
 
-        case 'jobs':
-            return {
-                ...state,
-                jobs: action.payload,
-                    status: 'idle'
-            }
-            case 'job/loading':
-                return {
-                    ...state,
-                    status: "loading"
-                }
+    case "job":
+      return {
+        ...state,
+        job: action.payload,
+        jobs: [],
+        status: "idle",
+      };
+    case "job/loading":
+      return {
+        ...state,
+        status: "loading",
+      };
 
-                case 'jobs/add':
-                    return {
-                        ...state,
-                        jobs: [action.payload, ...state.jobs]
-                    }
+    case "jobs/add":
+      return {
+        ...state,
+        jobs: [action.payload, ...state.jobs],
+      };
 
+    case "jobs/remove":
+      return {
+        ...state,
+        jobs: state.jobs.filter((job) => job.id !== action.payload),
+      };
 
-                    case 'jobs/remove':
-                        return {
-                            ...state,
-                            jobs: state.jobs.filter(job => job.id !== action.payload)
-                        }
-
-                        case 'jobs/errors':
-                            return {
-                                ...state,
-                                errors: action.payload
-                            }
-                            default:
-                                return state;
-    }
-
+    case "jobs/errors":
+      return {
+        ...state,
+        errors: action.payload,
+      };
+    default:
+      return state;
+  }
 }

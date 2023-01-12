@@ -48,7 +48,7 @@ export function loginCustomer(customer, navigate) {
     if (response.ok) {
       dispatch({
         type: "customer/login",
-        paylaod: data.customer,
+        payload: data.customer,
       });
 
      localStorage.setItem("customer", data.jwt);

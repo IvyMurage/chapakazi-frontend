@@ -25,6 +25,10 @@ function CustomerHeader() {
             <li> Find Handyman </li>
           </Link>
 
+          <Link to="/myjobs">
+            <li> My Jobs </li>
+          </Link>
+
           <Link to="/jobForm">
             <li>
               <FontAwesomeIcon icon={faBriefcaseMedical} className="addJob" />

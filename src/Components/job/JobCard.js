@@ -1,21 +1,24 @@
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { removeJobs } from "./jobslice";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { fetchJob } from "./jobslice";
 
 function JobCard({ job }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  function handleDelete(jobId) {
-    dispatch(removeJobs(jobId));
+  function handleJob(jobId) {
+    const token = localStorage.getItem("handyman");
+    dispatch(fetchJob(jobId, token, navigate));
   }
+
   return (
     <div className="job-card">
-      <FontAwesomeIcon icon={faTrash}/>
       <h2> {job.title} </h2> <span> {job.budget} </span>
       <p> {job.summary} </p>
-      <span id="more">more...</span>
+      <span id="more" onClick={() => handleJob(job.id)}>
+        more...
+      </span>
     </div>
   );
 }
