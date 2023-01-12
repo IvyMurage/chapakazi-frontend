@@ -1,9 +1,18 @@
 import { faBriefcaseMedical, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./CustomerHeader.css";
 
 function CustomerHeader() {
+  const [active, setActive] = useState(false);
+  const navigate = useNavigate();
+
+  function logout() {
+    setActive(true);
+    localStorage.removeItem("customer");
+    navigate("/customerLogin");
+  }
   return (
     <div className="header">
       <h2>
@@ -14,14 +23,20 @@ function CustomerHeader() {
           <Link to="/handymanProfiles">
             <li> Find Handyman </li>
           </Link>
-          <li> Find Jobs </li>
+
           <Link to="/jobForm">
             <li>
               <FontAwesomeIcon icon={faBriefcaseMedical} className="addJob" />
             </li>
           </Link>
 
-          <li> Log Out </li>
+          <li
+            className="customer-logout-btn"
+            id={active ? "active-btn" : ""}
+            onClick={logout}
+          >
+            Log Out
+          </li>
         </ul>
       </nav>
     </div>
