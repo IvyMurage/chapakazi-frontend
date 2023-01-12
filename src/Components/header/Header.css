@@ -13,6 +13,12 @@
   color: var(--tertiary-color);
 }
 
+#profile {
+  background-color: var(--tertiary-color);
+  padding: 10px;
+  border-radius: 50%;
+}
+
 .header > nav {
   flex: 2;
   width: 80%;

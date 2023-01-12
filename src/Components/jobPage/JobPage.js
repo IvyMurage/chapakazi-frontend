@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import Header from "../header/Header";
 
 import "./JobPage.css";
@@ -17,6 +16,7 @@ function JobPage() {
           <span>{jobInfo.budget}</span>
         </div>
         <div className="customer-info">
+          <h2>Client Info</h2>
           <img src={jobInfo.customer.image} alt={jobInfo.customer.username} />
           <h3>{jobInfo.customer.username}</h3>
           <h4>{jobInfo.customer.location}</h4>
