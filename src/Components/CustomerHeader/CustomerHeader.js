@@ -11,6 +11,7 @@ function CustomerHeader() {
   function logout() {
     setActive(true);
     localStorage.removeItem("customer");
+    localStorage.removeItem("customerInfo");
     navigate("/customerLogin");
   }
   return (

@@ -22,7 +22,7 @@ export const addJob = (job, token, navigate) => {
                 payload: data
             })
 
-            navigate('/jobs');
+            navigate('/myjobs');
         } else {
             dispatch({
                 type: "jobs/errors",
@@ -32,9 +32,14 @@ export const addJob = (job, token, navigate) => {
     }
 }
 
-export const removeJobs = (jobId) => {
+export const removeJobs = (jobId, token) => {
     return async function (dispatch) {
-        const response = await fetch(`/jobs/${jobId}`)
+        const response = await fetch(`/jobs/${jobId}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
 
         if (response.ok) {
             dispatch({
@@ -91,34 +96,34 @@ export default function jobReducer(state = initialState, action) {
             return {
                 ...state,
                 jobs: action.payload,
-                status: 'idle'
+                    status: 'idle'
             }
-        case 'job/loading':
-            return {
-                ...state,
-                status: "loading"
-            }
+            case 'job/loading':
+                return {
+                    ...state,
+                    status: "loading"
+                }
 
-        case 'jobs/add':
-            return {
-                ...state,
-                jobs: [action.payload,...state.jobs]
-            }
+                case 'jobs/add':
+                    return {
+                        ...state,
+                        jobs: [action.payload, ...state.jobs]
+                    }
 
 
-        case 'jobs/remove':
-            return {
-                ...state,
-                jobs: state.jobs.filter(job => job.id !== action.payload)
-            }
+                    case 'jobs/remove':
+                        return {
+                            ...state,
+                            jobs: state.jobs.filter(job => job.id !== action.payload)
+                        }
 
-        case 'jobs/errors':
-            return {
-                ...state,
-                errors: action.payload
-            }
-        default:
-            return state;
+                        case 'jobs/errors':
+                            return {
+                                ...state,
+                                errors: action.payload
+                            }
+                            default:
+                                return state;
     }
 
 }

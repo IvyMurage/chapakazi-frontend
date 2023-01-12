@@ -13,6 +13,7 @@ import JobForm from "./Components/job/JobForm";
 import HandymanContainer from "./Components/handyman/HandymanContainer";
 import Header from "./Components/header/Header";
 import JobContainer from "./Components/job/JobContainer";
+import Myjobs from "./Components/myJobs/MyJob";
 
 function App() {
   // const [trigger, setTrigger] = useState(false);
@@ -25,6 +26,7 @@ function App() {
         <Route path="/customerSignup" element={<CustomerForm />} />
         <Route path="/jobform" element={<JobForm />} />
         <Route path="/jobs" element={<JobContainer />} />
+        <Route path="/myjobs" element={<Myjobs />} />
         <Route path="/customerLogin" element={<CustomerLogin />} />
         <Route path="/handymanProfiles" element={<HandymanContainer />} />
         <Route path="/jobs/:page" component={<JobContainer />} />

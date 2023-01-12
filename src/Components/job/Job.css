@@ -83,6 +83,7 @@
   margin-top: 30px;
   color: var(--primary-color);
   border-radius: 10px;
+  margin-bottom: 30px;
 }
 
 .job-card > p {
@@ -108,10 +109,18 @@
   font-weight: bold;
   margin: 0 auto;
 }
-.job-container{
-  border:1px solid #c9c7c7;
-  width:85%;
+.job-container {
+  border: 1px solid #c9c7c7;
+  width: 85%;
   margin: 0 auto;
   border-radius: 10px;
   background-color: #083975;
+}
+
+.no-jobs {
+  height: 300px;
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--tertiary-color);
+  text-align: center;
 }

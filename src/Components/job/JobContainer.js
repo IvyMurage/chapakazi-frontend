@@ -21,7 +21,7 @@ function JobContainer() {
   const indexOfLastPost = currentPage * jobsPerPage;
   const indexOfFirstPost = indexOfLastPost - jobsPerPage;
   const currentJobs = jobs.slice(indexOfFirstPost, indexOfLastPost);
-
+  console.log(jobs)
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };

@@ -6,8 +6,10 @@ import { loginCustomer } from "./customerSlice";
 // import { useHistory } from "react-router-dom";
 
 function CustomerLogin() {
-  const errors = useSelector((state) => state.customer.errors);
+  const errors = useSelector((state) => state.customers.errors);
+  const customerInfo = useSelector((state) => state.customers);
 
+  console.log(customerInfo);
   // console.log("This is the error:,", errors);
   const navigate = useNavigate();
   const [customerLogin, setCustomerLogin] = useState({
@@ -26,36 +28,33 @@ function CustomerLogin() {
     setCustomerLogin({ ...customerLogin, [name]: value });
   };
 
-  const handleFormSubmit = (e) => {
+  function handleFormSubmit(e) {
     e.preventDefault();
     dispatch(loginCustomer(customerLogin, navigate));
     setCustomerLogin({
       username: "",
       password: "",
     });
-  };
+  }
 
   return (
     <div className="form">
       <div className="right-container" onSubmit={handleFormSubmit}>
-
         <h1>Login</h1>
-        <hr/>
+        <hr />
         <header>
           <div className="set">
             <div className="email">
               <label>Name</label>
               <input
                 type="text"
-            
                 name="username"
                 value={customerLogin.username}
                 onChange={handleChange}
               />
-               <label>Password</label>
+              <label>Password</label>
               <input
                 type="password"
-     
                 name="password"
                 autoComplete="current-password"
                 value={customerLogin.password}

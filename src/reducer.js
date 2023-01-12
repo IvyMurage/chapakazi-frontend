@@ -7,7 +7,7 @@ import jobReducer from "./Components/job/jobslice";
 import reviewReducer from "./Components/review/ReviewSlice"
 
 export default combineReducers({
-        customer: customerReducer,
+        customers: customerReducer,
         handyman: handymanReducer,
         reviews: reviewReducer,
         jobs: jobReducer
