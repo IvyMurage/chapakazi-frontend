@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Customer.css";
 import { signupCustomer } from "./customerSlice";
 
 function CustomerForm() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const errors = useSelector((state) => state.customer.errors);
+  const errors = useSelector((state) => state.customers.errors);
+  const newCustomer = useSelector((state) => state.customers.customer)
 
-  console.log(errors);
+  console.log("This is the sign up info", newCustomer);
 
   function handleInputChange(event) {
     setFormData({
@@ -30,7 +32,7 @@ function CustomerForm() {
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    dispatch(signupCustomer(formData));
+    dispatch(signupCustomer(formData, navigate));
   }
 
   return (

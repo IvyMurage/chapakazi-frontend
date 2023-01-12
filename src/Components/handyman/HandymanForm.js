@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import "./Handyman.css";
 import { addhandyman } from "./HandymanSlice";
 
 function HandymanForm() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [handyman, setHandyman] = useState({
     username: "",
@@ -29,7 +31,7 @@ function HandymanForm() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    dispatch(addhandyman(handyman));
+    dispatch(addhandyman(handyman, navigate));
     setHandyman({
       username: "",
       email: "",
@@ -159,7 +161,9 @@ function HandymanForm() {
         <div className="handyman-submit-btn">
           <button> Submit </button>
         </div>
-        <h2> Already have an account ? Login </h2>
+        <Link to="/handymanLogin">
+          <h2> Already have an account ? <span className="sign-up">Login</span> </h2>
+        </Link>
       </form>
     </div>
   );
