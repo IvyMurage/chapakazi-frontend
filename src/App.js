@@ -8,7 +8,7 @@ import React, { useState } from "react";
 // import MessageForm from "./Components/message/MessageForm";
 // import MessageContainer from "./Components/message/MessageContainer";
 // import MessageContainer from "./Components/message/MessageContainer";
-import HandymanContainer from "./Components/handyman/HandymanContainer";
+// import HandymanContainer from "./Components/handyman/HandymanContainer";
 // import MessagePage from "./Components/message/MessagePage";
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       {/* <LandingPage/> */}
       {/* <CustomerForm /> */}
-      <HandymanContainer />
+      {/* <HandymanContainer /> */}
       {/* <MessagePage /> */}
       {/* <ReviewForm/> */}
       {/* <ReviewContainer /> */}
