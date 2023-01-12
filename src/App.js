@@ -11,9 +11,8 @@ import { Route, Routes } from "react-router-dom";
 // import HandymanPage from "./Components/handymanPage/HandymanPage";
 import JobForm from "./Components/job/JobForm";
 import HandymanContainer from "./Components/handyman/HandymanContainer";
-import Header from "./Components/handyman/header/Header";
+import Header from "./Components/header/Header";
 import JobContainer from "./Components/job/JobContainer";
-
 
 function App() {
   // const [trigger, setTrigger] = useState(false);
@@ -34,7 +33,6 @@ function App() {
       {/* <ReviewContainer /> */}
       {/* <MessageContainer /> */}
       {/* <HandymanForm/> */}
-
     </div>
   );
 }

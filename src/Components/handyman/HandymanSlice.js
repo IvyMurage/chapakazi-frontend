@@ -1,4 +1,4 @@
-export const addhandyman = (handyman) => {
+export const addhandyman = (handyman, navigate) => {
     return async function (dispatch) {
         dispatch({
             type: "handyman/loading"
@@ -21,6 +21,7 @@ export const addhandyman = (handyman) => {
                 payload: data
             })
             localStorage.setItem("handyman", data.jwt)
+            navigate('/handymanLogin');
         } else {
             dispatch({
                 type: "error/handyman",

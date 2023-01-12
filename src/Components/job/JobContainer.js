@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Header from "../handyman/header/Header";
+import CustomerHeader from "../CustomerHeader/CustomerHeader";
+import Header from "../header/Header";
 import JobSearchForm from "../jobSearchForm/JobSearchForm";
 import Pagination from "../pagination/Pagination";
 import JobCard from "./JobCard";
@@ -28,7 +29,7 @@ function JobContainer() {
 
   return (
     <>
-      <Header />
+      <CustomerHeader />
       <JobSearchForm />
       <div className="job-container">
         {status === "loading" ? (

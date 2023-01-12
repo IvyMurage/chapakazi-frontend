@@ -22,7 +22,12 @@ function Pagination({ jobsPerPage, totalJobs, paginate, currentPage }) {
         «
       </NavLink>
       {pageNumbers.map((number) => (
-        <NavLink to="#" onClick={() => paginate(number)}  id={currentPage === number ? 'active-page' : ''}>
+        <NavLink
+          to="#"
+          onClick={() => paginate(number)}
+          id={currentPage === number ? "active-page" : ""}
+          key={number}
+        >
           {number}
         </NavLink>
       ))}

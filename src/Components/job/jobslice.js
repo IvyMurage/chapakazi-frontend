@@ -102,7 +102,7 @@ export default function jobReducer(state = initialState, action) {
         case 'jobs/add':
             return {
                 ...state,
-                jobs: [...state.jobs, action.payload]
+                jobs: [action.payload,...state.jobs]
             }
 
 
