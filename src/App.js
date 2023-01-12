@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import CustomerForm from "./Components/customer/CustomerForm";
 import LandingPage from "./Components/landingPage/LandingPage";
 import HandymanForm from "./Components/handyman/HandymanForm";
@@ -11,7 +11,7 @@ import { Route, Routes } from "react-router-dom";
 // import HandymanPage from "./Components/handymanPage/HandymanPage";
 import JobForm from "./Components/job/JobForm";
 import HandymanContainer from "./Components/handyman/HandymanContainer";
-import Header from "./Components/header/Header";
+
 import JobContainer from "./Components/job/JobContainer";
 import Myjobs from "./Components/myJobs/MyJob";
 import JobPage from "./Components/jobPage/JobPage";
@@ -33,6 +33,11 @@ function App() {
         <Route path="/jobs/:page" component={<JobContainer />} />
         <Route path="/jobs/jobprofile/:page" element={<JobPage />} />
       </Routes>
+      {/* <LandingPage/> */}
+      {/* <CustomerForm /> */}
+      <HandymanForm />
+      
+      {/* <LoginForm /> */}
       {/* <ReviewForm/> */}
       {/* <ReviewContainer /> */}
       {/* <MessageContainer /> */}

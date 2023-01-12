@@ -1,10 +1,17 @@
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 
 function Header() {
+  const [active, setActive] = useState(false);
+  function logout() {
+    setActive(true);
+    localStorage.removeItem("customer");
+    localStorage.removeItem("customerInfo");
+    // navigate("/customerLogin");
+  }
   return (
     <div className="header">
       <h2>
@@ -19,7 +26,9 @@ function Header() {
           <li>
             <FontAwesomeIcon icon={faUser} id="profile" />
           </li>
-          <li> Log Out </li>
+          <li  className="customer-logout-btn"
+            id={active ? "active-btn" : ""}
+            onClick={logout}> Log Out </li>
         </ul>
       </nav>
     </div>
