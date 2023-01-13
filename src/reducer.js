@@ -2,6 +2,7 @@ import {
     combineReducers
 } from "redux";
 import customerReducer from "./Components/customer/customerSlice"
+import profilesReducer from "./Components/handyman/handymanProfiles/profilesSlice";
 import handymanReducer from "./Components/handyman/HandymanSlice"
 import jobReducer from "./Components/job/jobslice";
 import loginReducer from "./Components/login/LoginSlice";
@@ -12,7 +13,8 @@ export default combineReducers({
         handyman: handymanReducer,
         reviews: reviewReducer,
         jobs: jobReducer,
-        handymanLogin: loginReducer
+        handymanLogin: loginReducer,
+        profiles: profilesReducer
 
     }
 

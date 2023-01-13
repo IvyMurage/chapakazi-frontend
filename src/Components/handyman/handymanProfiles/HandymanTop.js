@@ -1,7 +1,7 @@
 import React from "react";
 import SearchForm from "../../search/SearchForm";
 
-function HandymanTop() {
+function HandymanTop({handleChange, handymanSearch}) {
   return (
     <div className="top-div">
       <h1 className="header1"> Who are you looking for ? </h1>
@@ -39,7 +39,7 @@ function HandymanTop() {
           />
         </div>
       </div>
-      <SearchForm />
+      <SearchForm handleChange={handleChange} handymanSearch={handymanSearch} />
     </div>
   );
 }

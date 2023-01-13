@@ -1,27 +1,33 @@
-import React from "react";
-// import HandymanCard from "./HandymanCard";
+import React, { useState } from "react";
 import LandingTop from "../../landingPage/landingTopContainer/LandingTop";
 import HandymanTop from "./HandymanTop";
 import HandyManSideBar from "./HandyManSideBar";
 import HandymanCards from "./HandymanCards";
 import CustomerHeader from "../../CustomerHeader/CustomerHeader";
 
-function HandymanContainer(){
+function HandymanContainer() {
+  const [handymanSearch, setHanydmanSearch] = useState("");
+  function handleChange(event) {
+    const value = event.target.value;
+    setHanydmanSearch(value);
+  }
 
-    return(
-        <div className="home">
-          <CustomerHeader/>
-            <LandingTop/>
-            <div className="handy-page">
-                <HandymanTop/>
-                <div className="sidebar-card">
-                    <HandyManSideBar />
-                    <HandymanCards />
-                    
-                </div>
-            </div>
+  return (
+    <div className="home">
+      <CustomerHeader />
+      <LandingTop />
+      <div className="handy-page">
+        <HandymanTop
+          handleChange={handleChange}
+          handymanSearch={handymanSearch}
+        />
+        <div className="sidebar-card">
+          <HandyManSideBar />
+          <HandymanCards handymanSearch={handymanSearch} />
         </div>
-    )
+      </div>
+    </div>
+  );
 }
 
-export default HandymanContainer
+export default HandymanContainer;

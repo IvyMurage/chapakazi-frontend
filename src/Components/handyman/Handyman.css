@@ -120,7 +120,7 @@
 .rating,
 .location {
   font-weight: 600;
-  font-size: 18px;
+  font-size: 15px;
   color: var(--secondary-color);
 }
 .info {
@@ -147,14 +147,21 @@
 }
 
 .description-heading {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--tertiary-color);
   text-align: center;
+  line-height: 1.5;
 }
 .paragraph {
   padding-top: 3%;
   color: var(--secondary-color);
-  font-size: 13px;
+  font-size: 15px;
+  text-align: justify;
+  padding: 0px 10px;
+  width: fit-content;
+  margin-right: 20px;
+  word-spacing: 8px;
 }
 
 .handy-page {
@@ -189,14 +196,12 @@
 }
 
 .handyman-search {
-
   display: flex;
   align-items: center;
   justify-content: center;
   width: 80%;
   margin-left: 16%;
   margin-bottom: 50px;
-  
 }
 .search-icon {
   height: 40px;
