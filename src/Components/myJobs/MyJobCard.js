@@ -19,7 +19,7 @@ function MyJobCard({ job }) {
       <FontAwesomeIcon icon={faTrash} onClick={() => handleDelete(job.id)} /> 
       <h2> {job.title} </h2>
       <span> {job.budget} </span>
-      <p> {job.summary} </p> <span id="more"> more... </span>
+      <p> {job.description} </p>
     </div>
   );
 }

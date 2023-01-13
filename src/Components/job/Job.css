@@ -125,3 +125,8 @@
   color: var(--tertiary-color);
   text-align: center;
 }
+
+#job-title {
+  color: var(--primary-color);
+  text-align: left;
+}

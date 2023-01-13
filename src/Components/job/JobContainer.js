@@ -7,11 +7,18 @@ import JobCard from "./JobCard";
 import { fetchJobs } from "./jobslice";
 
 function JobContainer() {
+  const [jobSearch, setJobSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [jobsPerPage] = useState(5);
   const dispatch = useDispatch();
-  const jobs = useSelector((state) => state.jobs.jobs);
+  const jobsInfo = useSelector((state) => state.jobs.jobs);
   const status = useSelector((state) => state.jobs.status);
+  function handleChange(event) {
+    const value = event.target.value;
+    setJobSearch(value);
+  }
+
+  const jobs = jobsInfo.filter((job) => job.title.includes(jobSearch));
 
   useEffect(() => {
     dispatch(fetchJobs(localStorage.getItem("handyman")));
@@ -29,7 +36,7 @@ function JobContainer() {
   return (
     <>
       <Header />
-      <JobSearchForm />
+      <JobSearchForm handleChange={handleChange} jobSearch={jobSearch} />
       <div className="job-container">
         {status === "loading" ? (
           <div className="loading">Loading...</div>

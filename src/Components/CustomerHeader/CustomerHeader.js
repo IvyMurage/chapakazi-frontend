@@ -16,9 +16,12 @@ function CustomerHeader() {
   }
   return (
     <div className="header">
-      <h2>
-        Chapa <span id="kazi-header"> Kazi </span>
-      </h2>
+      <Link to="/">
+        <h2>
+          Chapa <span id="kazi-header"> Kazi </span>
+        </h2>
+      </Link>
+
       <nav>
         <ul>
           <Link to="/handymanProfiles">
