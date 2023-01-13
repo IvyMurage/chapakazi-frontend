@@ -1,5 +1,5 @@
 import React from "react";
-import SearchForm from "../search/SearchForm";
+import SearchForm from "../../search/SearchForm";
 
 function HandymanTop() {
   return (

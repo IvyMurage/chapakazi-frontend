@@ -1,5 +1,5 @@
 import React from "react";
-import "./Handyman.css";
+import "../Handyman.css";
 
 
 function HandymanCard(){

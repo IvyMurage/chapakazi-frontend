@@ -5,7 +5,7 @@ import HandymanForm from "./Components/handyman/HandymanForm";
 import CustomerLogin from "./Components/customer/CustomerLogin";
 import { Route, Routes } from "react-router-dom";
 import JobForm from "./Components/job/JobForm";
-import HandymanContainer from "./Components/handyman/HandymanContainer";
+import HandymanContainer from "./Components/handyman/handymanProfiles/HandymanContainer";
 import JobContainer from "./Components/job/JobContainer";
 import Myjobs from "./Components/myJobs/MyJob";
 import JobPage from "./Components/jobPage/JobPage";
