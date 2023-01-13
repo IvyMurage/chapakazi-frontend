@@ -27,14 +27,25 @@
     height: 100%;
     flex: auto;
     border-right: 2px solid;
+    padding-top: 1%;
     
+}
+.sidebar-top{
+    text-align: center;
+    margin-bottom: 5%;
+    color: #FEB800;
+    border-bottom: 2px solid black;
+    height: 5.3%;
+}
+.sidebar-header{
+    font-size: 30px;
 }
 .chat-user{
     display: flex;
-    padding-top: 10%;
-    padding-bottom: 5%;
-    padding-left: 5%;
-    border-bottom: 1px solid #f4f4f4  ;
+    align-items: center;
+    margin-bottom: 10%;
+    padding-left: 7%;
+    cursor: pointer;
 }
 .user-image{
     border-radius: 50%;
@@ -81,7 +92,7 @@
 .text{
     max-width: 30%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 10px;
 
 }
@@ -107,4 +118,17 @@
 .send-button{
     width: 100px;
     background-color:#0a3971;
+}
+
+.text.owner{
+    align-items: flex-end;
+    max-width: 30%;
+    position: relative;
+    left: 70%;
+}
+.received-content{
+    background-color:#0a3971;
+    padding: 10px 20px;
+    border-radius: 30px;
+    color: #F4F4F4;
 }

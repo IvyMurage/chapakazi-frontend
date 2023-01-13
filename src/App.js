@@ -9,7 +9,7 @@ import React, { useState } from "react";
 // import MessageContainer from "./Components/message/MessageContainer";
 // import MessageContainer from "./Components/message/MessageContainer";
 // import HandymanContainer from "./Components/handyman/HandymanContainer";
-// import MessagePage from "./Components/message/MessagePage";
+import MessagePage from "./Components/message/MessagePage";
 
 function App() {
   const [trigger, setTrigger] = useState(false);
@@ -19,7 +19,7 @@ function App() {
       {/* <LandingPage/> */}
       {/* <CustomerForm /> */}
       {/* <HandymanContainer /> */}
-      {/* <MessagePage /> */}
+      <MessagePage />
       {/* <ReviewForm/> */}
       {/* <ReviewContainer /> */}
       {/* <MessageContainer /> */}

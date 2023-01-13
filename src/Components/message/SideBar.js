@@ -5,9 +5,13 @@ import "./Message.css";
 
 function SideBar(){
     return(
-        <div className="sidebar">
-            <Chat/>
-        </div>
+            
+            <div className="sidebar">
+                <div className="sidebar-top">
+                    <h1 className="sidebar-header">CHATS</h1>
+                </div>
+                <Chat/>
+            </div>
     )
 }
 

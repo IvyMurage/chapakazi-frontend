@@ -6,20 +6,20 @@ function Messages(){
         <div className="text-veiw">
             <Text/>
             <Text/>
+            <Text own={true} />
             <Text/>
             <Text/>
             <Text/>
             <Text/>
+            <Text own={true} />
+            <Text/>
+            <Text/>
+            <Text own={true} />
             <Text/>
             <Text/>
             <Text/>
             <Text/>
-            <Text/>
-            <Text/>
-            <Text/>
-            <Text/>
-            <Text/>
-            <Text/>
+            <Text own={true} />
             <Text/>
             <Text/>
 
