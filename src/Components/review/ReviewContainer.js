@@ -1,7 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Review.css";
 import ReviewCard from "./ReviewCard";
+import ReviewForm from "./ReviewForm"
 function ReviewContainer() {
+  const [trigger, setTrigger] = useState(false);
+
+  function handleReviewAdd() {
+    setTrigger((prevState) => !prevState);
+  }
+
+
   return (
     <div className="review-container">
       <div className="top-review-header">
@@ -9,10 +17,11 @@ function ReviewContainer() {
           <h3>Reviews</h3>
         </div>
         <div className="top-review-header-right">
-          <button>Add a Review</button>
+          <button onClick={handleReviewAdd}>Add a Review</button>
         </div>
       </div>
       <ReviewCard />
+      {trigger ? <ReviewForm setTrigger={setTrigger}/> : null}
     </div>
   );
 }

@@ -4,12 +4,11 @@ import "./Review.css";
 import { addReview } from "./ReviewSlice";
 function ReviewForm({ setTrigger }) {
   const [review, setReview] = useState({
-    comment: "I loved his work",
+    comment: "",
   });
 
-  const [token, setToken] = useState("");
-
   const dispatch = useDispatch();
+  const token = localStorage.getItem("token");
 
   function handleChange(event) {
     const name = event.target.name;
@@ -19,10 +18,11 @@ function ReviewForm({ setTrigger }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    setToken((prev) => (prev = localStorage.getItem("token")));
     dispatch(addReview(review, token));
+    setReview({
+      comment: "",
+    });
   }
-  console.log(token)
 
   return (
     <div id="review-form-container">
