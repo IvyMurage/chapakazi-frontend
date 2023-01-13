@@ -71,3 +71,148 @@
   font-weight: 400;
   font-size: 13px;
 }
+
+.button-span {
+  background-color: #feb800;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 30px;
+  font-weight: 600;
+  color: black;
+  cursor: pointer;
+}
+.image > img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 2px solid var(--tertiary-color);
+}
+.image {
+  padding: 5px 10px;
+}
+.name {
+  color: #feb800;
+  font-family: Poppins;
+  font-size: 15px;
+  text-align: center;
+}
+.occupation {
+  font-size: 21px;
+  font-family: Poppins;
+  color: #f4f4f4;
+  text-align: center;
+  font-size: 12px;
+}
+.handymancard {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 320px;
+}
+.info-bottom {
+  padding-top: 20px;
+}
+.rating,
+.button-span {
+  padding-left: 30px;
+}
+.rating,
+.location {
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--secondary-color);
+}
+.info {
+  padding-top: 2%;
+  padding-bottom: 5%;
+  padding-left: 8%;
+  flex: 1;
+}
+.info-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.container {
+  width: 730px;
+  height: 280px;
+  background-color: #0a3971;
+  border-radius: 20px;
+  margin-bottom: 70px;
+}
+
+.main-container {
+  padding: 10px;
+}
+
+.description-heading {
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+}
+.paragraph {
+  padding-top: 3%;
+  color: var(--secondary-color);
+  font-size: 13px;
+}
+
+.handy-page {
+  background-color: #f4f4f4;
+  height: 100%;
+  padding-left: 10%;
+  padding-top: 5%;
+  padding-bottom: 10%;
+}
+.top-image {
+  height: 200px;
+  width: 200px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+.page-top {
+  display: flex;
+  gap: 100px;
+  margin-bottom: 100px;
+}
+.top-div {
+  align-items: center;
+}
+.header1 {
+  font-size: 30px;
+  padding-left: 30%;
+}
+.top-header {
+  font-weight: 200;
+  font-size: 18px;
+  color: var(--primary-color);
+}
+.search-input {
+  border-radius: 10px;
+  height: 40px;
+  width: 500px;
+}
+.handyman-search {
+  margin-bottom: 50px;
+  align-items: center;
+  display: flex;
+  padding-left: 30%;
+}
+.search-icon {
+  height: 40px;
+  width: 40px;
+}
+.sidebar-card {
+  display: flex;
+  gap: 10%;
+}
+.filter {
+  height: 40px;
+  width: 300px;
+}
+.option-div {
+  padding-bottom: 20%;
+}
+.option-div > h3 {
+  font-size: 20px;
+}
