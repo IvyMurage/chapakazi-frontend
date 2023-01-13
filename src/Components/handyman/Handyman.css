@@ -187,16 +187,16 @@
   font-size: 18px;
   color: var(--primary-color);
 }
-.search-input {
-  border-radius: 10px;
-  height: 40px;
-  width: 500px;
-}
+
 .handyman-search {
-  margin-bottom: 50px;
-  align-items: center;
+
   display: flex;
-  padding-left: 30%;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin-left: 16%;
+  margin-bottom: 50px;
+  
 }
 .search-icon {
   height: 40px;
