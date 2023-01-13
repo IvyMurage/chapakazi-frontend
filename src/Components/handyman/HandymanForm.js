@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import "./Handyman.css";
 import { addhandyman } from "./HandymanSlice";
@@ -21,7 +21,8 @@ function HandymanForm() {
     admin_id: 1,
   });
 
-  console.log(handyman);
+  const errors = useSelector((state) => state.handyman.errors);
+  console.log(errors);
   function handleChange(event) {
     const name = event.target.name;
     const value = event.target.value;
@@ -62,6 +63,11 @@ function HandymanForm() {
               name="username"
               onChange={handleChange}
             />
+            {errors.length > 0 ? (
+              <h3 className="signup-error">
+                {errors.find((error) => error.includes("Username"))}
+              </h3>
+            ) : null}
           </div>
           <div className="col-1">
             <label> Email </label> <br />
@@ -72,6 +78,11 @@ function HandymanForm() {
               name="email"
               onChange={handleChange}
             />
+            {errors.length > 0 ? (
+              <h3 className="signup-error">
+                {errors.find((error) => error.includes("Email"))}
+              </h3>
+            ) : null}
           </div>
         </div>
         <div className="row-2">
@@ -84,6 +95,11 @@ function HandymanForm() {
               name="location"
               onChange={handleChange}
             />
+              {errors.length > 0 ? (
+              <h3 className="signup-error">
+                {errors.find((error) => error.includes("Location"))}
+              </h3>
+            ) : null}
           </div>
           <div className="col-1">
             <label> Speciality </label> <br />
@@ -108,6 +124,11 @@ function HandymanForm() {
               name="password"
               onChange={handleChange}
             />
+              {errors.length > 0 ? (
+              <h3 className="signup-error">
+                {errors.find((error) => error.includes("Password"))}
+              </h3>
+            ) : null}
           </div>
           <div className="col-1">
             <label> Password Confirmation </label> <br />
@@ -119,6 +140,11 @@ function HandymanForm() {
               name="password_confirmation"
               onChange={handleChange}
             />
+              {errors.length > 0 ? (
+              <h3 className="signup-error">
+                {errors.find((error) => error.includes("Password confirmation"))}
+              </h3>
+            ) : null}
           </div>
         </div>
         <div className="row-4">
@@ -132,6 +158,11 @@ function HandymanForm() {
               name="image"
               onChange={handleChange}
             />
+              {errors.length > 0 ? (
+              <h3 className="signup-error">
+                {errors.find((error) => error.includes("Image"))}
+              </h3>
+            ) : null}
           </div>
           <div className="col-1">
             <label> Rating </label> <br />
@@ -162,7 +193,12 @@ function HandymanForm() {
           <button> Submit </button>
         </div>
         <Link to="/handymanLogin">
-          <h2> Already have an account ? <span className="sign-up">Login</span> </h2>
+          <h2>
+            {" "}
+            Already have an account ? <span className="sign-up">
+              Login
+            </span>{" "}
+          </h2>
         </Link>
       </form>
     </div>
