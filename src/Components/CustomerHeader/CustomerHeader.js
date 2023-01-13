@@ -1,15 +1,17 @@
 import { faBriefcaseMedical } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
+
 import { Link, useNavigate } from "react-router-dom";
 import "./CustomerHeader.css";
 
-function CustomerHeader() {
-  const [active, setActive] = useState(false);
+function CustomerHeader({setActive, active}) {
+
   const navigate = useNavigate();
+  const [trigger, setTrigger] = useState(true)
 
   function logout() {
-    setActive(true);
+    setTrigger(false);
     localStorage.removeItem("customer");
     localStorage.removeItem("customerInfo");
     navigate("/customerLogin");
@@ -43,7 +45,7 @@ function CustomerHeader() {
             id={active ? "active-btn" : ""}
             onClick={logout}
           >
-            Log Out
+            {active ? " Log In" : " Log Out"}
           </li>
         </ul>
       </nav>

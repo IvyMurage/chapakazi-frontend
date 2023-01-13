@@ -65,15 +65,33 @@
   color: red;
   font-size: 15px;
   font-weight: 400;
+  width: fit-content;
+  border-radius: 10px;
+  padding:5px 20px;
+  margin-top: 20px;
 }
 
-.job-errors::after {
-  content: "❗";
+.jobLogin-errors {
+  color: red;
+  font-size: 15px;
+  font-weight: 400;
+  background-color: pink;
+  width: 100%;
+  border-radius: 10px;
+  padding:5px 20px;
+  margin-top: 20px;
+  text-align: center;
+
+}
+
+
+/* .job-errors::after {
+  content: " ❗";
   background-color: pink;
   border-radius: 50%;
   width: 100px;
   height: 100px;
-}
+} */
 
 .job-card {
   width: 80%;

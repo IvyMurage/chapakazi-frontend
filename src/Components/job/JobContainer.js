@@ -13,6 +13,7 @@ function JobContainer() {
   const dispatch = useDispatch();
   const jobsInfo = useSelector((state) => state.jobs.jobs);
   const status = useSelector((state) => state.jobs.status);
+
   function handleChange(event) {
     const value = event.target.value;
     setJobSearch(value);
@@ -33,6 +34,9 @@ function JobContainer() {
   };
   const jobList = currentJobs.map((job) => <JobCard key={job.id} job={job} />);
 
+  if (jobs <= 0) {
+    return <h2> Login in </h2>;
+  }
   return (
     <>
       <Header />

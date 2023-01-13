@@ -7,6 +7,8 @@ function JobCard({ job }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+
+
   function handleJob(jobId) {
     const token = localStorage.getItem("handyman");
     dispatch(fetchJob(jobId, token, navigate));

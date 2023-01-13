@@ -96,7 +96,7 @@ export const fetchJob = (jobId, token, navigate) => {
       JSON.stringify(localStorage.setItem("job", JSON.stringify(data)));
       navigate(`/jobs/jobprofile/${jobId}`);
     } else {
-      dispatch({ type: "jobs/error", payload: data.errors });
+      dispatch({ type: "jobs/error", payload: data.errors});
     }
   };
 };

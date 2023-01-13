@@ -6,7 +6,7 @@ function HandymanContainer() {
   return (
 
     <div>
-      <CustomerHeader/>
+      <CustomerHeader />
       <HandymanCard />
     </div>
   );
