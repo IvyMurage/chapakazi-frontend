@@ -1,47 +1,46 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import "./LoginForm.css";
-import { addlogin} from "./LoginSlice";
+import { addlogin } from "./LoginSlice";
 
 function LoginForm() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const [login, setLogin] = useState({
-    
-    email: "",
+    username: "",
     password: "",
-    
   });
-
+  const errors = useSelector((state) => state.handymanLogin.errors);
+  console.log(errors);
   function handleChange(event) {
-    const name = event.target.name
-    const value = event.target.value
-    setLogin({...login, [name]: value })
+    const name = event.target.name;
+    const value = event.target.value;
+    setLogin({
+      ...login,
+      [name]: value,
+    });
   }
-
 
   function handleSubmit(event) {
     event.preventDefault();
-    dispatch(addlogin(login))
-
+    dispatch(addlogin(login));
   }
   return (
     <div className="login-form-container">
       <form id="login-form" onSubmit={handleSubmit}>
         <div className="row">
-         
           <div className="rows">
-            <label> Email </label> <br />
+            <label> username </label> <br />
             <input
-              type="email"
+              type="text"
               className="login-input"
-              value={login.email}
-              name="email"
+              value={login.username}
+              name="username"
               onChange={handleChange}
             />
           </div>
         </div>
-        
         <div className="row">
           <div className="rows">
             <label> Password </label> <br />
@@ -53,19 +52,24 @@ function LoginForm() {
               name="password"
               onChange={handleChange}
             />
+            {errors.length > 0 ? (
+              <h3 className="login-errors">
+                {errors.find((error) => error.includes("Invalid"))}
+              </h3>
+            ) : null}
           </div>
-         
         </div>
-       
-      
         <div className="login-btn">
-          <button> Login</button>
+          <button> Login </button>
         </div>
-        <h2> Do not have an account ? Sign Up</h2>
+        <Link to="/handymanSignUp">
+          <h2>
+            Do not have an account ? <span className="sign-up"> Sign Up </span>
+          </h2>
+        </Link>
       </form>
     </div>
   );
 }
 
 export default LoginForm;
-
