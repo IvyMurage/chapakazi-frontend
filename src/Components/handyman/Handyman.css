@@ -61,7 +61,13 @@
 }
 
 #handyman-signup h2 {
-color: var(--secondary-color);
-text-align: center;
-margin-top: 10px;
+  color: var(--secondary-color);
+  text-align: center;
+  margin-top: 10px;
+}
+
+.signup-error {
+  color: var(--tertiary-color);
+  font-weight: 400;
+  font-size: 13px;
 }

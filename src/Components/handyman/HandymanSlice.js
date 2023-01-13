@@ -25,7 +25,7 @@ export const addhandyman = (handyman, navigate) => {
         } else {
             dispatch({
                 type: "error/handyman",
-                payload: data.errors
+                payload: data
             })
         }
     }

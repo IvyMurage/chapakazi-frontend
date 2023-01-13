@@ -2,12 +2,16 @@ import { faHeart, faMessage, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import ReviewContainer from "../review/ReviewContainer";
+import CustomerHeader from "../CustomerHeader/CustomerHeader"
 // import ReviewForm from "../review/ReviewForm";
 import "./HandymanPage.css";
 
 function HandymanPage() {
+  
   return (
+    
     <div className="handymanpage">
+      <CustomerHeader/>
       <div className="top-handyman-section">
         <div className="left-section-handyman">
           <div className="handyman-info">

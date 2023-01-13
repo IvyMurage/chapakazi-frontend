@@ -140,7 +140,7 @@ function CustomerForm() {
             </div>
 
             <Link to="/customerLogin">
-              <h2>
+              <h2 id="login-section">
                 Do not have an account ?<span className="sign-up">Login</span>
               </h2>
             </Link>
