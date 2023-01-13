@@ -21,3 +21,21 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+
+/* Application responsivity */
+
+/* handyman form */
+.handyman-signup ,.row-1  ,.row-2 ,.row-3,.row-4 ,.row-5 .col-1 #textarea{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+@media (min-width: 540px) {
+
+}
+
+
+
+/* customer form */
