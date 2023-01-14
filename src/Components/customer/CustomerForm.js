@@ -37,15 +37,15 @@ function CustomerForm() {
 
   return (
     <div className="form">
-      <div className="signup-container">
         <div className="right-container" onSubmit={handleFormSubmit}>
+        <h1>Sign Up</h1>
+          <hr />
           <header>
-            <div className="set">
-              <div className="customer-name">
-                <label htmlFor="customer-name"> Name </label>
+            <div className="row-1">
+              <div className="col-1">
+                <label> Name </label>
                 <input
-                  className="customer-name"
-                  //   placeholder="Name..."
+                  className="customer-input"
                   name="username"
                   type="text"
                   value={formData.name}
@@ -59,11 +59,10 @@ function CustomerForm() {
                 ) : null}
               </div>
 
-              <div className="customer-location">
-                <label htmlFor="customer-venue"> Location </label>
+              <div className="col-1">
+                <label> Location </label>
                 <input
-                  id="customer-venue"
-                  //   placeholder="Location..."
+                  className="customer-input"
                   name="location"
                   type="text"
                   value={formData.location}
@@ -77,12 +76,11 @@ function CustomerForm() {
                 ) : null}
               </div>
             </div>
-            <div className="set">
-              <div className="customer-name">
-                <label htmlFor="customer-password"> Password </label>
+            <div className="row-2">
+              <div className="col-1">
+                <label> Password </label>
                 <input
-                  className="customer-name"
-                  //   placeholder="Password..."
+                  className="customer-input"
                   name="password"
                   type="password"
                   autoComplete="current-password"
@@ -97,11 +95,10 @@ function CustomerForm() {
                 ) : null}
               </div>
 
-              <div className="customer-name">
-                <label htmlFor="customer-password">Password Confirmation</label>
+              <div className="col-1">
+                <label>Password Confirmation</label>
                 <input
-                  className="customer-name"
-                  //   placeholder="Password..."
+                  className="customer-input"
                   name="password_confirmation"
                   type="password"
                   autoComplete="current-password"
@@ -117,12 +114,11 @@ function CustomerForm() {
               </div>
             </div>
 
-            <div className="set">
-              <div className="customer-name">
-                <label htmlFor="customer-image"> Image </label>
+            <div className="row-3">
+              <div className="col-1">
+                <label> Image </label>
                 <input
-                  className="customer-name"
-                  //   placeholder="Image..."
+                  className="customer-input"
                   name="image"
                   type="text"
                   value={formData.image}
@@ -133,7 +129,7 @@ function CustomerForm() {
             </div>
           </header>
           <footer>
-            <div className="set">
+            <div className="row-4">
               <button id="next" type="submit" onClick={handleFormSubmit}>
                 Submit
               </button>
@@ -145,7 +141,6 @@ function CustomerForm() {
               </h2>
             </Link>
           </footer>
-        </div>
       </div>
     </div>
   );
