@@ -13,13 +13,7 @@ li {
   font-weight: 600;
 }
 
-.customer-logout-btn {
-  border: 1px solid yellow;
-  padding: 5px 30px;
-  border-radius: 10px;
-  background-color: transparent;
-  cursor: pointer;
-}
+
 
 #active-btn {
   color: var(--secondary-color);

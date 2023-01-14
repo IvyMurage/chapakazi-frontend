@@ -4,6 +4,7 @@ import "./Review.css";
 import { addReview } from "./ReviewSlice";
 
 function ReviewForm({ setTrigger, profileId }) {
+  const [count, setCount] = useState(0);
   const dispatch = useDispatch();
   const token = localStorage.getItem("customer");
   const [review, setReview] = useState({
@@ -17,9 +18,11 @@ function ReviewForm({ setTrigger, profileId }) {
     const name = event.target.name;
     const value = event.target.value;
     setReview({ ...review, [name]: value });
+    setCount((prevCount) => prevCount = value.length);
   }
 
-  console.log(review);
+  console.log(count)
+
   function handleSubmit(event) {
     event.preventDefault();
     dispatch(addReview(review, token, setTrigger));
@@ -43,7 +46,7 @@ function ReviewForm({ setTrigger, profileId }) {
           onChange={handleChange}
           name="comment"
         />
-
+        <span style={{color:"#feb800", fontWeight:"bold", fontSize:"12px"}}>{count}/259</span>
         {errors.length > 0
           ? errors.map((error) => (
               <span className="review-errors">{error}</span>

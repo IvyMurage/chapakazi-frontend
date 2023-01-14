@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
@@ -10,17 +10,21 @@ import { downVoteReview, removeReview, upVoteReview } from "./ReviewSlice";
 function ReviewCard({ review }) {
   const dispatch = useDispatch();
   const token = localStorage.getItem("customer");
+  const [like, setLike] = useState(null);
 
   function handleDelete(reviewId) {
     dispatch(removeReview(reviewId, token));
+    
   }
 
   function handleUpVote(reviewId, votes) {
     dispatch(upVoteReview(reviewId, token, votes));
+    setLike(true)
   }
 
   function handleDownVote(reviewId, votes) {
     dispatch(downVoteReview(reviewId, token, votes));
+    setLike(false)
   }
 
   return (
@@ -36,10 +40,12 @@ function ReviewCard({ review }) {
           <FontAwesomeIcon
             icon={faThumbsUp}
             id="thumbs-up"
+            className={like? "active" : "disabled"}
             onClick={() => handleUpVote(review.id, review.votes)}
           />
           <FontAwesomeIcon
             icon={faThumbsDown}
+            className={like ? "disabled" : "active" }
             id="thumbs-down"
             onClick={() => handleDownVote(review.id, review.votes)}
           />

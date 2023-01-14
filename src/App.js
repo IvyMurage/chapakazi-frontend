@@ -13,12 +13,9 @@ import LoginForm from "./Components/login/LoginForm";
 import HandymanPage from "./Components/handymanPage/HandymanPage";
 import CustomerProfile from "./Components/customerProfile/CustomerProfile";
 
-import MessagePage from "./Components/message/MessagePage";
-import "./App.css";
+// import MessagePage from "./Components/message/MessagePage";
 
 function App() {
-  // const [trigger, setTrigger] = useState(false);
-
   return (
     <div className="App">
       <Routes>
@@ -34,15 +31,9 @@ function App() {
         <Route path="/profilepage" element={<HandymanPage />} />
         <Route path="/jobs/:page" component={<JobContainer />} />
         <Route path="/jobs/jobprofile/:page" element={<JobPage />} />
-        <Route path="/profile" element={<CustomerProfile />} />
+        {/* <Route path="/profile" element={<CustomerProfile />} /> */}
       </Routes>
-      {/* <LandingPage/> */}
-      {/* <CustomerForm /> */}
-      {/* <HandymanContainer /> */}
-      <MessagePage />
-      {/* <ReviewForm/> */}
-      {/* <ReviewContainer /> */}
-      {/* <MessageContainer /> */}
+      {/* <MessagePage /> */}
     </div>
   );
 }

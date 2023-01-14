@@ -5,8 +5,6 @@ function Messages(){
     return(
         <div className="text-veiw">
                 <Text />
-
-
         </div>
     )
 }

@@ -128,7 +128,7 @@
   cursor: pointer;
 }
 
-#active {
+.active {
   color: var(--tertiary-color);
 }
 

@@ -4,18 +4,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
+import CustomerProfile from "../customerProfile/CustomerProfile";
 import "./CustomerHeader.css";
 
 function CustomerHeader({ setActive, active }) {
-  const navigate = useNavigate();
-  const [trigger, setTrigger] = useState(true);
 
-  function logout() {
-    setTrigger(false);
-    localStorage.removeItem("customer");
-    localStorage.removeItem("customerInfo");
-    navigate("/customerLogin");
-  }
+  const [trigger, setTrigger] = useState(false);
+
   return (
     <div className="header">
       <Link to="/">
@@ -39,19 +34,18 @@ function CustomerHeader({ setActive, active }) {
               <FontAwesomeIcon icon={faBriefcaseMedical} className="addJob" />
             </li>
           </Link>
-          <Link to="/profile">
+
           <li>
-            <FontAwesomeIcon icon={faUser} className="user-profile" />
+            <FontAwesomeIcon
+              icon={faUser}
+              className="user-profile"
+              onClick={() => {
+                setTrigger((prev) => !prev);
+              }}
+            />
           </li>
-          </Link>
-         
-          <li
-            className="customer-logout-btn"
-            id={active ? "active-btn" : ""}
-            onClick={logout}
-          >
-            {active ? " Log In" : " Log Out"}
-          </li>
+
+          {trigger ? <CustomerProfile /> : null}
         </ul>
       </nav>
     </div>
