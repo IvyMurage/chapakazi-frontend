@@ -200,3 +200,35 @@ footer > a {
   }
 }
 
+
+.row-1,
+.row-2,
+.row-3,
+.row-4 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+} */
+
+
+.col-1 > input {
+  border: none;
+  outline: none;
+  color: var(--secondary-color);
+  padding: 10px 15px;
+  background-color: var(--primary-color);
+  border-bottom: 2px solid var(--tertiary-color);
+}
+
+.col-1 > label {
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.setrow{
+  align-items: center;
+  justify-content: center;
+  float: center;
+}
+
