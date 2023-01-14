@@ -29,9 +29,11 @@ function LoginForm() {
   return (
     <div className="login-form-container">
       <form id="login-form" onSubmit={handleSubmit}>
-        <div className="row">
-          <div className="rows">
-            <label> username </label> <br />
+      <h1 className="extra">Login</h1>
+          <hr className="extra"/>
+        <div className="row-1">
+          <div className="col-1">
+            <label> Username </label> <br />
             <input
               type="text"
               className="login-input"
@@ -41,8 +43,8 @@ function LoginForm() {
             />
           </div>
         </div>
-        <div className="row">
-          <div className="rows">
+        <div className="row-2">
+          <div className="col-1">
             <label> Password </label> <br />
             <input
               type="password"
@@ -59,7 +61,7 @@ function LoginForm() {
             ) : null}
           </div>
         </div>
-        <div className="login-btn">
+        <div className=" row-4 login-btn">
           <button> Login </button>
         </div>
         <Link to="/handymanSignUp">
