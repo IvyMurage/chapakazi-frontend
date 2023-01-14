@@ -254,3 +254,24 @@
 label{
   padding-top: 2px;
 }
+
+
+/* handyman cards */
+@media (max-width: 990px) {
+  .container{
+    width: auto;
+  }
+.sidebar-card{
+  display: block;
+  width: auto;
+}
+  .info{
+    display: block;
+  }
+  .info .info-top{
+    display: block;
+  }
+  .info .info-top .rating{
+    padding-right: 20px;
+  }
+}
