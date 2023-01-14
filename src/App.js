@@ -10,7 +10,8 @@ import JobContainer from "./Components/job/JobContainer";
 import Myjobs from "./Components/myJobs/MyJob";
 import JobPage from "./Components/jobPage/JobPage";
 import LoginForm from "./Components/login/LoginForm";
-import HandymanPage from "./Components/handymanPage/HandymanPage"
+import HandymanPage from "./Components/handymanPage/HandymanPage";
+import CustomerProfile from "./Components/customerProfile/CustomerProfile";
 
 function App() {
   // const [trigger, setTrigger] = useState(false);
@@ -27,9 +28,10 @@ function App() {
         <Route path="/handymanLogin" element={<LoginForm />} />
         <Route path="/customerLogin" element={<CustomerLogin />} />
         <Route path="/handymanProfiles" element={<HandymanContainer />} />
-        <Route path="/profilepage" element ={<HandymanPage/>}/>
+        <Route path="/profilepage" element={<HandymanPage />} />
         <Route path="/jobs/:page" component={<JobContainer />} />
         <Route path="/jobs/jobprofile/:page" element={<JobPage />} />
+        <Route path="/profile" element={<CustomerProfile />} />
       </Routes>
     </div>
   );

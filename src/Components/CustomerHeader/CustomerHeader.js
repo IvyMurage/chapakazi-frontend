@@ -1,3 +1,4 @@
+import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faBriefcaseMedical } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
@@ -5,10 +6,9 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./CustomerHeader.css";
 
-function CustomerHeader({setActive, active}) {
-
+function CustomerHeader({ setActive, active }) {
   const navigate = useNavigate();
-  const [trigger, setTrigger] = useState(true)
+  const [trigger, setTrigger] = useState(true);
 
   function logout() {
     setTrigger(false);
@@ -39,7 +39,12 @@ function CustomerHeader({setActive, active}) {
               <FontAwesomeIcon icon={faBriefcaseMedical} className="addJob" />
             </li>
           </Link>
-
+          <Link to="/profile">
+          <li>
+            <FontAwesomeIcon icon={faUser} className="user-profile" />
+          </li>
+          </Link>
+         
           <li
             className="customer-logout-btn"
             id={active ? "active-btn" : ""}
