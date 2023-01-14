@@ -32,13 +32,11 @@
   position: relative;
   left: 28%;
 }
-
 @media only screen and (max-width: 900px) {
   .handyman-info > img {
     left: -3%;
   }
 }
-
 .handyman-info > h3,
 .handyman-info > p,
 .handyman-info > .rating,
