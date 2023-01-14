@@ -13,19 +13,20 @@ function ReviewForm({ setTrigger, profileId }) {
   });
   const errors = useSelector((state) => state.reviews.errors);
 
-
-
   function handleChange(event) {
     const name = event.target.name;
     const value = event.target.value;
     setReview({ ...review, [name]: value });
   }
 
+  console.log(review);
   function handleSubmit(event) {
     event.preventDefault();
     dispatch(addReview(review, token, setTrigger));
     setReview({
       comment: "",
+      handyman_id: `${profileId}`,
+      votes: 0,
     });
   }
 
