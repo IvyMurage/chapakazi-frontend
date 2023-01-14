@@ -65,28 +65,21 @@
   cursor: pointer;
   margin-top: 2rem;
 }
-
 h2 {
   color: var(--secondary-color);
   text-align: center;
   margin-top: 10px;
 }
-
 .login-errors{
   font-size: 12px;
   font-weight: 400;
   color: var(--tertiary-color);
 }
-
-
   @media only screen and (max-width: 900px) {
-
-    .login-form-container {
-  justify-content: center;
+      .login-form-container {
+    justify-content: center;
+    }
   }
-
-  }
-
   .extra{
     overflow: hidden;
     display: flex;
