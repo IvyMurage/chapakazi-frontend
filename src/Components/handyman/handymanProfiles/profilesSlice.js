@@ -11,6 +11,7 @@ export const fetchProfiles = (token) => {
     });
 
     const profiles = await response.json();
+    
 
     if (response.ok) {
       dispatch({
