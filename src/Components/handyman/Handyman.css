@@ -196,7 +196,7 @@
   width: 80%;
   margin-left: 16%;
   margin-bottom: 50px;
-  
+
 }
 .search-icon {
   height: 40px;
@@ -215,4 +215,46 @@
 }
 .option-div > h3 {
   font-size: 20px;
+}
+
+
+@media screen and (max-width: 900px){
+  .page-top {
+    display: block;
+    align-items:center;
+    margin-left: 90px;
+    margin-bottom: 100px;
+  }
+
+  .top-header{
+    text-align:center;
+    margin-left:-350px;
+  }
+}
+
+
+/* handyman form */
+.handyman-signup ,.row-1  ,.row-2 ,.row-3,.row-4 ,.row-5 .col-1 #textarea{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* responsive */
+
+@media (min-width: 540px) {
+  .handyman-signup ,.row-5 .col-1 #textarea{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .handyman-signup .row-5 .col-1 #textarea {
+    width: auto;
+  }
+
+  #textarea {
+    width: 100%;
+  }
+
+}
+label{
+  padding-top: 2px;
 }
