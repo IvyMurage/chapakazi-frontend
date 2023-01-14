@@ -21,31 +21,3 @@ body {
 html {
   scroll-behavior: smooth;
 }
-
-
-/* Application responsivity */
-
-/* handyman form */
-.handyman-signup ,.row-1  ,.row-2 ,.row-3,.row-4 ,.row-5 .col-1 #textarea{
-  display: flex;
-  flex-wrap: wrap;
-}
-
-
-@media (min-width: 540px) {
-  .handyman-signup ,.row-5 .col-1 #textarea{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  .handyman-signup .row-5 .col-1 #textarea {
-    width: auto;
-  }
-
-  #textarea {
-    width: 100%;
-  }
-}
-
-
-
-/* customer form */
