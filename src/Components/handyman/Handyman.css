@@ -217,7 +217,6 @@
   font-size: 20px;
 }
 
-
 @media screen and (max-width: 900px){
   .page-top {
     display: block;
@@ -232,7 +231,6 @@
   }
 }
 
-
 /* handyman form */
 .handyman-signup ,.row-1  ,.row-2 ,.row-3,.row-4 ,.row-5 .col-1 #textarea{
   display: flex;
@@ -240,7 +238,6 @@
 }
 
 /* responsive */
-
 @media (min-width: 540px) {
   .handyman-signup ,.row-5 .col-1 #textarea{
     display: grid;
@@ -249,7 +246,6 @@
   .handyman-signup .row-5 .col-1 #textarea {
     width: auto;
   }
-
   #textarea {
     width: 100%;
   }
