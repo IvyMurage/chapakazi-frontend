@@ -7,7 +7,7 @@ import "./HandymanPage.css";
 
 function HandymanPage() {
   const profileId = JSON.parse(localStorage.getItem("profileId"));
-  console.log(profileId);
+  // console.log(profileId);
   const [profile, setProfile] = useState({});
   const [errors, setError] = useState([]);
   const token = localStorage.getItem("customer");
@@ -31,7 +31,7 @@ function HandymanPage() {
     fetchProfile();
   }, [profileId, token]);
 
-  console.log(profile);
+  // console.log(profile);
   return (
     <div className="handymanpage">
       <CustomerHeader />
@@ -42,7 +42,7 @@ function HandymanPage() {
             <h3>{profile.username}</h3>
             <p>{profile.speciality}</p>
             <div className="rating">
-              {[...Array(5)].map((index) => {
+              {[...Array(5)].map((star, index) => {
                 return (
                   <FontAwesomeIcon icon={faStar} className="star" key={index} />
                 );

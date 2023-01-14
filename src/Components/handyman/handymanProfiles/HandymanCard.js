@@ -26,7 +26,7 @@ function HandymanCard({ profile }) {
               className="button-span"
               onClick={() => handleProfile(profile.id)}
             >
-              more{" "}
+              more
             </span>
           </div>
 

@@ -15,9 +15,12 @@ function Header() {
   }
   return (
     <div className="header">
+      <Link to="/">
       <h2>
         Chapa <span id="kazi-header"> Kazi </span>
       </h2>
+      </Link>
+     
       <nav>
         <ul>
           <Link to="/jobs">

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./LoginForm.css";
 import { addlogin } from "./LoginSlice";
 
 function LoginForm() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [login, setLogin] = useState({
     username: "",
@@ -24,7 +25,7 @@ function LoginForm() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    dispatch(addlogin(login));
+    dispatch(addlogin(login, navigate));
   }
   return (
     <div className="login-form-container">

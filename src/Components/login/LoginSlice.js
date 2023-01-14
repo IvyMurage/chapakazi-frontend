@@ -1,4 +1,4 @@
-export const addlogin = (login) => {
+export const addlogin = (login, navigate) => {
   return async function (dispatch) {
     dispatch({
       type: "handyman/loading",
@@ -12,13 +12,15 @@ export const addlogin = (login) => {
     });
 
     const data = await response.json();
+    console.log(data)
 
     if (response.ok) {
       dispatch({
         type: "add/login",
         payload: data.handyman,
       });
-      localStorage.setItem("handyman", data.jwt);
+      localStorage.setItem("handyman", data.token);
+      navigate("/jobs");
     } else {
       dispatch({
         type: "error/handyman",

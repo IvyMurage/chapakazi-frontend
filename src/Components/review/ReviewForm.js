@@ -1,14 +1,19 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./Review.css";
 import { addReview } from "./ReviewSlice";
-function ReviewForm({ setTrigger }) {
+
+function ReviewForm({ setTrigger, profileId }) {
+  const dispatch = useDispatch();
+  const token = localStorage.getItem("customer");
   const [review, setReview] = useState({
     comment: "",
+    handyman_id: `${profileId}`,
+    votes: 0,
   });
+  const errors = useSelector((state) => state.reviews.errors);
 
-  const dispatch = useDispatch();
-  const token = localStorage.getItem("token");
+
 
   function handleChange(event) {
     const name = event.target.name;
@@ -18,7 +23,7 @@ function ReviewForm({ setTrigger }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    dispatch(addReview(review, token));
+    dispatch(addReview(review, token, setTrigger));
     setReview({
       comment: "",
     });
@@ -37,6 +42,13 @@ function ReviewForm({ setTrigger }) {
           onChange={handleChange}
           name="comment"
         />
+
+        {errors.length > 0
+          ? errors.map((error) => (
+              <span className="review-errors">{error}</span>
+            ))
+          : null}
+
         <div className="review-form-btn">
           <button
             className="btn-review"
@@ -44,7 +56,12 @@ function ReviewForm({ setTrigger }) {
           >
             Cancel
           </button>
-          <button className="btn-review">Submit Review</button>
+          <button
+            className="btn-review"
+            onSubmit={() => setTrigger((prev) => !prev)}
+          >
+            Submit Review
+          </button>
         </div>
       </form>
     </div>

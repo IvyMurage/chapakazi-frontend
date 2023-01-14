@@ -5,7 +5,6 @@ import ReviewCard from "./ReviewCard";
 import ReviewForm from "./ReviewForm";
 import { fetchReviews } from "./ReviewSlice";
 function ReviewContainer({ profileId }) {
-
   const [trigger, setTrigger] = useState(false);
   const dispatch = useDispatch();
   const token = localStorage.getItem("customer");
@@ -19,16 +18,14 @@ function ReviewContainer({ profileId }) {
     dispatch(fetchReviews(profileId, token));
   }, [dispatch, token, profileId]);
 
-
   const handymanReviews = reviews.filter(
     (review) => review.handyman_id === profileId
   );
-
-
+  console.log(handymanReviews);
   const reviewsList = handymanReviews.map((review) => (
     <ReviewCard key={review.id} review={review} />
   ));
-  
+
   return (
     <div className="review-container">
       <div className="top-review-header">
