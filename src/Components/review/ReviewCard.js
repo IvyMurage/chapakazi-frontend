@@ -7,7 +7,7 @@ import "./Review.css";
 import { useDispatch } from "react-redux";
 import { removeReview } from "./ReviewSlice";
 
-function ReviewCard() {
+function ReviewCard({ review }) {
   const dispatch = useDispatch();
   const token = localStorage.getItem("customer");
   function handleDelete(reviewId) {
@@ -21,16 +21,11 @@ function ReviewCard() {
           id="trash-can"
           onClick={() => handleDelete()}
         />
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis
-          doloribus necessitatibus eligendi placeat aliquam, eaque quae laborum
-          veritatis magni assumenda, nemo, corrupti atque! Quod ut recusandae
-          libero et, neque deleniti!
-        </p>
+        <p>{review.comment}</p>
         <div className="dislike-like">
           <FontAwesomeIcon icon={faThumbsUp} id="thumbs-up" />
           <FontAwesomeIcon icon={faThumbsDown} id="thumbs-down" />
-          <span>0</span>
+          <span>{review.votes}</span>
         </div>
       </div>
     </>

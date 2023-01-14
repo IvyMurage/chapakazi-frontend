@@ -1,26 +1,46 @@
 import { faHeart, faMessage, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReviewContainer from "../review/ReviewContainer";
-import CustomerHeader from "../CustomerHeader/CustomerHeader"
-// import ReviewForm from "../review/ReviewForm";
+import CustomerHeader from "../CustomerHeader/CustomerHeader";
 import "./HandymanPage.css";
 
 function HandymanPage() {
-  
+  const profileId = JSON.parse(localStorage.getItem("profileId"));
+  console.log(profileId);
+  const [profile, setProfile] = useState({});
+  const [errors, setError] = useState([]);
+  const token = localStorage.getItem("customer");
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const response = await fetch(`handymen/${profileId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        setProfile(data);
+      } else {
+        setError(data.errors);
+      }
+    };
+
+    fetchProfile();
+  }, [profileId, token]);
+
+  console.log(profile);
   return (
-    
     <div className="handymanpage">
-      <CustomerHeader/>
+      <CustomerHeader />
       <div className="top-handyman-section">
         <div className="left-section-handyman">
           <div className="handyman-info">
-            <img
-              src="https://img.freepik.com/free-photo/portrait-smiling-handyman-with-tools-isolated-white_186202-3001.jpg?w=360&t=st=1673266508~exp=1673267108~hmac=b1184e8ab8847276a9a60974dfe9998f884ae42866df0e77e38ab33e82fb6e50"
-              alt="handyman profile"
-            />
-            <h3>John Doe</h3>
-            <p>Speciality</p>
+            <img src={profile.image} alt="handyman profile" />
+            <h3>{profile.username}</h3>
+            <p>{profile.speciality}</p>
             <div className="rating">
               {[...Array(5)].map((index) => {
                 return (
@@ -36,24 +56,11 @@ function HandymanPage() {
         </div>
         <div className="about-info">
           <h3>About</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta
-            reprehenderit saepe unde ut ullam, quas molestias fuga architecto
-            similique. Excepturi quis at quo perferendis quasi dolores itaque ad
-            facilis deserunt.
-          </p>
+          <p>{profile.description}</p>
         </div>
       </div>
 
-      <>
-        <h2 id="speciality-heading">Speciality</h2>
-        <div className="specialities">
-          <h4>Plumbering</h4>
-          <h4>Painting</h4>
-        </div>
-      </>
-
-      <ReviewContainer/>
+      <ReviewContainer profileId={profileId} />
       {/* <ReviewForm/> */}
     </div>
   );

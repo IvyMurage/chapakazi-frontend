@@ -27,7 +27,7 @@ function App() {
         <Route path="/handymanLogin" element={<LoginForm />} />
         <Route path="/customerLogin" element={<CustomerLogin />} />
         <Route path="/handymanProfiles" element={<HandymanContainer />} />
-        <Route path="/handyman/profilepage" element ={<HandymanPage/>}/>
+        <Route path="/profilepage" element ={<HandymanPage/>}/>
         <Route path="/jobs/:page" component={<JobContainer />} />
         <Route path="/jobs/jobprofile/:page" element={<JobPage />} />
       </Routes>
