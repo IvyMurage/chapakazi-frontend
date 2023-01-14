@@ -9,34 +9,38 @@ function Header() {
   const [active, setActive] = useState(false);
   function logout() {
     setActive(true);
-    localStorage.removeItem("customer");
-    localStorage.removeItem("customerInfo");
+    localStorage.removeItem("handyman");
+    localStorage.removeItem("profileId");
     navigate("/handymanLogin");
   }
   return (
     <div className="header">
       <Link to="/">
-      <h2>
-        Chapa <span id="kazi-header"> Kazi </span>
-      </h2>
+        <h2>
+          Chapa <span id="kazi-header"> Kazi </span>
+        </h2>
       </Link>
-     
+
       <nav>
         <ul>
           <Link to="/jobs">
             <li> Find Jobs </li>
           </Link>
-          <li> Find Jobs </li>
-          <li>
-            <FontAwesomeIcon icon={faUser} id="profile" />
-          </li>
+
+          <li> View Reviews </li>
+
+          <Link to="/handymanProfile">
+            <li>
+              <FontAwesomeIcon icon={faUser} id="profile" />
+            </li>
+          </Link>
+
           <li
             className="customer-logout-btn"
             id={active ? "active-btn" : ""}
             onClick={logout}
           >
-            {" "}
-            Log Out{" "}
+            Log Out
           </li>
         </ul>
       </nav>

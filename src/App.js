@@ -12,8 +12,7 @@ import JobPage from "./Components/jobPage/JobPage";
 import LoginForm from "./Components/login/LoginForm";
 import HandymanPage from "./Components/handymanPage/HandymanPage";
 import ResetPassword from "./Components/resetPassword/ResetPassword";
-
-// import MessagePage from "./Components/message/MessagePage";
+import HandymanProfile from "./Components/handymanProfile/HandymanProfile";
 
 function App() {
   return (
@@ -32,7 +31,7 @@ function App() {
         <Route path="/profilepage" element={<HandymanPage />} />
         <Route path="/jobs/:page" component={<JobContainer />} />
         <Route path="/jobs/jobprofile/:page" element={<JobPage />} />
-        {/* <Route path="/profile" element={<CustomerProfile />} /> */}
+        <Route path="/handymanProfile" element={<HandymanProfile />} />
       </Routes>
       {/* <MessagePage /> */}
     </div>

@@ -3,11 +3,11 @@ import { faBriefcaseMedical } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CustomerProfile from "../customerProfile/CustomerProfile";
 import "./CustomerHeader.css";
 
-function CustomerHeader({ setActive, active }) {
+function CustomerHeader() {
 
   const [trigger, setTrigger] = useState(false);
 

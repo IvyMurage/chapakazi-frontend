@@ -61,7 +61,6 @@ function HandymanPage() {
       </div>
 
       <ReviewContainer profileId={profileId} />
-      {/* <ReviewForm/> */}
     </div>
   );
 }

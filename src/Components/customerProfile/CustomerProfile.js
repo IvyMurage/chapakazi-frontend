@@ -9,7 +9,6 @@ function CustomerProfile() {
   const [customer, setCustomer] = useState({});
   const [errors, setErrors] = useState([]);
   const token = localStorage.getItem("customer");
-  const [trigger, setTrigger] = useState(false);
 
   useEffect(() => {
     const fetchCustomer = async () => {
@@ -31,19 +30,20 @@ function CustomerProfile() {
   }, [token, customerId]);
 
   function logout() {
-    setTrigger(false);
     localStorage.removeItem("customer");
     localStorage.removeItem("customerInfo");
     navigate("/customerLogin");
   }
 
-
   return (
     <>
       <div className="customer-profile">
         {errors.length > 0 ? (
-          <div  className="customer-profile"style={{ color: "red", fontSize:"18px", fontWeight: "bold" }}>
-            Log to view profile
+          <div
+            className="customer-profile"
+            style={{ color: "red", fontSize: "18px", fontWeight: "bold" }}
+          >
+            Log in to view profile
           </div>
         ) : null}
         <img src={customer.image} alt={customer.username} />

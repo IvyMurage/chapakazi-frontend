@@ -21,6 +21,7 @@ export const addhandyman = (handyman, navigate) => {
                 payload: data
             })
             localStorage.setItem("handyman", data.jwt)
+        
             navigate('/handymanLogin');
         } else {
             dispatch({

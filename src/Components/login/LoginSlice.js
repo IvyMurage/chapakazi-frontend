@@ -20,6 +20,7 @@ export const addlogin = (login, navigate) => {
         payload: data.handyman,
       });
       localStorage.setItem("handyman", data.token);
+      localStorage.setItem("profileId", data.handyman.id)
       navigate("/jobs");
     } else {
       dispatch({
