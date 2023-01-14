@@ -30,7 +30,13 @@
   border: 5px solid var(--tertiary-color);
   display: block;
   position: relative;
-  left: 25%;
+  left: 28%;
+}
+
+@media only screen and (max-width: 900px) {
+  .handyman-info > img {
+    left: -3%;
+  }
 }
 
 .handyman-info > h3,
