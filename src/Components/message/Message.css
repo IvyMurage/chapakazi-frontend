@@ -22,6 +22,10 @@
     position: relative;
 
 }
+.chat-div{
+    overflow: scroll;
+    height: 92%;
+}
 .sidebar{
     background-color:#0a3971;
     height: 100%;
@@ -43,9 +47,13 @@
 .chat-user{
     display: flex;
     align-items: center;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
     padding-left: 7%;
     cursor: pointer;
+    height: 100px;
+}
+.chat-user:hover{
+    background-color: #122844;
 }
 .user-image{
     border-radius: 50%;
@@ -113,7 +121,7 @@
 }
 .text-message{
     overflow: scroll;
-    max-height: 90%;
+    height: 90%;
 }
 .send-button{
     width: 100px;

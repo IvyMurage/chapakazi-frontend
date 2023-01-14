@@ -8,7 +8,6 @@ function MessageContainer() {
   return (
     <div className="message-container">
       <SideBar/>
-      <MessageForm />
     </div>
   );
 }
