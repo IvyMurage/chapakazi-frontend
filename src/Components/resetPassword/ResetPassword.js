@@ -55,13 +55,13 @@ function ResetPassword() {
               onChange={handleChange}
             />
             {errors.length > 0 ? (
-              <h3 className="login-errors">
+              <h3 className="reset-errors">
                 {errors.find((error) => error.includes("Invalid"))}
               </h3>
             ) : null}
           </div>
         </div>
-        <div className="login-btn">
+        <div className="reset-btn">
           <button> Reset Password</button>
         </div>
   
