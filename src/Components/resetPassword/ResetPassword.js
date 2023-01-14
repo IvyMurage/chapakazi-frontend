@@ -1,43 +1,43 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "./ResetPassword.css";
-import { addlogin } from "./LoginSlice";
+
 
 function ResetPassword() {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
 
-  const [login, setLogin] = useState({
+
+  const [password, setPassword] = useState({
     password: "",
-    password: "",
+    password_confirmation: "",
   });
   const errors = useSelector((state) => state.handymanLogin.errors);
   console.log(errors);
   function handleChange(event) {
     const name = event.target.name;
     const value = event.target.value;
-    setLogin({
-      ...login,
+    setPassword({
+      ...password,
       [name]: value,
     });
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    dispatch(addlogin(login, navigate));
+    
   }
   return (
-    <div className="login-form-container">
-        <h2> Reset Password</h2>
-      <form id="login-form" onSubmit={handleSubmit}>
+    
+
+    <div className="reset-form-container">
+      <form id="reset-form" onSubmit={handleSubmit}>
+        <h2>Reset Password</h2>
         <div className="row">
           <div className="rows">
-            <label> Password </label> <br />
+            <label> Password</label> <br />
             <input
               type="password"
               className="login-input"
-              value={login.password}
+              value={password.password}
               name="password"
               onChange={handleChange}
             />
@@ -50,7 +50,7 @@ function ResetPassword() {
               type="password"
               className="login-input"
               autoComplete="password"
-              value={login.password}
+              value={password.confirn_password}
               name="password"
               onChange={handleChange}
             />
@@ -64,7 +64,8 @@ function ResetPassword() {
         <div className="login-btn">
           <button> Reset Password</button>
         </div>
-        
+  
+          
       </form>
     </div>
   );
