@@ -232,3 +232,40 @@ footer > a {
   float: center;
 }
 
+/* responsive */
+
+@media only screen and (max-width: 900px) {
+
+  .form {
+justify-content: center;
+}
+
+}
+
+.form {
+  background-image: url("/public/images/img1.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 12px;
+
+}
+
+
+.extra{
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+h1 .extra{
+  text-align: center;
+  float: center;
+  padding-left: 30px;
+}
