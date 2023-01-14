@@ -11,7 +11,7 @@ import Myjobs from "./Components/myJobs/MyJob";
 import JobPage from "./Components/jobPage/JobPage";
 import LoginForm from "./Components/login/LoginForm";
 import HandymanPage from "./Components/handymanPage/HandymanPage";
-import CustomerProfile from "./Components/customerProfile/CustomerProfile";
+import ResetPassword from "./Components/resetPassword/ResetPassword";
 
 // import MessagePage from "./Components/message/MessagePage";
 
@@ -25,6 +25,7 @@ function App() {
         <Route path="/jobform" element={<JobForm />} />
         <Route path="/jobs" element={<JobContainer />} />
         <Route path="/myjobs" element={<Myjobs />} />
+        <Route path="/passwordReset" element={<ResetPassword />} />
         <Route path="/handymanLogin" element={<LoginForm />} />
         <Route path="/customerLogin" element={<CustomerLogin />} />
         <Route path="/handymanProfiles" element={<HandymanContainer />} />
