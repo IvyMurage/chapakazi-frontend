@@ -233,13 +233,10 @@ footer > a {
 }
 
 /* responsive */
-
 @media only screen and (max-width: 900px) {
-
-  .form {
-justify-content: center;
-}
-
+    .form {
+  justify-content: center;
+  }
 }
 
 .form {
@@ -254,8 +251,6 @@ justify-content: center;
   padding: 24px 12px;
 
 }
-
-
 .extra{
   overflow: hidden;
   display: flex;
@@ -263,7 +258,6 @@ justify-content: center;
   text-align: center;
   justify-content: center;
 }
-
 h1 .extra{
   text-align: center;
   float: center;
