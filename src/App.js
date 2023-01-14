@@ -11,6 +11,7 @@ import Myjobs from "./Components/myJobs/MyJob";
 import JobPage from "./Components/jobPage/JobPage";
 import LoginForm from "./Components/login/LoginForm";
 import HandymanPage from "./Components/handymanPage/HandymanPage"
+import ResetPassword from "./Components/resetPassword/ResetPassword";
 
 function App() {
   // const [trigger, setTrigger] = useState(false);
