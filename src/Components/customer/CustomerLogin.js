@@ -44,11 +44,11 @@ function CustomerLogin() {
 
       <div className="form">
         <div className="right-container" onSubmit={handleFormSubmit}>
-          <h1>Login</h1>
-          <hr />
+          <h1 className="extra">Login</h1>
+          <hr className="extra" />
           <header>
-            <div className="set">
-              <div className="email">
+            <div className="row-1 setrow">
+              <div className="col-1 setrow">
                 <label>Name</label>
                 <input
                   type="text"
@@ -77,7 +77,7 @@ function CustomerLogin() {
           </header>
 
           <footer>
-            <div className="set">
+            <div className="row-2">
               <button id="next" type="submit" onClick={handleFormSubmit}>
                 Login
               </button>
