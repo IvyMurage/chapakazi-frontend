@@ -1,9 +1,12 @@
 import React from "react";
 import "./Message.css"
+import MessageForm from "./MessageForm";
 // import { Link } from "react-router-dom"
 
 
-function Chat({name, image}){
+function Chat({name, image, clicked, chat}){
+
+    
     return(
         <div>
             {/* <Link to="/"> */}

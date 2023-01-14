@@ -122,6 +122,7 @@
 .text-message{
     overflow: scroll;
     height: 90%;
+    width: 100%;
 }
 .send-button{
     width: 100px;
@@ -139,4 +140,7 @@
     padding: 10px 20px;
     border-radius: 30px;
     color: #F4F4F4;
+}
+.back-button{
+    float: left;
 }
