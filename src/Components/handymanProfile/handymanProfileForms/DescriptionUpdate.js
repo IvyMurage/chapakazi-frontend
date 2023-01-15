@@ -37,7 +37,7 @@ function DescriptionUpdate({ setTriggerDescription }) {
           value={description.description}
           onChange={handleChange}
         />
-        <button> submit change </button>
+        <button className="text-update"> submit change </button>
       </form>
     </div>
   );

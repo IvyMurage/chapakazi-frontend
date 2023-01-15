@@ -33,6 +33,7 @@
 
 .col-1 > input {
   border: none;
+  font-size: 15px;
   outline: none;
   color: var(--secondary-color);
   padding: 10px 15px;

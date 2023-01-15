@@ -10,6 +10,7 @@ import RatingUpdate from "./handymanProfileForms/RatingUpdate";
 import SpecialityUpdate from "./handymanProfileForms/SpecialityUpdate";
 import UsernameUpdate from "./handymanProfileForms/UsernameUpdate";
 import { fetchHandyman } from "./handymanProfileSlice";
+import "./HandymanProfile.css";
 
 function HandymanProfile() {
   const profileId = localStorage.getItem("profileId");
@@ -36,64 +37,87 @@ function HandymanProfile() {
     <>
       <Header />
       <div className="profile-container">
-        <div className="row-1">
+        <div className="row-update">
           <img src={handymanProfile.image} alt="profile pic" />
           <FontAwesomeIcon
             icon={faCamera}
             onClick={() => setTrigger((prev) => !prev)}
+            className="user-update image-profile"
           />
+
           {trigger ? <ImageUpdate setTrigger={setTrigger} /> : null}
         </div>
 
-        <div className="row-1">
-          <h2>{handymanProfile.username}</h2>
-          <FontAwesomeIcon
-            icon={faPen}
-            onClick={() => setTriggerName((prev) => !prev)}
-          />
+        <div className="row-update">
+          <h2>
+            {handymanProfile.username}
+            <FontAwesomeIcon
+              icon={faPen}
+              onClick={() => setTriggerName((prev) => !prev)}
+              className="user-update pen"
+            />
+          </h2>
+
           {triggerName ? (
             <UsernameUpdate setTriggerName={setTriggerName} />
           ) : null}
         </div>
 
-        <div className="row-1">
-          <h3>{handymanProfile.location}</h3>
-          <FontAwesomeIcon
-            icon={faPen}
-            onClick={() => setTriggerLocation((prev) => !prev)}
-          />
+        <div className="row-update">
+          <h3>
+            {handymanProfile.location}
+            <FontAwesomeIcon
+              icon={faPen}
+              onClick={() => setTriggerLocation((prev) => !prev)}
+              className="user-update pen"
+            />
+          </h3>
 
           {triggerLocation ? (
             <LocationUpdate setTriggerLocation={setTriggerLocation} />
           ) : null}
         </div>
 
-        <div className="row-1">
-          <h4>{handymanProfile.speciality}</h4>
-          <FontAwesomeIcon
-            icon={faPen}
-            onClick={() => setTriggerSpeciality((prev) => !prev)}
-          />
+        <div className="row-update">
+          <h4>
+            {handymanProfile.speciality}
+            <FontAwesomeIcon
+              icon={faPen}
+              onClick={() => setTriggerSpeciality((prev) => !prev)}
+              className="user-update pen"
+            />
+          </h4>
+
           {triggerSpeciality ? (
             <SpecialityUpdate setTriggerSpeciality={setTriggerSpeciality} />
           ) : null}
         </div>
-        <div className="row-1">
-          <h4>{handymanProfile.rating}</h4>
-          <FontAwesomeIcon
-            icon={faPen}
-            onClick={() => setTriggerRating((prev) => !prev)}
-          />
+        <div className="row-update">
+          <h4>
+            {handymanProfile.rating}
+            <FontAwesomeIcon
+              icon={faPen}
+              onClick={() => setTriggerRating((prev) => !prev)}
+              className="user-update pen"
+            />
+          </h4>
+
           {triggerRating ? (
             <RatingUpdate setTriggerRating={setTriggerRating} />
           ) : null}
         </div>
-        <div className="row-1">
+        <div className="row-update">
+          <h5>
+            Description
+            <FontAwesomeIcon
+              icon={faPen}
+              onClick={() => setTriggerDescription((prev) => !prev)}
+              className="user-update pen"
+            />
+          </h5>
           <p>{handymanProfile.description}</p>
-          <FontAwesomeIcon
-            icon={faPen}
-            onClick={() => setTriggerDescription((prev) => !prev)}
-          />
+
+          <br />
           {triggerDescription ? (
             <DescriptionUpdate setTriggerDescription={setTriggerDescription} />
           ) : null}

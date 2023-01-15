@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateImage } from "../handymanProfileSlice";
+import "../HandymanProfile.css"
 
 function ImageUpdate({ setTrigger }) {
   const dispatch = useDispatch();
@@ -14,7 +15,6 @@ function ImageUpdate({ setTrigger }) {
     const name = event.target.name;
     const value = event.target.value;
     setImage((prev) => (prev = { [name]: value }));
-    setTrigger(false);
   }
 
   function handleSubmit(event) {
