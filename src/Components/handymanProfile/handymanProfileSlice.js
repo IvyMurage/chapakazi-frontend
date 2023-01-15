@@ -36,14 +36,33 @@ export function updateImage(profileId, token, image) {
     const data = await response.json();
 
     if (response.ok) {
-      console.log(data);
       dispatch({ type: "handymanImage/update", payload: data });
     } else {
       dispatch({ type: "handyman/error", payload: data.errors });
     }
   };
 }
-export function updateUserName(profileId, token) {}
+export function updateUserName(profileId, token, username) {
+  return async function (dispatch) {
+    const response = await fetch(`handymen/${profileId}`, {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "Application/json",
+      },
+      body: JSON.stringify(username),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      console.log(data);
+      dispatch({ type: "handymanUsername/update", payload: data });
+    } else {
+      dispatch({ type: "handyman/error", payload: data.errors });
+    }
+  };
+}
 export function updateLocation(profileId, token) {}
 export function updateSpeciality(profileId, token) {}
 export function updateDescription(profileId, token) {}
@@ -71,6 +90,12 @@ export default function handymanProfileReducer(state = initialState, action) {
       return {
         ...state,
         handyman: { ...state.handyman, image: action.payload.image },
+      };
+
+    case "handymanUsername/update":
+      return {
+        ...state,
+        handyman: { ...state.handyman, username: action.payload.username },
       };
 
     default:

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../header/Header";
 import ImageUpdate from "./handymanProfileForms/ImageUpdate";
+import UsernameUpdate from "./handymanProfileForms/UsernameUpdate";
 import { fetchHandyman } from "./handymanProfileSlice";
 
 function HandymanProfile() {
@@ -15,12 +16,13 @@ function HandymanProfile() {
   );
 
   const [trigger, setTrigger] = useState(false);
+  const [triggerName, setTriggerName] = useState(false);
 
   useEffect(() => {
     dispatch(fetchHandyman(profileId, token));
   }, [profileId, token, dispatch]);
 
-  console.log(handymanProfile);
+//   console.log(handymanProfile);
 
   return (
     <>
@@ -37,8 +39,13 @@ function HandymanProfile() {
 
         <div className="row-1">
           <h2>{handymanProfile.username}</h2>
-          <FontAwesomeIcon icon={faPen} />
+          <FontAwesomeIcon
+            icon={faPen}
+            onClick={() => setTriggerName((prev) => !prev)}
+          />
+          {triggerName ? <UsernameUpdate /> : null}
         </div>
+
         <div className="row-1">
           <h3>{handymanProfile.location}</h3>
           <FontAwesomeIcon icon={faPen} />
