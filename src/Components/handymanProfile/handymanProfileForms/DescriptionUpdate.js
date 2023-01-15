@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateDescription } from "../handymanProfileSlice";
 
-function DescriptionUpdate() {
+function DescriptionUpdate({ setTriggerDescription }) {
   const dispatch = useDispatch();
   const token = localStorage.getItem("handyman");
   const profileId = JSON.parse(localStorage.getItem("profileId"));
@@ -20,17 +20,18 @@ function DescriptionUpdate() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    dispatch(updateDescription(profileId, token, description));
+    dispatch(updateDescription(profileId, token, description, setTriggerDescription));
     setDescription({
       description: "",
     });
+    setTriggerDescription(false);
   }
   return (
     <div className="updateForm">
       <form onSubmit={handleSubmit}>
         <textarea
-         cols="50"
-         rows="4"
+          cols="50"
+          rows="4"
           type="text"
           name="description"
           value={description.description}

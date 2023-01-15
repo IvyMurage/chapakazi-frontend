@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateLocation } from "../handymanProfileSlice";
 
-function LocationUpdate() {
+function LocationUpdate({setTriggerLocation}) {
   const dispatch = useDispatch();
   const token = localStorage.getItem("handyman");
   const profileId = JSON.parse(localStorage.getItem("profileId"));
@@ -20,7 +20,8 @@ function LocationUpdate() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    dispatch(updateLocation(profileId, token, location));
+    dispatch(updateLocation(profileId, token, location, setTriggerLocation));
+    setTriggerLocation(false)
     setLocation({
       location: "",
     });

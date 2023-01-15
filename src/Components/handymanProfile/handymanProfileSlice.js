@@ -22,7 +22,7 @@ export function fetchHandyman(profileId, token) {
   };
 }
 
-export function updateImage(profileId, token, image) {
+export function updateImage(profileId, token, image, setTrigger) {
   return async function (dispatch) {
     const response = await fetch(`handymen/${profileId}`, {
       method: "PATCH",
@@ -37,12 +37,13 @@ export function updateImage(profileId, token, image) {
 
     if (response.ok) {
       dispatch({ type: "handymanImage/update", payload: data });
+      setTrigger(false);
     } else {
       dispatch({ type: "handyman/error", payload: data.errors });
     }
   };
 }
-export function updateUserName(profileId, token, username) {
+export function updateUserName(profileId, token, username, setTriggerName) {
   return async function (dispatch) {
     const response = await fetch(`handymen/${profileId}`, {
       method: "PATCH",
@@ -58,12 +59,13 @@ export function updateUserName(profileId, token, username) {
     if (response.ok) {
       console.log(data);
       dispatch({ type: "handymanUsername/update", payload: data });
+      setTriggerName(false);
     } else {
       dispatch({ type: "handyman/error", payload: data.errors });
     }
   };
 }
-export function updateLocation(profileId, token, location) {
+export function updateLocation(profileId, token, location, setTriggerLocation) {
   return async function (dispatch) {
     const response = await fetch(`handymen/${profileId}`, {
       method: "PATCH",
@@ -79,12 +81,18 @@ export function updateLocation(profileId, token, location) {
     if (response.ok) {
       console.log(data);
       dispatch({ type: "handymanLocation/update", payload: data });
+      setTriggerLocation(false);
     } else {
       dispatch({ type: "handyman/error", payload: data.errors });
     }
   };
 }
-export function updateSpeciality(profileId, token, speciality) {
+export function updateSpeciality(
+  profileId,
+  token,
+  speciality,
+  setTriggerSpeciality
+) {
   return async function (dispatch) {
     const response = await fetch(`handymen/${profileId}`, {
       method: "PATCH",
@@ -98,14 +106,43 @@ export function updateSpeciality(profileId, token, speciality) {
     const data = await response.json();
 
     if (response.ok) {
-      console.log(data);
       dispatch({ type: "handymanSpeciality/update", payload: data });
+      setTriggerSpeciality(false);
     } else {
       dispatch({ type: "handyman/error", payload: data.errors });
     }
   };
 }
-export function updateDescription(profileId, token, description) {
+
+export function updateRating(profileId, token, rating, setTriggerRating) {
+  return async function (dispatch) {
+    const response = await fetch(`handymen/${profileId}`, {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "Application/json",
+      },
+      body: JSON.stringify(rating),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      console.log(data);
+      dispatch({ type: "handymanRating/update", payload: data });
+      setTriggerRating(false); 
+    } else {
+      dispatch({ type: "handyman/error", payload: data.errors });
+    }
+  };
+}
+
+export function updateDescription(
+  profileId,
+  token,
+  description,
+  setTriggerDescription
+) {
   return async function (dispatch) {
     const response = await fetch(`handymen/${profileId}`, {
       method: "PATCH",
@@ -119,8 +156,9 @@ export function updateDescription(profileId, token, description) {
     const data = await response.json();
 
     if (response.ok) {
-      console.log(data);
+      // console.log(data);
       dispatch({ type: "handymanDescription/update", payload: data });
+      setTriggerDescription(false);
     } else {
       dispatch({ type: "handyman/error", payload: data.errors });
     }
@@ -150,6 +188,7 @@ export default function handymanProfileReducer(state = initialState, action) {
       return {
         ...state,
         handyman: { ...state.handyman, username: action.payload.username },
+        errors: [],
       };
 
     case "handymanLocation/update":
@@ -167,7 +206,16 @@ export default function handymanProfileReducer(state = initialState, action) {
     case "handymanDescription/update":
       return {
         ...state,
-        handyman: { ...state.handyman, description: action.payload.description },
+        handyman: {
+          ...state.handyman,
+          description: action.payload.description,
+        },
+      };
+
+    case "handymanRating/update":
+      return {
+        ...state,
+        handyman: { ...state.handyman, rating: action.payload.rating },
       };
 
     case "handyman/error":

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateImage } from "../handymanProfileSlice";
 
-function ImageUpdate() {
+function ImageUpdate({ setTrigger }) {
   const dispatch = useDispatch();
   const token = localStorage.getItem("handyman");
   const profileId = JSON.parse(localStorage.getItem("profileId"));
@@ -14,11 +14,12 @@ function ImageUpdate() {
     const name = event.target.name;
     const value = event.target.value;
     setImage((prev) => (prev = { [name]: value }));
+    setTrigger(false);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    dispatch(updateImage(profileId, token, image));
+    dispatch(updateImage(profileId, token, image, setTrigger));
     setImage({
       image: "",
     });

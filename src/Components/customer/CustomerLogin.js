@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import CustomerHeader from "../CustomerHeader/CustomerHeader";
 import "./Customer.css";
 import { loginCustomer } from "./customerSlice";
 // import { useHistory } from "react-router-dom";
 
 function CustomerLogin() {
-  const [active, setActive] = useState(false);
+  // const [active, setActive] = useState(false);
   const errors = useSelector((state) => state.customers.errors);
   const customerInfo = useSelector((state) => state.customers);
 
@@ -35,13 +34,11 @@ function CustomerLogin() {
       username: "",
       password: "",
     });
-    setActive(true);
+    // setActive(true);
   }
 
   return (
     <>
-      <CustomerHeader active={active} setActive={setActive} />
-
       <div className="form">
         <div className="right-container" onSubmit={handleFormSubmit}>
           <h1>Login</h1>

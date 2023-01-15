@@ -6,6 +6,7 @@ import Header from "../header/Header";
 import DescriptionUpdate from "./handymanProfileForms/DescriptionUpdate";
 import ImageUpdate from "./handymanProfileForms/ImageUpdate";
 import LocationUpdate from "./handymanProfileForms/LocationUpdate";
+import RatingUpdate from "./handymanProfileForms/RatingUpdate";
 import SpecialityUpdate from "./handymanProfileForms/SpecialityUpdate";
 import UsernameUpdate from "./handymanProfileForms/UsernameUpdate";
 import { fetchHandyman } from "./handymanProfileSlice";
@@ -23,6 +24,8 @@ function HandymanProfile() {
   const [triggerLocation, setTriggerLocation] = useState(false);
   const [triggerDescription, setTriggerDescription] = useState(false);
   const [triggerSpeciality, setTriggerSpeciality] = useState(false);
+  const [triggerRating, setTriggerRating] = useState(false);
+
   useEffect(() => {
     dispatch(fetchHandyman(profileId, token));
   }, [profileId, token, dispatch]);
@@ -39,7 +42,7 @@ function HandymanProfile() {
             icon={faCamera}
             onClick={() => setTrigger((prev) => !prev)}
           />
-          {trigger ? <ImageUpdate /> : null}
+          {trigger ? <ImageUpdate setTrigger={setTrigger} /> : null}
         </div>
 
         <div className="row-1">
@@ -48,7 +51,9 @@ function HandymanProfile() {
             icon={faPen}
             onClick={() => setTriggerName((prev) => !prev)}
           />
-          {triggerName ? <UsernameUpdate /> : null}
+          {triggerName ? (
+            <UsernameUpdate setTriggerName={setTriggerName} />
+          ) : null}
         </div>
 
         <div className="row-1">
@@ -58,7 +63,9 @@ function HandymanProfile() {
             onClick={() => setTriggerLocation((prev) => !prev)}
           />
 
-          {triggerLocation ? <LocationUpdate /> : null}
+          {triggerLocation ? (
+            <LocationUpdate setTriggerLocation={setTriggerLocation} />
+          ) : null}
         </div>
 
         <div className="row-1">
@@ -67,11 +74,19 @@ function HandymanProfile() {
             icon={faPen}
             onClick={() => setTriggerSpeciality((prev) => !prev)}
           />
-          {triggerSpeciality ? <SpecialityUpdate /> : null}
+          {triggerSpeciality ? (
+            <SpecialityUpdate setTriggerSpeciality={setTriggerSpeciality} />
+          ) : null}
         </div>
         <div className="row-1">
           <h4>{handymanProfile.rating}</h4>
-          <FontAwesomeIcon icon={faPen} />
+          <FontAwesomeIcon
+            icon={faPen}
+            onClick={() => setTriggerRating((prev) => !prev)}
+          />
+          {triggerRating ? (
+            <RatingUpdate setTriggerRating={setTriggerRating} />
+          ) : null}
         </div>
         <div className="row-1">
           <p>{handymanProfile.description}</p>
@@ -79,7 +94,9 @@ function HandymanProfile() {
             icon={faPen}
             onClick={() => setTriggerDescription((prev) => !prev)}
           />
-          {triggerDescription ? <DescriptionUpdate /> : null}
+          {triggerDescription ? (
+            <DescriptionUpdate setTriggerDescription={setTriggerDescription} />
+          ) : null}
         </div>
       </div>
     </>

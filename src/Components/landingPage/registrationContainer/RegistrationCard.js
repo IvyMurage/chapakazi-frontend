@@ -17,14 +17,14 @@ function RegistrationCard() {
         </Link>
 
         <Link to="/customerSignup">
-        <div className="register-card">
-          <h3>
-            As a <br />
-            Customer
-          </h3>
-        </div>
+          <div className="register-card">
+            <h3>
+              As a <br />
+              Customer
+            </h3>
+          </div>
         </Link>
-       
+        <h3 className="login-btn-land">Already Have a account? Log in</h3>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateSpeciality } from "../handymanProfileSlice";
 
-function SpecialityUpdate() {
+function SpecialityUpdate({setTriggerSpeciality}) {
   const dispatch = useDispatch();
   const token = localStorage.getItem("handyman");
   const profileId = JSON.parse(localStorage.getItem("profileId"));
@@ -20,7 +20,8 @@ function SpecialityUpdate() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    dispatch(updateSpeciality(profileId, token, speciality));
+    dispatch(updateSpeciality(profileId, token, speciality, setTriggerSpeciality));
+    setTriggerSpeciality(false)
     setSpeciality({
       speciality: "",
     });

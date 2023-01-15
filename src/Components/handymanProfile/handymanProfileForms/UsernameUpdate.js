@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateUserName } from "../handymanProfileSlice";
 
-function UsernameUpdate() {
+function UsernameUpdate({ setTriggerName }) {
   const dispatch = useDispatch();
   const token = localStorage.getItem("handyman");
   const profileId = JSON.parse(localStorage.getItem("profileId"));
   const [userName, setUserName] = useState({
     username: "",
   });
+  const errors = useSelector((state) => state.handymanProfile.errors);
 
   function handleChange(event) {
     const name = event.target.name;
@@ -18,7 +19,8 @@ function UsernameUpdate() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    dispatch(updateUserName(profileId, token, userName));
+    dispatch(updateUserName(profileId, token, userName, setTriggerName));
+
     setUserName({
       username: "",
     });
@@ -34,6 +36,9 @@ function UsernameUpdate() {
         />
         <button> submit change </button>
       </form>
+      {errors.length > 0 ? (
+        <span className="errorMessage">{errors.join("/n")}</span>
+      ) : null}
     </div>
   );
 }
