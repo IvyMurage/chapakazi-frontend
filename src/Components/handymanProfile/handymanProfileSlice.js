@@ -63,9 +63,69 @@ export function updateUserName(profileId, token, username) {
     }
   };
 }
-export function updateLocation(profileId, token) {}
-export function updateSpeciality(profileId, token) {}
-export function updateDescription(profileId, token) {}
+export function updateLocation(profileId, token, location) {
+  return async function (dispatch) {
+    const response = await fetch(`handymen/${profileId}`, {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "Application/json",
+      },
+      body: JSON.stringify(location),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      console.log(data);
+      dispatch({ type: "handymanLocation/update", payload: data });
+    } else {
+      dispatch({ type: "handyman/error", payload: data.errors });
+    }
+  };
+}
+export function updateSpeciality(profileId, token, speciality) {
+  return async function (dispatch) {
+    const response = await fetch(`handymen/${profileId}`, {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "Application/json",
+      },
+      body: JSON.stringify(speciality),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      console.log(data);
+      dispatch({ type: "handymanSpeciality/update", payload: data });
+    } else {
+      dispatch({ type: "handyman/error", payload: data.errors });
+    }
+  };
+}
+export function updateDescription(profileId, token, description) {
+  return async function (dispatch) {
+    const response = await fetch(`handymen/${profileId}`, {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "Application/json",
+      },
+      body: JSON.stringify(description),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      console.log(data);
+      dispatch({ type: "handymanDescription/update", payload: data });
+    } else {
+      dispatch({ type: "handyman/error", payload: data.errors });
+    }
+  };
+}
 
 const initialState = {
   handyman: {},
@@ -80,12 +140,6 @@ export default function handymanProfileReducer(state = initialState, action) {
         handyman: action.payload,
       };
 
-    case "handyman/error":
-      return {
-        ...state,
-        errors: action.payload,
-      };
-
     case "handymanImage/update":
       return {
         ...state,
@@ -96,6 +150,30 @@ export default function handymanProfileReducer(state = initialState, action) {
       return {
         ...state,
         handyman: { ...state.handyman, username: action.payload.username },
+      };
+
+    case "handymanLocation/update":
+      return {
+        ...state,
+        handyman: { ...state.handyman, location: action.payload.location },
+      };
+
+    case "handymanSpeciality/update":
+      return {
+        ...state,
+        handyman: { ...state.handyman, speciality: action.payload.speciality },
+      };
+
+    case "handymanDescription/update":
+      return {
+        ...state,
+        handyman: { ...state.handyman, description: action.payload.description },
+      };
+
+    case "handyman/error":
+      return {
+        ...state,
+        errors: action.payload,
       };
 
     default:

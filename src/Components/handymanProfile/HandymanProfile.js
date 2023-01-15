@@ -3,7 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../header/Header";
+import DescriptionUpdate from "./handymanProfileForms/DescriptionUpdate";
 import ImageUpdate from "./handymanProfileForms/ImageUpdate";
+import LocationUpdate from "./handymanProfileForms/LocationUpdate";
+import SpecialityUpdate from "./handymanProfileForms/SpecialityUpdate";
 import UsernameUpdate from "./handymanProfileForms/UsernameUpdate";
 import { fetchHandyman } from "./handymanProfileSlice";
 
@@ -17,12 +20,14 @@ function HandymanProfile() {
 
   const [trigger, setTrigger] = useState(false);
   const [triggerName, setTriggerName] = useState(false);
-
+  const [triggerLocation, setTriggerLocation] = useState(false);
+  const [triggerDescription, setTriggerDescription] = useState(false);
+  const [triggerSpeciality, setTriggerSpeciality] = useState(false);
   useEffect(() => {
     dispatch(fetchHandyman(profileId, token));
   }, [profileId, token, dispatch]);
 
-//   console.log(handymanProfile);
+  //   console.log(handymanProfile);
 
   return (
     <>
@@ -48,12 +53,21 @@ function HandymanProfile() {
 
         <div className="row-1">
           <h3>{handymanProfile.location}</h3>
-          <FontAwesomeIcon icon={faPen} />
+          <FontAwesomeIcon
+            icon={faPen}
+            onClick={() => setTriggerLocation((prev) => !prev)}
+          />
+
+          {triggerLocation ? <LocationUpdate /> : null}
         </div>
 
         <div className="row-1">
           <h4>{handymanProfile.speciality}</h4>
-          <FontAwesomeIcon icon={faPen} />
+          <FontAwesomeIcon
+            icon={faPen}
+            onClick={() => setTriggerSpeciality((prev) => !prev)}
+          />
+          {triggerSpeciality ? <SpecialityUpdate /> : null}
         </div>
         <div className="row-1">
           <h4>{handymanProfile.rating}</h4>
@@ -61,7 +75,11 @@ function HandymanProfile() {
         </div>
         <div className="row-1">
           <p>{handymanProfile.description}</p>
-          <FontAwesomeIcon icon={faPen} />
+          <FontAwesomeIcon
+            icon={faPen}
+            onClick={() => setTriggerDescription((prev) => !prev)}
+          />
+          {triggerDescription ? <DescriptionUpdate /> : null}
         </div>
       </div>
     </>
