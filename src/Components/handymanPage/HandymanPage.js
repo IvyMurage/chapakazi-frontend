@@ -31,7 +31,7 @@ function HandymanPage() {
     fetchProfile();
   }, [profileId, token]);
 
-  // console.log(profile);
+
   return (
     <div className="handymanpage">
       <CustomerHeader />
