@@ -250,6 +250,7 @@ export default function handymanProfileReducer(state = initialState, action) {
       return {
         ...state,
         handyman: { ...state.handyman, rating: action.payload.rating },
+        status: "idle",
       };
 
     case "handyman/error":

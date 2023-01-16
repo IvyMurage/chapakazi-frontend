@@ -2,6 +2,7 @@ import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faBriefcaseMedical } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
 import CustomerProfile from "../customerProfile/CustomerProfile";
@@ -10,6 +11,8 @@ import "./CustomerHeader.css";
 function CustomerHeader() {
 
   const [trigger, setTrigger] = useState(false);
+  const customer = useSelector(state => state.customer.logins)
+  console.log(customer)
 
   return (
     <div className="header">

@@ -14,6 +14,7 @@ import HandymanPage from "./Components/handymanPage/HandymanPage";
 import ResetPassword from "./Components/resetPassword/ResetPassword";
 import HandymanProfile from "./Components/handymanProfile/HandymanProfile";
 import RegistrationCard from "./Components/landingPage/registrationContainer/RegistrationCard";
+import Alert from "./Components/Alert/Alert";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/jobs/jobprofile/:page" element={<JobPage />} />
         <Route path="/handymanProfile" element={<HandymanProfile />} />
         <Route path="/registration/form/page" element={<RegistrationCard />} />
+        <Route path="/handyman/alert" element={<Alert />} />
       </Routes>
       {/* <MessagePage /> */}
     </div>

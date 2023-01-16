@@ -22,7 +22,8 @@ function HandymanForm() {
   });
 
   const errors = useSelector((state) => state.handyman.errors);
-  console.log(errors);
+  const status = useSelector((state) => state.handyman.status);
+
   function handleChange(event) {
     const name = event.target.name;
     const value = event.target.value;
@@ -179,7 +180,6 @@ function HandymanForm() {
           <div className="col-1">
             <label> Image </label> <br />
             <input
-              // type="file"
               type="text"
               className="handyman-input"
               value={handyman.image}
@@ -220,7 +220,7 @@ function HandymanForm() {
           </div>
         </div>
         <div className="handyman-submit-btn">
-          <button> Submit </button>
+          <button> {status === "loading"? "submitting..." : "submit"}</button>
         </div>
         <Link to="/handymanLogin">
           <h2>
@@ -228,6 +228,7 @@ function HandymanForm() {
           </h2>
         </Link>
       </form>
+     
     </div>
   );
 }
