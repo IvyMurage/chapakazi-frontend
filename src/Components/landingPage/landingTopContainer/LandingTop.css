@@ -150,11 +150,11 @@ h2 > #kazi {
 .jobs-descriptions {
   display: flex;
   align-items: center;
+  width: 95%;
+  margin: 0 auto;
 }
 
-.jobs-descriptions > h2 {
-  align-self: flex-start;
-}
+
 
 .jobs-1 {
   padding: 15px;

@@ -7,6 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { Link } from "react-router-dom";
 import LandingHeader from "../../LandingTopHeader/LandingHeader";
 import "./LandingTop.css";
 
@@ -26,7 +27,9 @@ function LandingTop() {
             Chapa <span id="kazi"> Kazi </span> <br />
             Ajira Mkononi
           </h2>
-          <button id="get-started"> Get Started </button>
+          <Link to="/registration/form/page">
+            <button id="get-started"> Get Started </button>
+          </Link>
         </div>
       </div>
       <div className="why-us">
@@ -94,7 +97,7 @@ function LandingTop() {
           </div>
         </div>
       </div>
-      <h2 style={{ color: "", textDecoration: "underline" }}>
+      <h2 style={{ textAlign: "center", textDecoration: "underline" }}>
         Available Popular Servies
       </h2>
       <div className="jobs-descriptions">

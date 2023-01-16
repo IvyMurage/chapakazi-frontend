@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import LandingHeader from "../LandingTopHeader/LandingHeader";
 import "./LoginForm.css";
 import { addlogin } from "./LoginSlice";
 
@@ -28,6 +29,8 @@ function LoginForm() {
     dispatch(addlogin(login, navigate));
   }
   return (
+    <>
+    <LandingHeader/>
     <div className="login-form-container">
       <form id="login-form" onSubmit={handleSubmit}>
         <div className="row">
@@ -70,6 +73,7 @@ function LoginForm() {
         </Link>
       </form>
     </div>
+    </>
   );
 }
 
