@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import "./Handyman.css";
@@ -7,7 +7,7 @@ import { addhandyman } from "./HandymanSlice";
 function HandymanForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const [visible, setVisible] = useState(false);
   const [handyman, setHandyman] = useState({
     username: "",
     email: "",
@@ -46,6 +46,22 @@ function HandymanForm() {
       admin_id: 1,
     });
   }
+
+  useEffect(() => {
+    if (!errors) {
+      setVisible(false);
+      return;
+    }
+
+    setVisible(true);
+    const timer = setInterval(() => {
+      setVisible(false);
+    }, 3000);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, [errors]);
   return (
     <div className="handyman-form-container">
       <form
@@ -63,10 +79,12 @@ function HandymanForm() {
               name="username"
               onChange={handleChange}
             />
-            {errors.length > 0 ? (
-              <h3 className="signup-error">
-                {errors.find((error) => error.includes("Username"))}
-              </h3>
+            {visible ? (
+              errors.length > 0 ? (
+                <h3 className="signup-error">
+                  {errors.find((error) => error.includes("Username"))}
+                </h3>
+              ) : null
             ) : null}
           </div>
           <div className="col-1">
@@ -78,10 +96,12 @@ function HandymanForm() {
               name="email"
               onChange={handleChange}
             />
-            {errors.length > 0 ? (
-              <h3 className="signup-error">
-                {errors.find((error) => error.includes("Email"))}
-              </h3>
+            {visible ? (
+              errors.length > 0 ? (
+                <h3 className="signup-error">
+                  {errors.find((error) => error.includes("Email"))}
+                </h3>
+              ) : null
             ) : null}
           </div>
         </div>
@@ -95,10 +115,12 @@ function HandymanForm() {
               name="location"
               onChange={handleChange}
             />
-              {errors.length > 0 ? (
-              <h3 className="signup-error">
-                {errors.find((error) => error.includes("Location"))}
-              </h3>
+            {visible ? (
+              errors.length > 0 ? (
+                <h3 className="signup-error">
+                  {errors.find((error) => error.includes("Location"))}
+                </h3>
+              ) : null
             ) : null}
           </div>
           <div className="col-1">
@@ -124,10 +146,12 @@ function HandymanForm() {
               name="password"
               onChange={handleChange}
             />
-              {errors.length > 0 ? (
-              <h3 className="signup-error">
-                {errors.find((error) => error.includes("Password"))}
-              </h3>
+            {visible ? (
+              errors.length > 0 ? (
+                <h3 className="signup-error">
+                  {errors.find((error) => error.includes("Password"))}
+                </h3>
+              ) : null
             ) : null}
           </div>
           <div className="col-1">
@@ -140,10 +164,14 @@ function HandymanForm() {
               name="password_confirmation"
               onChange={handleChange}
             />
-              {errors.length > 0 ? (
-              <h3 className="signup-error">
-                {errors.find((error) => error.includes("Password confirmation"))}
-              </h3>
+            {visible ? (
+              errors.length > 0 ? (
+                <h3 className="signup-error">
+                  {errors.find((error) =>
+                    error.includes("Password confirmation")
+                  )}
+                </h3>
+              ) : null
             ) : null}
           </div>
         </div>
@@ -158,10 +186,12 @@ function HandymanForm() {
               name="image"
               onChange={handleChange}
             />
-              {errors.length > 0 ? (
-              <h3 className="signup-error">
-                {errors.find((error) => error.includes("Image"))}
-              </h3>
+            {visible ? (
+              errors.length > 0 ? (
+                <h3 className="signup-error">
+                  {errors.find((error) => error.includes("Image"))}
+                </h3>
+              ) : null
             ) : null}
           </div>
           <div className="col-1">
@@ -194,10 +224,7 @@ function HandymanForm() {
         </div>
         <Link to="/handymanLogin">
           <h2>
-            {" "}
-            Already have an account ? <span className="sign-up">
-              Login
-            </span>{" "}
+            Already have an account ? <span className="sign-up">Login</span>
           </h2>
         </Link>
       </form>

@@ -12,7 +12,7 @@ export default combineReducers({
   handyman: handymanReducer,
   reviews: reviewReducer,
   jobs: jobReducer,
-  handymanLogin: loginReducer,
+  // handymanLogin: loginReducer,
   profiles: profilesReducer,
   handymanProfile: handymanProfileReducer,
 });

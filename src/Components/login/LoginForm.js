@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import LandingHeader from "../LandingTopHeader/LandingHeader";
 import "./LoginForm.css";
-import { addlogin } from "./LoginSlice";
+// import { addlogin } from "./LoginSlice";
+import { addlogin } from "../handyman/HandymanSlice";
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ function LoginForm() {
     username: "",
     password: "",
   });
-  const errors = useSelector((state) => state.handymanLogin.errors);
+  const errors = useSelector((state) => state.handyman.errors);
   console.log(errors);
   function handleChange(event) {
     const name = event.target.name;
@@ -30,49 +31,50 @@ function LoginForm() {
   }
   return (
     <>
-    <LandingHeader/>
-    <div className="login-form-container">
-      <form id="login-form" onSubmit={handleSubmit}>
-        <div className="row">
-          <div className="rows">
-            <label> username </label> <br />
-            <input
-              type="text"
-              className="login-input"
-              value={login.username}
-              name="username"
-              onChange={handleChange}
-            />
+      <LandingHeader />
+      <div className="login-form-container">
+        <form id="login-form" onSubmit={handleSubmit}>
+          <div className="row">
+            <div className="rows">
+              <label> username </label> <br />
+              <input
+                type="text"
+                className="login-input"
+                value={login.username}
+                name="username"
+                onChange={handleChange}
+              />
+            </div>
           </div>
-        </div>
-        <div className="row">
-          <div className="rows">
-            <label> Password </label> <br />
-            <input
-              type="password"
-              className="login-input"
-              autoComplete="password"
-              value={login.password}
-              name="password"
-              onChange={handleChange}
-            />
-            {errors.length > 0 ? (
-              <h3 className="login-errors">
-                {errors.find((error) => error.includes("Invalid"))}
-              </h3>
-            ) : null}
+          <div className="row">
+            <div className="rows">
+              <label> Password </label> <br />
+              <input
+                type="password"
+                className="login-input"
+                autoComplete="password"
+                value={login.password}
+                name="password"
+                onChange={handleChange}
+              />
+              {errors.length > 0 ? (
+                <h3 className="login-errors">
+                  {errors.find((error) => error.includes("Invalid"))}
+                </h3>
+              ) : null}
+            </div>
           </div>
-        </div>
-        <div className="login-btn">
-          <button> Login </button>
-        </div>
-        <Link to="/handymanSignUp">
-          <h2>
-            Do not have an account ? <span className="sign-up"> Sign Up </span>
-          </h2>
-        </Link>
-      </form>
-    </div>
+          <div className="login-btn">
+            <button> Login </button>
+          </div>
+          <Link to="/handymanSignUp">
+            <h2>
+              Do not have an account ?{" "}
+              <span className="sign-up"> Sign Up </span>
+            </h2>
+          </Link>
+        </form>
+      </div>
     </>
   );
 }
