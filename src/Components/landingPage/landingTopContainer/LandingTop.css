@@ -58,3 +58,85 @@ h2 > #kazi {
   background-color: transparent;
   color: var(--secondary-color);
 }
+
+.why-us {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.numbers {
+  padding: 40px;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  color: var(--tertiary-color);
+  font-size: 18px;
+  box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+    12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+    41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+    100px 100px 80px rgba(0, 0, 0, 0.07);
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+.landing-img > img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.landing-2 {
+  display: block;
+  text-align: left;
+  padding: 20px;
+}
+
+.landing-2 > span {
+  display: block;
+  color: var(--tertiary-color);
+  border-left: 4px solid var(--tertiary-color);
+  padding: 10px;
+}
+
+.landing-2 > h2 {
+  text-align: left;
+  font-size: 20px;
+  word-spacing: 20px;
+}
+.landing-1 {
+  padding: 20px;
+}
+
+.landing-3 {
+  color: var(--secondary-color);
+
+  padding: 15px;
+}
+
+.landing-3 > p {
+  font-size: 15px;
+}
+
+.circle {
+  padding: 10px;
+  font-weight: 400;
+}
+
+.circle::before {
+  content: "• ";
+  color: var(--tertiary-color);
+  font-size: 20px;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}

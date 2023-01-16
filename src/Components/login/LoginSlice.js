@@ -3,7 +3,7 @@ export const addlogin = (login, navigate) => {
     dispatch({
       type: "handyman/loading",
     });
-    const response = await fetch("handyman/login", {
+    const response = await fetch("https://chapakazi-server-production.up.railway.app/handyman/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -33,7 +33,7 @@ export const addlogin = (login, navigate) => {
 
 const initialState = {
   loading: false,
-  errors: [],
+  errors: ["hello"],
   handyman: {},
 };
 export default function loginReducer(state = initialState, action) {
@@ -42,6 +42,7 @@ export default function loginReducer(state = initialState, action) {
       return {
         ...state,
         handyman: action.payload,
+        errors:[]
       };
     }
     case "handyman/loading": {

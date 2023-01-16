@@ -10,6 +10,7 @@ function UsernameUpdate({ setTriggerName }) {
     username: "",
   });
   const errors = useSelector((state) => state.handymanProfile.errors);
+  const status = useSelector((state) => state.handymanProfile.status);
 
   function handleChange(event) {
     const name = event.target.name;
@@ -34,7 +35,7 @@ function UsernameUpdate({ setTriggerName }) {
           value={userName.username}
           onChange={handleChange}
         />
-        <button> submit change </button>
+        <button> {status === "loading" ? "submitting..." : "submit change"}  </button>
       </form>
       {errors.length > 0 ? (
         <span className="errorMessage">{errors.join("/n")}</span>

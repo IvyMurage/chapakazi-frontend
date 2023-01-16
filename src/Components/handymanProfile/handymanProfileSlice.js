@@ -1,10 +1,14 @@
 export function fetchHandyman(profileId, token) {
   return async function (dispatch) {
-    const response = await fetch(`handymen/${profileId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    dispatch({ type: "handyman/loading" });
+    const response = await fetch(
+      `https://chapakazi-server-production.up.railway.app/handymen/${profileId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
     const data = await response.json();
 
@@ -24,14 +28,18 @@ export function fetchHandyman(profileId, token) {
 
 export function updateImage(profileId, token, image, setTrigger) {
   return async function (dispatch) {
-    const response = await fetch(`handymen/${profileId}`, {
-      method: "PATCH",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "Application/json",
-      },
-      body: JSON.stringify(image),
-    });
+    dispatch({ type: "handyman/loading" });
+    const response = await fetch(
+      `https://chapakazi-server-production.up.railway.app/handymen/${profileId}`,
+      {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "Application/json",
+        },
+        body: JSON.stringify(image),
+      }
+    );
 
     const data = await response.json();
 
@@ -45,14 +53,18 @@ export function updateImage(profileId, token, image, setTrigger) {
 }
 export function updateUserName(profileId, token, username, setTriggerName) {
   return async function (dispatch) {
-    const response = await fetch(`handymen/${profileId}`, {
-      method: "PATCH",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "Application/json",
-      },
-      body: JSON.stringify(username),
-    });
+    dispatch({ type: "handyman/loading" });
+    const response = await fetch(
+      `https://chapakazi-server-production.up.railway.app/handymen/${profileId}`,
+      {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "Application/json",
+        },
+        body: JSON.stringify(username),
+      }
+    );
 
     const data = await response.json();
 
@@ -67,14 +79,17 @@ export function updateUserName(profileId, token, username, setTriggerName) {
 }
 export function updateLocation(profileId, token, location, setTriggerLocation) {
   return async function (dispatch) {
-    const response = await fetch(`handymen/${profileId}`, {
-      method: "PATCH",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "Application/json",
-      },
-      body: JSON.stringify(location),
-    });
+    const response = await fetch(
+      `https://chapakazi-server-production.up.railway.app/handymen/${profileId}`,
+      {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "Application/json",
+        },
+        body: JSON.stringify(location),
+      }
+    );
 
     const data = await response.json();
 
@@ -94,14 +109,17 @@ export function updateSpeciality(
   setTriggerSpeciality
 ) {
   return async function (dispatch) {
-    const response = await fetch(`handymen/${profileId}`, {
-      method: "PATCH",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "Application/json",
-      },
-      body: JSON.stringify(speciality),
-    });
+    const response = await fetch(
+      `https://chapakazi-server-production.up.railway.app/handymen/${profileId}`,
+      {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "Application/json",
+        },
+        body: JSON.stringify(speciality),
+      }
+    );
 
     const data = await response.json();
 
@@ -116,21 +134,24 @@ export function updateSpeciality(
 
 export function updateRating(profileId, token, rating, setTriggerRating) {
   return async function (dispatch) {
-    const response = await fetch(`handymen/${profileId}`, {
-      method: "PATCH",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "Application/json",
-      },
-      body: JSON.stringify(rating),
-    });
+    const response = await fetch(
+      `https://chapakazi-server-production.up.railway.app/handymen/${profileId}`,
+      {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "Application/json",
+        },
+        body: JSON.stringify(rating),
+      }
+    );
 
     const data = await response.json();
 
     if (response.ok) {
       console.log(data);
       dispatch({ type: "handymanRating/update", payload: data });
-      setTriggerRating(false); 
+      setTriggerRating(false);
     } else {
       dispatch({ type: "handyman/error", payload: data.errors });
     }
@@ -144,14 +165,17 @@ export function updateDescription(
   setTriggerDescription
 ) {
   return async function (dispatch) {
-    const response = await fetch(`handymen/${profileId}`, {
-      method: "PATCH",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "Application/json",
-      },
-      body: JSON.stringify(description),
-    });
+    const response = await fetch(
+      `https://chapakazi-server-production.up.railway.app/handymen/${profileId}`,
+      {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "Application/json",
+        },
+        body: JSON.stringify(description),
+      }
+    );
 
     const data = await response.json();
 
@@ -168,26 +192,36 @@ export function updateDescription(
 const initialState = {
   handyman: {},
   errors: [],
+  status: "idle",
 };
 
 export default function handymanProfileReducer(state = initialState, action) {
   switch (action.type) {
+    case "handyman/loading": {
+      return {
+        ...state,
+        status: "loading",
+      };
+    }
     case "handyman/loaded":
       return {
         ...state,
         handyman: action.payload,
+        status: "idle",
       };
 
     case "handymanImage/update":
       return {
         ...state,
         handyman: { ...state.handyman, image: action.payload.image },
+        status: "loading",
       };
 
     case "handymanUsername/update":
       return {
         ...state,
         handyman: { ...state.handyman, username: action.payload.username },
+        status: "loading",
         errors: [],
       };
 

@@ -4,6 +4,7 @@ import HandymanTop from "./HandymanTop";
 import HandyManSideBar from "./HandyManSideBar";
 import HandymanCards from "./HandymanCards";
 import CustomerHeader from "../../CustomerHeader/CustomerHeader";
+import Footer from "../../Footer/Footer";
 
 function HandymanContainer() {
   const [handymanSearch, setHanydmanSearch] = useState("");
@@ -26,6 +27,7 @@ function HandymanContainer() {
           <HandymanCards handymanSearch={handymanSearch} />
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

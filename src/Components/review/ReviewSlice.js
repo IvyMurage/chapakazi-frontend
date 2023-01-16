@@ -3,14 +3,17 @@ export const addReview = (review, token, setTrigger) => {
     dispatch({
       type: "review/loading",
     });
-    const response = await fetch("reviews", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(review),
-    });
+    const response = await fetch(
+      "https://chapakazi-server-production.up.railway.app/reviews",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(review),
+      }
+    );
 
     const data = await response.json();
 
@@ -32,10 +35,13 @@ export const addReview = (review, token, setTrigger) => {
 
 export const removeReview = (id, token) => {
   return async function (dispatch) {
-    const response = await fetch(`reviews/${id}`, {
-      method: "DELETE",
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    const response = await fetch(
+      `https://chapakazi-server-production.up.railway.app/reviews/${id}`,
+      {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
 
     if (response.ok) {
       dispatch({
@@ -48,17 +54,20 @@ export const removeReview = (id, token) => {
 
 export const downVoteReview = (id, token, votes) => {
   return async function (dispatch) {
-    const response = await fetch(`reviews/${id}/dislike`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const response = await fetch(
+      `https://chapakazi-server-production.up.railway.app/reviews/${id}/dislike`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
     const data = await response.json();
     if (response.ok) {
-    //   console.log(data);
+      //   console.log(data);
       dispatch({
         type: "reviews/downvote",
         payload: data,
@@ -68,16 +77,18 @@ export const downVoteReview = (id, token, votes) => {
 };
 
 export const upVoteReview = (id, token, votes) => {
-    console.log(id)
+  console.log(id);
   return async function (dispatch) {
-    const response = await fetch(`/reviews/${id}/like`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-
-    });
+    const response = await fetch(
+      `https://chapakazi-server-production.up.railway.app/reviews/${id}/like`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
     const data = await response.json();
 
@@ -90,20 +101,22 @@ export const upVoteReview = (id, token, votes) => {
       });
     }
   };
-
 };
 
-export const fetchReviews = (profileId, token) => {
+export const fetchReviews = (token) => {
   return async function (dispatch) {
     dispatch({
       type: "reviews/loading",
     });
 
-    const response = await fetch("reviews", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const response = await fetch(
+      "https://chapakazi-server-production.up.railway.app/reviews",
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
     const data = await response.json();
 
@@ -170,7 +183,7 @@ export default function reviewReducer(state = initialState, action) {
           if (review.id === action.payload.id) {
             return {
               ...review,
-              votes:   review.votes ? action.payload.votes : 1,
+              votes: review.votes ? action.payload.votes : 1,
             };
           } else {
             return review;

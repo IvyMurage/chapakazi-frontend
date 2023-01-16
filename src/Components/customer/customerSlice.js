@@ -3,13 +3,16 @@ export function signupCustomer(customer, navigate) {
     dispatch({
       type: "customer/loading",
     });
-    const response = await fetch("customers", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(customer),
-    });
+    const response = await fetch(
+      "https://chapakazi-server-production.up.railway.app/customers",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(customer),
+      }
+    );
     const data = await response.json();
 
     if (response.ok) {
@@ -34,13 +37,16 @@ export function loginCustomer(customer, navigate) {
       type: "customer/loading",
     });
 
-    const response = await fetch("customer/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "Application/json",
-      },
-      body: JSON.stringify(customer),
-    });
+    const response = await fetch(
+      "https://chapakazi-server-production.up.railway.app/customer/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "Application/json",
+        },
+        body: JSON.stringify(customer),
+      }
+    );
 
     const data = await response.json();
     console.log("This is the data", data);
@@ -51,8 +57,8 @@ export function loginCustomer(customer, navigate) {
         payload: data.customer,
       });
 
-     localStorage.setItem("customer", data.jwt);
-     localStorage.setItem("customerInfo", data.customer.id);
+      localStorage.setItem("customer", data.jwt);
+      localStorage.setItem("customerInfo", data.customer.id);
       navigate("/handymanProfiles");
     } else {
       dispatch({
@@ -83,7 +89,7 @@ export default function customerReducer(state = initialState, action) {
         ...state,
         logins: action.payload,
         status: "idle",
-        errors:[]
+        errors: [],
       };
     case "customer/loading":
       return {
@@ -94,6 +100,7 @@ export default function customerReducer(state = initialState, action) {
       return {
         ...state,
         errors: action.payload.errors,
+        status: "idle",
       };
 
     default:

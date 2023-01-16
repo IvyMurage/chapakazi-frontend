@@ -3,14 +3,17 @@ export const addJob = (job, token, navigate) => {
     dispatch({
       type: "job/loading",
     });
-    const response = await fetch("jobs", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "Application/json",
-      },
-      body: JSON.stringify(job),
-    });
+    const response = await fetch(
+      "https://chapakazi-server-production.up.railway.app/jobs",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "Application/json",
+        },
+        body: JSON.stringify(job),
+      }
+    );
 
     const data = await response.json();
 
@@ -32,12 +35,15 @@ export const addJob = (job, token, navigate) => {
 
 export const removeJobs = (jobId, token) => {
   return async function (dispatch) {
-    const response = await fetch(`/jobs/${jobId}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const response = await fetch(
+      `https://chapakazi-server-production.up.railway.app/jobs/${jobId}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
     if (response.ok) {
       dispatch({
@@ -54,11 +60,14 @@ export const fetchJobs = (token) => {
       type: "job/loading",
     });
 
-    const response = await fetch("jobs", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const response = await fetch(
+      "https://chapakazi-server-production.up.railway.app/jobs",
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
     const jobs = await response.json();
 
@@ -82,11 +91,14 @@ export const fetchJob = (jobId, token, navigate) => {
       type: "job/loading",
     });
 
-    const response = await fetch(`/jobs/${jobId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const response = await fetch(
+      `https://chapakazi-server-production.up.railway.app/jobs/${jobId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
 
     const data = await response.json();
 
@@ -96,7 +108,7 @@ export const fetchJob = (jobId, token, navigate) => {
       JSON.stringify(localStorage.setItem("job", JSON.stringify(data)));
       navigate(`/jobs/jobprofile/${jobId}`);
     } else {
-      dispatch({ type: "jobs/error", payload: data.errors});
+      dispatch({ type: "jobs/error", payload: data.errors });
     }
   };
 };
@@ -115,6 +127,7 @@ export default function jobReducer(state = initialState, action) {
         ...state,
         jobs: action.payload,
         status: "idle",
+        error: [],
       };
 
     case "job":

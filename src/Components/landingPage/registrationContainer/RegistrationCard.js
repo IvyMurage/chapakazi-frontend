@@ -24,7 +24,7 @@ function RegistrationCard() {
             </h3>
           </div>
         </Link>
-        <h3 className="login-btn-land">Already Have a account? Log in</h3>
+        <h3 className="login-btn-land">Already Have a account? <span id="login-btn-land">Log in</span> </h3>
       </div>
     </div>
   );

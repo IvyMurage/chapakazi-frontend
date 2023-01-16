@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding:10px;
+  padding: 10px;
 }
 .row-update > img {
   display: block;
@@ -28,25 +28,26 @@
   display: flex;
   justify-content: space-between;
   color: var(--secondary-color);
- align-items: center;
+  align-items: center;
 }
 
 .row-update > h2 {
-    color: var(--tertiary-color);
+  color: var(--tertiary-color);
 }
 
 .row-update > h2,
 .row-update > h3,
-.row-update > h4{
-    border: 1px solid var(--secondary-color);
-    border-radius: 10px;
-    padding: 10px;
+.row-update > h4 {
+  border: 1px solid var(--secondary-color);
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .row-update > p {
   width: 80%;
   color: var(--secondary-color);
-  font-size: 15px;  border: 1px solid var(--secondary-color);
+  font-size: 15px;
+  border: 1px solid var(--secondary-color);
   border-radius: 10px;
   padding: 10px;
 }
@@ -61,12 +62,12 @@
   display: inline;
 }
 
-
 .updateForm > form > input {
   border: none;
   border-radius: 5px 0px 0px 5px;
   padding: 5px 30px;
   width: 40%;
+  outline: none;
 }
 
 .updateForm > form > button {
@@ -79,10 +80,8 @@
   color: var(--primary-color);
 }
 
-
 .updateForm > form {
   width: 100%;
-
 }
 .updateForm {
   width: 100%;
@@ -91,6 +90,6 @@
 }
 
 .text-update {
-    display: block;
-    border-radius: 10px;
+  display: block;
+  border-radius: 10px;
 }

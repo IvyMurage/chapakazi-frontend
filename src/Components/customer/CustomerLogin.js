@@ -9,6 +9,7 @@ function CustomerLogin() {
   // const [active, setActive] = useState(false);
   const errors = useSelector((state) => state.customers.errors);
   const customerInfo = useSelector((state) => state.customers);
+  const status = useSelector((state) => state.customers.status);
 
   console.log(customerInfo);
 
@@ -76,13 +77,12 @@ function CustomerLogin() {
           <footer>
             <div className="set">
               <button id="next" type="submit" onClick={handleFormSubmit}>
-                Login
+                {status === "loading" ? "Logging in ..." : "Login"}
               </button>
             </div>
             <Link to="/customerSignup">
               <h2 id="login-btn">
-                Do not have an account ?{" "}
-                <span className="sign-up">Sign Up</span>
+                Do not have an account ?<span className="sign-up">Sign Up</span>
               </h2>
             </Link>
           </footer>
