@@ -19,7 +19,7 @@ function HandymanProfile() {
   const handymanProfile = useSelector(
     (state) => state.handymanProfile.handyman
   );
-
+  const status = useSelector((state) => state.handymanProfile.status);
   const [trigger, setTrigger] = useState(false);
   const [triggerName, setTriggerName] = useState(false);
   const [triggerLocation, setTriggerLocation] = useState(false);
@@ -32,10 +32,13 @@ function HandymanProfile() {
   }, [profileId, token, dispatch]);
 
   //   console.log(handymanProfile);
-
+  if (status === "loading") {
+    return <h2 style={{ fontSize: "30px" }}>Loading...</h2>;
+  }
   return (
     <>
       <Header />
+
       <div className="profile-container">
         <div className="row-update">
           <img src={handymanProfile.image} alt="profile pic" />

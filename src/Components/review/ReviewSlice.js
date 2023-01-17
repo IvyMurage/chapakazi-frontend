@@ -152,6 +152,7 @@ export default function reviewReducer(state = initialState, action) {
       return {
         ...state,
         reviews: [...state.reviews, action.payload],
+        status: "idle"
       };
 
     case "reviews/loaded":
@@ -201,6 +202,7 @@ export default function reviewReducer(state = initialState, action) {
       return {
         ...state,
         errors: action.payload,
+        status: "idle"
       };
 
     default:

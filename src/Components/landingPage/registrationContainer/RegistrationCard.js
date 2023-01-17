@@ -6,7 +6,7 @@ import "./RegistrationCard.css";
 function RegistrationCard() {
   return (
     <>
-      <LandingHeader />
+    <LandingHeader />
       <div className="registration-card">
         <h2 id="join-intro"> Join Us Now </h2>
         <div id="bottom-container">

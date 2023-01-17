@@ -71,7 +71,6 @@ export function loginCustomer(customer, navigate) {
 
 const initialState = {
   customer: {},
-  logins: {},
   errors: [],
   status: "idle",
 };
@@ -87,7 +86,7 @@ export default function customerReducer(state = initialState, action) {
     case "customer/login":
       return {
         ...state,
-        logins: action.payload,
+        customer: action.payload,
         status: "idle",
         errors: [],
       };

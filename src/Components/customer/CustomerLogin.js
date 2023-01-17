@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import Header from "../header/Header";
 import "./Customer.css";
 import { loginCustomer } from "./customerSlice";
-// import { useHistory } from "react-router-dom";
 
 function CustomerLogin() {
-  // const [active, setActive] = useState(false);
   const errors = useSelector((state) => state.customers.errors);
   const customerInfo = useSelector((state) => state.customers);
   const status = useSelector((state) => state.customers.status);
@@ -18,6 +17,7 @@ function CustomerLogin() {
     username: "",
     password: "",
   });
+  const [isVisible, setIsVisible] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -35,11 +35,25 @@ function CustomerLogin() {
       username: "",
       password: "",
     });
-    // setActive(true);
   }
+  useEffect(() => {
+    if (!errors) {
+      setIsVisible(false);
+    }
+
+    setIsVisible(true);
+    const timer = setInterval(() => {
+      setIsVisible(false);
+    }, 3000);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, [errors]);
 
   return (
     <>
+    {/* <Header/> */}
       <div className="form">
         <div className="right-container" onSubmit={handleFormSubmit}>
           <h1>Login</h1>
@@ -65,12 +79,14 @@ function CustomerLogin() {
               </div>
             </div>
 
-            {errors.length > 0 ? (
-              <h2 id="login-error">
-                {errors.find((error) =>
-                  error.includes("Invalid username or password")
-                )}
-              </h2>
+            {isVisible ? (
+              errors.length > 0 ? (
+                <h2 id="login-error">
+                  {errors.find((error) =>
+                    error.includes("Invalid username or password")
+                  )}
+                </h2>
+              ) : null
             ) : null}
           </header>
 

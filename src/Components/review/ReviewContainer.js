@@ -4,10 +4,12 @@ import "./Review.css";
 import ReviewCard from "./ReviewCard";
 import ReviewForm from "./ReviewForm";
 import { fetchReviews } from "./ReviewSlice";
+
 function ReviewContainer({ profileId }) {
   const [trigger, setTrigger] = useState(false);
   const dispatch = useDispatch();
   const token = localStorage.getItem("customer");
+  const customer = localStorage.getItem("customer");
   const reviews = useSelector((state) => state.reviews.reviews);
 
   function handleReviewAdd() {
@@ -15,8 +17,8 @@ function ReviewContainer({ profileId }) {
   }
 
   useEffect(() => {
-    dispatch(fetchReviews(profileId, token));
-  }, [dispatch, token, profileId]);
+    dispatch(fetchReviews(token));
+  }, [dispatch, token]);
 
   const handymanReviews = reviews.filter(
     (review) => review.handyman_id === profileId

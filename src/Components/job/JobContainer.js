@@ -40,12 +40,10 @@ function JobContainer() {
   return (
     <>
       <Header />
-      {status === "loading" ? (
-          <div className="loading">Loading...</div>
-        ) : null}
+      <hr/>
+      {status === "loading" ? <div className="loading">Loading...</div> : null}
       <JobSearchForm handleChange={handleChange} jobSearch={jobSearch} />
       <div className="job-container">
-      
         {jobList}
         <Pagination
           paginate={paginate}
