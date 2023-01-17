@@ -1,6 +1,7 @@
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 
@@ -13,6 +14,9 @@ function Header() {
     localStorage.removeItem("profileId");
     navigate("/handymanLogin");
   }
+
+  const handyman = useSelector(state => state.handyman.handyman)
+  
   return (
     <div className="header">
       <Link to="/">

@@ -34,17 +34,16 @@ function JobContainer() {
   };
   const jobList = currentJobs.map((job) => <JobCard key={job.id} job={job} />);
 
-  if (jobs <= 0) {
-    return <h2> Login in </h2>;
-  }
+  // if (status === "loading") {
+  //   return <h2> Loading... </h2>;
+  // }
   return (
     <>
       <Header />
+      <hr/>
+      {status === "loading" ? <div className="loading">Loading...</div> : null}
       <JobSearchForm handleChange={handleChange} jobSearch={jobSearch} />
       <div className="job-container">
-        {status === "loading" ? (
-          <div className="loading">Loading...</div>
-        ) : null}
         {jobList}
         <Pagination
           paginate={paginate}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import "./Customer.css";
@@ -9,7 +9,8 @@ function CustomerForm() {
   const navigate = useNavigate();
 
   const errors = useSelector((state) => state.customers.errors);
-  const newCustomer = useSelector((state) => state.customers.customer)
+  const newCustomer = useSelector((state) => state.customers.customer);
+  const status = useSelector((state) => state.customers.status);
 
   console.log("This is the sign up info", newCustomer);
 
@@ -29,12 +30,26 @@ function CustomerForm() {
     id: 0,
     admin_id: 1,
   });
+  const [isVisible, setIsVisible] = useState(false);
 
   function handleFormSubmit(e) {
     e.preventDefault();
     dispatch(signupCustomer(formData, navigate));
   }
+  useEffect(() => {
+    if (!errors) {
+      setIsVisible(false);
+    }
+    setIsVisible(true);
 
+    const timer = setInterval(() => {
+      setIsVisible(false);
+    }, 3000);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, [errors]);
   return (
     <div className="form">
       <div className="signup-container">
@@ -52,10 +67,12 @@ function CustomerForm() {
                   onChange={handleInputChange}
                 ></input>
 
-                {errors.length > 0 ? (
-                  <h2 className="signup-errors">
-                    {errors.find((error) => error.includes("Username"))}
-                  </h2>
+                {isVisible ? (
+                  errors.length > 0 ? (
+                    <h2 className="signup-errors">
+                      {errors.find((error) => error.includes("Username"))}
+                    </h2>
+                  ) : null
                 ) : null}
               </div>
 
@@ -63,17 +80,18 @@ function CustomerForm() {
                 <label htmlFor="customer-venue"> Location </label>
                 <input
                   id="customer-venue"
-                  //   placeholder="Location..."
                   name="location"
                   type="text"
                   value={formData.location}
                   onChange={handleInputChange}
                   required
                 ></input>
-                  {errors.length > 0 ? (
-                  <h2 className="signup-errors">
-                    {errors.find((error) => error.includes("Location"))}
-                  </h2>
+                {isVisible ? (
+                  errors.length > 0 ? (
+                    <h2 className="signup-errors">
+                      {errors.find((error) => error.includes("Location"))}
+                    </h2>
+                  ) : null
                 ) : null}
               </div>
             </div>
@@ -82,7 +100,6 @@ function CustomerForm() {
                 <label htmlFor="customer-password"> Password </label>
                 <input
                   className="customer-name"
-                  //   placeholder="Password..."
                   name="password"
                   type="password"
                   autoComplete="current-password"
@@ -90,10 +107,12 @@ function CustomerForm() {
                   onChange={handleInputChange}
                   required
                 ></input>
-                  {errors.length > 0 ? (
-                  <h2 className="signup-errors">
-                    {errors.find((error) => error.includes("Password"))}
-                  </h2>
+                {isVisible ? (
+                  errors.length > 0 ? (
+                    <h2 className="signup-errors">
+                      {errors.find((error) => error.includes("Password"))}
+                    </h2>
+                  ) : null
                 ) : null}
               </div>
 
@@ -101,7 +120,6 @@ function CustomerForm() {
                 <label htmlFor="customer-password">Password Confirmation</label>
                 <input
                   className="customer-name"
-                  //   placeholder="Password..."
                   name="password_confirmation"
                   type="password"
                   autoComplete="current-password"
@@ -109,10 +127,14 @@ function CustomerForm() {
                   onChange={handleInputChange}
                   required
                 ></input>
-                  {errors.length > 0 ? (
-                  <h2 className="signup-errors">
-                    {errors.find((error) => error.includes("Password confirmation"))}
-                  </h2>
+                {isVisible ? (
+                  errors.length > 0 ? (
+                    <h2 className="signup-errors">
+                      {errors.find((error) =>
+                        error.includes("Password confirmation")
+                      )}
+                    </h2>
+                  ) : null
                 ) : null}
               </div>
             </div>
@@ -122,7 +144,6 @@ function CustomerForm() {
                 <label htmlFor="customer-image"> Image </label>
                 <input
                   className="customer-name"
-                  //   placeholder="Image..."
                   name="image"
                   type="text"
                   value={formData.image}
@@ -135,7 +156,7 @@ function CustomerForm() {
           <footer>
             <div className="set">
               <button id="next" type="submit" onClick={handleFormSubmit}>
-                Submit
+                {status === "loading" ? "Sign up ..." : "Submit"}
               </button>
             </div>
 

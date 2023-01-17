@@ -12,7 +12,7 @@ function CustomerProfile() {
 
   useEffect(() => {
     const fetchCustomer = async () => {
-      const response = await fetch(`customers/${customerId}`, {
+      const response = await fetch(`https://chapakazi-server-production.up.railway.app/customers/${customerId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -35,6 +35,10 @@ function CustomerProfile() {
     navigate("/customerLogin");
   }
 
+  function resetPassword(){
+    navigate("resetPassword/form")
+  }
+
   return (
     <>
       <div className="customer-profile">
@@ -53,7 +57,7 @@ function CustomerProfile() {
           <button className="customer-logout-btn" onClick={logout}>
             Log Out
           </button>
-          <button className="customer-reset" onClick={logout}>
+          <button className="customer-reset" onClick={resetPassword}>
             Reset Password
           </button>
           <Link to="/message">

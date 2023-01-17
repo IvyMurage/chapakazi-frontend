@@ -4,7 +4,7 @@ export const fetchProfiles = (token) => {
       type: "profiles/loading",
     });
 
-    const response = await fetch("handymen", {
+    const response = await fetch("https://chapakazi-server-production.up.railway.app/handymen", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

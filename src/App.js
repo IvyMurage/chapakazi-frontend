@@ -13,13 +13,17 @@ import LoginForm from "./Components/login/LoginForm";
 import HandymanPage from "./Components/handymanPage/HandymanPage";
 import ResetPassword from "./Components/resetPassword/ResetPassword";
 import HandymanProfile from "./Components/handymanProfile/HandymanProfile";
-import MessagePage from "./Components/message/MessagePage";
+import RegistrationCard from "./Components/landingPage/registrationContainer/RegistrationCard";
+import Alert from "./Components/Alert/Alert";
+import Footer from "./Components/Footer/Footer";
+
 
 function App() {
+
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<LandingPage /> } />
         <Route path="/handymanSignup" element={<HandymanForm />} />
         <Route path="/customerSignup" element={<CustomerForm />} />
         <Route path="/jobform" element={<JobForm />} />
@@ -32,9 +36,9 @@ function App() {
         <Route path="/profilepage" element={<HandymanPage />} />
         <Route path="/jobs/:page" component={<JobContainer />} />
         <Route path="/jobs/jobprofile/:page" element={<JobPage />} />
-        <Route path="/handymanProfile" element={<HandymanProfile />} /> 
-        <Route path="/messages" element={<MessagePage />} /> 
-      </Routes> 
+        <Route path="/handymanProfile" element={<HandymanProfile />} />
+      </Routes>
+      {/* <MessagePage /> */}
     </div>
   );
 }

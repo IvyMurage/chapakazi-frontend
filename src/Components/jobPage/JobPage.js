@@ -1,3 +1,5 @@
+import { faHeart, faMessage } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import Header from "../header/Header";
 
@@ -20,6 +22,10 @@ function JobPage() {
           <img src={jobInfo.customer.image} alt={jobInfo.customer.username} />
           <h3>{jobInfo.customer.username}</h3>
           <h4>{jobInfo.customer.location}</h4>
+          <div className="call-action" style={{margin: "0 auto"}}>
+              <FontAwesomeIcon icon={faHeart} className="action-icon" />
+              <FontAwesomeIcon icon={faMessage} className=" action-icon" />
+            </div>
         </div>
       </div>
     </>

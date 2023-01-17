@@ -4,7 +4,6 @@ import profilesReducer from "./Components/handyman/handymanProfiles/profilesSlic
 import handymanReducer from "./Components/handyman/HandymanSlice";
 import handymanProfileReducer from "./Components/handymanProfile/handymanProfileSlice";
 import jobReducer from "./Components/job/jobslice";
-import loginReducer from "./Components/login/LoginSlice";
 import reviewReducer from "./Components/review/ReviewSlice";
 
 export default combineReducers({
@@ -12,7 +11,6 @@ export default combineReducers({
   handyman: handymanReducer,
   reviews: reviewReducer,
   jobs: jobReducer,
-  handymanLogin: loginReducer,
   profiles: profilesReducer,
   handymanProfile: handymanProfileReducer,
 });
