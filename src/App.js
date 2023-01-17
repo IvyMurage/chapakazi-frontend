@@ -13,6 +13,7 @@ import LoginForm from "./Components/login/LoginForm";
 import HandymanPage from "./Components/handymanPage/HandymanPage";
 import ResetPassword from "./Components/resetPassword/ResetPassword";
 import HandymanProfile from "./Components/handymanProfile/HandymanProfile";
+import MessagePage from "./Components/message/MessagePage";
 
 function App() {
   return (
@@ -31,9 +32,9 @@ function App() {
         <Route path="/profilepage" element={<HandymanPage />} />
         <Route path="/jobs/:page" component={<JobContainer />} />
         <Route path="/jobs/jobprofile/:page" element={<JobPage />} />
-        <Route path="/handymanProfile" element={<HandymanProfile />} />
-      </Routes>
-      {/* <MessagePage /> */}
+        <Route path="/handymanProfile" element={<HandymanProfile />} /> 
+        <Route path="/messages" element={<MessagePage />} /> 
+      </Routes> 
     </div>
   );
 }

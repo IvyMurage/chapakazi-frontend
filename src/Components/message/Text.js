@@ -1,10 +1,10 @@
 import React from "react";
 
-function Text({own}){
+function Text({message, own}){
     return(
         <div className="text-info">
             <div className={own? "text owner": "text"}>
-                <p className={own? "text-content":"received-content"}>hello john doe</p>
+                <p className={own? "text-content":"received-content"}>message</p>
             </div>
         </div>
     )

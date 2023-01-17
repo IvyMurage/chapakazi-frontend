@@ -6,17 +6,31 @@ import MessageForm from "./MessageForm";
 
 function SideBar(){
 
-    const [friends, setFriends] = useState([])
-    const [chat, setChat] = useState([])
+    // const [texts, setTexts] = useState([])
+    const [customer, setCustomer] = useState([])
     const [clicked, setClicked] = useState(false)
-    // useEffect(()=>{
-    //     fetch("http://localhost:3000/friends")
-    //     .then((r)=>r.json())
-    //     .then((data)=> setFriends(data) ) 
-    // },[])   
-    // console.log(friends)
+    
+    const token = localStorage.getItem("handyman")
+    const id = localStorage.getItem("profileId")
 
+    useEffect(()=>{
+        fetch(`customers/${id}`,{ headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "Application/json",
+          },})
+        .then((r)=>r.json())
+        .then((user)=> setCustomer(user) ) 
+    },[token, id]) 
+    console.log(customer)
+    // useEffect(()=>{
+    //     fetch("messages")
+    //     .then((r)=>r.json())
+    //     .then((data)=> setTexts(data) ) 
+    // },[])   
+    // console.log(texts)
+    console.log(localStorage.getItem("profileId"))
     if(clicked === true){ return(<MessageForm clicked={clicked} setClicked={setClicked}/>)}
+   
 
 
 
@@ -28,10 +42,9 @@ function SideBar(){
                     <h1 className="sidebar-header">CHATS</h1>
                 </div>
                 <div onClick={()=>setClicked(!clicked)} className="chat-div">
-                {friends.map((friend)=>(
-                <Chat name={friend.name} image={friend.picture} chat={friends.chatlog} clicked={clicked}/>
+                     <Chat />
+               
 
-                ))}
                 </div>
             </div>
     )

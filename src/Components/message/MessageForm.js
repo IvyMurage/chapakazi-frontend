@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Message.css";
 import MessageInput from "./MessageInput";
 import Messages from "./Messages";
 
-function MessageForm({clicked, setClicked}) {
+function MessageForm({clicked, setClicked }) {
     // const [message, setMessage] = useState("")
     
   return (
@@ -15,7 +15,7 @@ function MessageForm({clicked, setClicked}) {
       </div>
         <div className="text-message">
           <div>
-          <Messages />
+          <Messages  />
           </div>
         </div>
         <MessageInput/>
