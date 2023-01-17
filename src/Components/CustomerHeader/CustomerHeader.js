@@ -11,8 +11,8 @@ import "./CustomerHeader.css";
 function CustomerHeader() {
 
   const [trigger, setTrigger] = useState(false);
-  const customer = useSelector(state => state.customer.logins)
-  console.log(customer)
+  // const customer = useSelector(state => state.customer.logins)
+  // console.log(customer)
 
   return (
     <div className="header">

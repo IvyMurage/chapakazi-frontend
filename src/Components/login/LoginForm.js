@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import LandingHeader from "../LandingTopHeader/LandingHeader";
 import "./LoginForm.css";
-// import { addlogin } from "./LoginSlice";
 import { addlogin } from "../handyman/HandymanSlice";
-import Alert from "../Alert/Alert";
+import LandingHeader from "../LandingTopHeader/LandingHeader";
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -17,8 +15,9 @@ function LoginForm() {
   });
   const errors = useSelector((state) => state.handyman.errors);
   const status = useSelector((state) => state.handyman.status);
+  const handyman = useSelector((state) => state.handyman);
   const [visible, setVisible] = useState(false);
-  console.log(errors);
+  console.log(handyman);
   function handleChange(event) {
     const name = event.target.name;
     const value = event.target.value;

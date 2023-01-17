@@ -221,3 +221,87 @@
 .option-div > h3 {
   font-size: 20px;
 }
+
+.handy-page-image {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.img-1 {
+  padding: 10px;
+  margin: 0 auto;
+  flex: 1;
+}
+
+.mans {
+  border-radius: 50%;
+  width: 400px;
+  height: 400px;
+  border: 4px solid var(--secondary-color);
+  margin: 0 auto;
+  display: block;
+}
+
+.tools1 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  margin: 10px;
+  top: 10%;
+  left: 60%;
+  border: 2px solid var(--secondary-color);
+  z-index: 1;
+}
+.tools2 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  margin: 10px;
+  top: 35%;
+  left: 55%;
+  border: 2px solid var(--secondary-color);
+}
+
+.tools3 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  display: block;
+  margin: 10px;
+  top: 60%;
+  left: 62%;
+  border: 2px solid var(--secondary-color);
+}
+
+.handy-page-info > h2 {
+  text-align: left;
+  font-size: 30px;
+  word-spacing: 20px;
+  color: var(--tertiary-color);
+}
+
+.handy-page-info {
+  padding: 15px;
+
+  flex: 1;
+  height: 300px;
+}
+
+.handy-page-info > p {
+  font-size: 13px;
+  margin-top: 20px;
+  color:var(--secondary-color)
+}
+
+.handy-page-info > span {
+  background-color: var(--tertiary-color);
+  padding: 5px 40px;
+  margin-top: 40px;
+  display: block;
+  width: fit-content;
+  border-radius: 5px;
+}

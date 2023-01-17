@@ -7,6 +7,9 @@
   background-color: var(--secondary-color);
   margin: 0 auto;
   height: 600px;
+  margin-bottom: 50px;
+  border-radius: 15px;
+  margin-top: 50px;
 }
 
 #login-btn-land {

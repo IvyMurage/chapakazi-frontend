@@ -180,7 +180,6 @@ export function updateDescription(
     const data = await response.json();
 
     if (response.ok) {
-      // console.log(data);
       dispatch({ type: "handymanDescription/update", payload: data });
       setTriggerDescription(false);
     } else {
@@ -257,6 +256,7 @@ export default function handymanProfileReducer(state = initialState, action) {
       return {
         ...state,
         errors: action.payload,
+        status: "idle"
       };
 
     default:
