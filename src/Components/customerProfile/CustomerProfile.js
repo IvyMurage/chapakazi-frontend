@@ -36,7 +36,7 @@ function CustomerProfile() {
   }
 
   function resetPassword(){
-    navigate("resetPassword/form")
+    navigate("/passwordReset/form")
   }
 
   return (

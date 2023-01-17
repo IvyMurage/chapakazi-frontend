@@ -1,6 +1,5 @@
 .job-page {
   display: flex;
-  height: 100vh;
   color: var(--secondary-color);
   align-items:center;
   justify-content: space-around;
@@ -44,7 +43,6 @@
 .job-info {
   flex: 2;
   padding: 40px;
-  height:100vh;
 }
 
 .job-info > h2 {
@@ -63,4 +61,16 @@
   font-size: 15px;
   color: var(--tertiary-color);
   line-height: 2;
+}
+
+.apply-job{
+  border:none;
+  padding:5px 30px;
+  background-color: var(--tertiary-color);
+  font-size: 15px;
+  font-weight: 700;
+  color:var(--primary-color);
+  display:block;
+  cursor: pointer;
+  margin-top: 20px;
 }

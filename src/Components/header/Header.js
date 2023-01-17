@@ -15,8 +15,8 @@ function Header() {
     navigate("/handymanLogin");
   }
 
-  const handyman = useSelector(state => state.handyman.handyman)
-  
+  const handyman = useSelector((state) => state.handyman.handyman);
+
   return (
     <div className="header">
       <Link to="/">
@@ -31,7 +31,9 @@ function Header() {
             <li> Find Jobs </li>
           </Link>
 
-          <li> View Reviews </li>
+          <Link to="/myreviews">
+            <li> View Reviews </li>
+          </Link>
 
           <Link to="/handymanProfile">
             <li>
