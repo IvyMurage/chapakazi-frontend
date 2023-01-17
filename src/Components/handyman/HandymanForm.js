@@ -229,7 +229,6 @@ function HandymanForm() {
           </div>
           <div className="handyman-submit-btn">
             <button>
-              {" "}
               {status === "loading" ? "submitting..." : "submit"}
             </button>
           </div>

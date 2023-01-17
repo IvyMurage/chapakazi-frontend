@@ -21,7 +21,8 @@ export function signupCustomer(customer, navigate) {
         payload: data.customer,
       });
       localStorage.setItem("customer", data.jwt);
-      navigate("/customerLogin");
+      navigate('/handyman/alert');
+      
     } else {
       dispatch({
         type: "customer/error",
@@ -59,6 +60,8 @@ export function loginCustomer(customer, navigate) {
 
       localStorage.setItem("customer", data.jwt);
       localStorage.setItem("customerInfo", data.customer.id);
+      
+
       navigate("/handymanProfiles");
     } else {
       dispatch({
