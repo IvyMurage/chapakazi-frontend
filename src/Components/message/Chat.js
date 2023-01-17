@@ -1,23 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import ChatDetails from "./ChatDetails";
 import "./Message.css"
 // import MessageForm from "./MessageForm";
 // import { Link } from "react-router-dom"
 
 
-function Chat(){
+function Chat({customers}){
 
-    // console.log(handyman)
+    console.log(customers)
+    const [customer, setCustomer] = useState([])
+    const token = localStorage.getItem("handyman")
+
+
+    useEffect(()=>{
+            fetch(`customers`,{ headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "Application/json",
+              },})
+            .then((r)=>r.json())
+            .then((user)=> setCustomer(user) )
+         
+    },[token])
+
+    console.log(customer)
+
+    const data =customers.map((cust)=>{
+        return customer.find(obj=> obj.id === cust)
+    })
+        
+    
+    console.log(data)
     return(
         <div>
-            {/* <Link to="/"> */}
-        <div className="chat-user">
-            <img alt="" className="user-image"  />
-            <div className="users">
-                <span className="user-name">handyman</span>
-            </div>
-        </div>
+       {data.map((dt)=>(
+        <ChatDetails name={dt.username} image={dt.image}  />
+       ))}
        
-        {/* </Link> */}
         
         </div>
         

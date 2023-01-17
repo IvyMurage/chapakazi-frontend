@@ -3,7 +3,7 @@ import "./Message.css";
 import MessageInput from "./MessageInput";
 import Messages from "./Messages";
 
-function MessageForm({clicked, setClicked }) {
+function MessageForm({clicked, setClicked, handyName }) {
     // const [message, setMessage] = useState("")
     
   return (
@@ -11,7 +11,7 @@ function MessageForm({clicked, setClicked }) {
     <div className="chat">
       <div className="chatbar">
         <button onClick={()=>setClicked(!clicked)} className="back-button">back</button>
-        <span className="chat-username">john</span>
+        <span className="chat-username">{handyName}</span>
       </div>
         <div className="text-message">
           <div>
