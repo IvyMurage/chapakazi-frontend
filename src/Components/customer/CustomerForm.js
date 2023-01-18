@@ -52,22 +52,21 @@ function CustomerForm() {
   }, [errors]);
   return (
     <>
-     
       <div className="form">
-      <Link to="/">
-        <h2
-          style={{
-            textAlign: "left",
-            height: "80px",
-            fontSize: "25px",
-            justifySelf: "left",
-            width:"100%"
-          }}
-        >
-          Chapa
-          <span style={{ fontSize: "25px", color: "#feb800" }}>Kazi</span>
-        </h2>
-      </Link>
+        <Link to="/">
+          <h2
+            style={{
+              textAlign: "left",
+              height: "80px",
+              fontSize: "25px",
+              justifySelf: "left",
+              width: "100%"
+            }}
+          >
+            Chapa
+            <span style={{ fontSize: "25px", color: "#feb800" }}>Kazi</span>
+          </h2>
+        </Link>
         <div className="signup-container">
           <div className="right-container" onSubmit={handleFormSubmit}>
             <header>
