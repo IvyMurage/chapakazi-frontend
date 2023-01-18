@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { faTrash, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -29,7 +29,7 @@ function MyJobCard({
   }
 
   console.log("yello", job);
-  const jobHandymenList =jobHandymen.map((jobHandyman) => {
+  const jobHandymenList = jobHandymen.map((jobHandyman) => {
     if (jobHandyman.id === newJobHandymen.id) {
       return newJobHandymen;
     } else {
@@ -47,7 +47,10 @@ function MyJobCard({
           </h5>
           <span>{handyman.speciality}</span>
           <span>
-            {jobHandymenList.find((job) => job.handyman_id === applicantId).status}
+            {
+              jobHandymenList.find((job) => job.handyman_id === applicantId)
+                .status
+            }
           </span>
         </div>
         <span

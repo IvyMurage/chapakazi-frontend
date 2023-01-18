@@ -10,7 +10,7 @@ function JobPage() {
   const [apply, setApply] = useState(false);
   const [jobStatus, setJobStatus] = useState([]);
   const [loading, setLoading] = useState("idle");
-  const [applicationStatus, setApplicationStatus] = useState("");
+  const [applicationStatus, setApplicationStatus] = useState({});
   function applyJob() {
     const fetchjobHandymen = async () => {
       const response = await fetch(
@@ -56,20 +56,13 @@ function JobPage() {
       const data = await response.json();
       if (response.ok) {
         setLoading("idle");
-        console.log(data);
-        setApplicationStatus(
-          data.find((job) => {
-            if (
-              JSON.parse(localStorage.getItem("profileId")) ===
-                job.handyman_id &&
-              jobInfo.id === job.job_id
-            ) {
-              return job;
-            } else {
-              return null;
-            }
-          }).status
+        // console.log(data);
+        const status = data.find(
+          (job) =>
+            JSON.parse(localStorage.getItem("profileId")) === job.handyman_id &&
+            jobInfo.id === job.job_id
         );
+        setApplicationStatus(status);
         setApply(false);
       } else {
         setLoading("idle");
@@ -79,8 +72,9 @@ function JobPage() {
     fetchjobHandymen();
   }, [jobInfo.id]);
 
-  console.log(jobInfo.id);
-  console.log("handyman", JSON.parse(localStorage.getItem("profileId")));
+  // console.log(jobInfo.id);
+  // console.log("handyman", JSON.parse(localStorage.getItem("profileId")));
+  console.log(applicationStatus);
 
   function applicationStatusDisplay() {
     if (applicationStatus === "rejected") {
@@ -92,7 +86,7 @@ function JobPage() {
     }
   }
 
-  console.log(applicationStatus);
+  // console.log(applicationStatus);
   return (
     <>
       <Header />
@@ -112,7 +106,17 @@ function JobPage() {
           </button>
 
           {apply ? (
-            <h3>Your profile is currently under review by the client</h3>
+            <h3
+              style={{
+                marginTop: "20px",
+                backgroundColor: "white",
+                padding: "5px 20px",
+                color: "#0a3971",
+                width: "60%",
+              }}
+            >
+              Your profile is currently under review by the client
+            </h3>
           ) : null}
         </div>
 
