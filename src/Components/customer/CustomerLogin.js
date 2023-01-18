@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+
 import "./Customer.css";
 import { loginCustomer } from "./customerSlice";
 
@@ -52,13 +53,14 @@ function CustomerLogin() {
 
   return (
     <>
+    
+      <div className="form">
       <Link to="/">
-        <h2 style={{ textAlign: "left", height: "80px", fontSize: "25px" }}>
+        <h2 style={{ textAlign: "left", height: "80px", fontSize: "25px"}}>
           Chapa
           <span style={{ fontSize: "25px", color: "#feb800" }}>Kazi</span>
         </h2>
       </Link>
-      <div className="form">
         <div className="right-container" onSubmit={handleFormSubmit}>
           <h1>Login</h1>
           <hr />

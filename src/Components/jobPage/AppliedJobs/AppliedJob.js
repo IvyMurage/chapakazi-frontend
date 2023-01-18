@@ -46,7 +46,7 @@ function AppliedJob() {
     dispatch(fetchHandyman(profileId, token));
   }, [dispatch, token, profileId]);
 
-  const newStatus = jobStatus.filter((job) => job.handyman_id === profileId);
+  const newStatus = jobStatus?.filter((job) => job.handyman_id === profileId);
   console.log(newStatus);
 
   const profile = useSelector((state) => state.handymanProfile.handyman);

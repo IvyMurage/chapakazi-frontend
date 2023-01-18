@@ -52,30 +52,30 @@ function CustomerForm() {
   }, [errors]);
   return (
     <>
-      <div className="form">
-  
-        <div className="signup-container">
-        <Link to="/">
-          <h2
-            style={{
-              textAlign: "left",
-              height: "80px",
-              fontSize: "25px",
      
-            }}
-          >
-            Chapa
-            <span style={{ fontSize: "25px", color: "#feb800" }}>Kazi</span>
-          </h2>
-        </Link>
+      <div className="form">
+      <Link to="/">
+        <h2
+          style={{
+            textAlign: "left",
+            height: "80px",
+            fontSize: "25px",
+            justifySelf: "left",
+            width:"100%"
+          }}
+        >
+          Chapa
+          <span style={{ fontSize: "25px", color: "#feb800" }}>Kazi</span>
+        </h2>
+      </Link>
+        <div className="signup-container">
           <div className="right-container" onSubmit={handleFormSubmit}>
             <header>
-              <div className="set">
+              <div className="row-sigup">
                 <div className="customer-name">
                   <label htmlFor="customer-name"> Name </label>
                   <input
                     className="customer-name"
-                    //   placeholder="Name..."
                     name="username"
                     type="text"
                     value={formData.name}
@@ -91,7 +91,7 @@ function CustomerForm() {
                   ) : null}
                 </div>
 
-                <div className="customer-location">
+                <div className="customer-name">
                   <label htmlFor="customer-venue"> Location </label>
                   <input
                     id="customer-venue"
