@@ -18,8 +18,7 @@
   right: 5%;
   top: 80px;
   position: fixed;
- background-color: var(--secondary-color);
-
+  background-color: var(--secondary-color);
 }
 
 .customer-profile > img {
@@ -62,7 +61,7 @@
   cursor: pointer;
   font-size: 14px;
   font-weight: 600;
-  color:var(--primary-color);
+  color: var(--primary-color);
 }
 .customer-reset {
   padding: 5px 30px;

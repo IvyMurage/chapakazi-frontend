@@ -2,43 +2,29 @@
   background-image: url("/public/images/img1.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  /* padding: 10px; */
   overflow: hidden;
   height: 100vh;
   display: flex;
   align-items: center;
-
-
   justify-content: flex-end;
   padding: 24px 12px;
-  /* background-color:blue; */
-  /* box-shadow: 0 0 6px rgb(0, 0, 0); */
 }
+
 #login-form {
   background-color: var(--primary-color);
   width: 70%;
   border-radius: 0.5rem;
   margin: 0 auto;
   padding: 20px;
-
-
-
   display: grid;
-  /* grid-template-rows: 50% 50%;
-  grid-template-columns: 88px auto; */
   grid-row-gap: 6px;
   width: 70%;
-  /* padding: 12px; */
-  /* font-family: arial, helvetica, sans-serif; */
-  /* color: rgb(255, 255, 255); */
-  /* background-color: blue; */
 }
 
 .row {
   justify-content: center;
   font-weight: 600;
   color: var(--secondary-color);
-  /* margin-left: 250px; */
 }
 .rows > input {
   border: none;
@@ -70,33 +56,32 @@ h2 {
   text-align: center;
   margin-top: 10px;
 }
-.login-errors{
+.login-errors {
   font-size: 12px;
   font-weight: 400;
   color: var(--tertiary-color);
 }
-  @media only screen and (max-width: 900px) {
-      .login-form-container {
+
+.extra {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+h1 .extra {
+  text-align: center;
+  padding-left: 30px;
+}
+#login-form h1 {
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 40px;
+}
+@media only screen and (max-width: 900px) {
+  .login-form-container {
     justify-content: center;
-    }
   }
-  .extra{
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-  }
-  h1 .extra{
-    text-align: center;
-    float: center;
-    padding-left: 30px;
-  }
-  #login-form h1 {
-    float: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-    font-weight: bold;
-    font-size: 40px;
-  }
+}

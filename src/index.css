@@ -12,7 +12,6 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   font-size: 16px;
-  
 }
 
 body {
@@ -21,5 +20,4 @@ body {
 
 html {
   scroll-behavior: smooth;
-  
 }
