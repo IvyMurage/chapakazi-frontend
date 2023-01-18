@@ -2,7 +2,7 @@ import React from "react";
 
 function MyReviewCard({ review }) {
   return (
-    <div>
+    <div className="review-body">
       <p>{review.comment}</p>
     </div>
   );

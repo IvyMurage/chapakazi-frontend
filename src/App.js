@@ -17,6 +17,7 @@ import RegistrationCard from "./Components/landingPage/registrationContainer/Reg
 import Alert from "./Components/Alert/Alert";
 import Footer from "./Components/Footer/Footer";
 import MyReview from "./Components/myReviews/MyReview";
+import AppliedJob from "./Components/jobPage/AppliedJobs/AppliedJob";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route path="/handymanProfile" element={<HandymanProfile />} />
         <Route path="/registration/form/page" element={<RegistrationCard />} />
         <Route path="/handyman/alert" element={<Alert />} />
+        <Route path="/applied/jobs" element={<AppliedJob />} />
       </Routes>
       <Footer />
     </div>

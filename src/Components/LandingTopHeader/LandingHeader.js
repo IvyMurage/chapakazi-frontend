@@ -17,7 +17,7 @@ function LandingHeader() {
           <Link to="/registration/form/page">
             <li className=" landing-login "> login </li>
           </Link>
-          <Link>
+          <Link to="/registration/form/page">
             <li className="landing-signup"> Sign Up </li>
           </Link>
         </ul>

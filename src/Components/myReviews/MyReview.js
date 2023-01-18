@@ -22,10 +22,10 @@ function MyReview() {
     <MyReviewCard key={review.id} review={review} />
   ));
   return (
-    <div>
+    <>
       <Header />
-      {reviewList}
-    </div>
+      <div className="review-container review-handyman">{reviewList}</div>
+    </>
   );
 }
 

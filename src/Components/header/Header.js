@@ -31,6 +31,10 @@ function Header() {
             <li> Find Jobs </li>
           </Link>
 
+          <Link to="/applied/jobs">
+            <li> My Jobs </li>
+          </Link>
+
           <Link to="/myreviews">
             <li> View Reviews </li>
           </Link>
