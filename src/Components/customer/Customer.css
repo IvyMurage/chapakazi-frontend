@@ -14,9 +14,6 @@
 }
 
 .form {
-  /* border:1px solid yellow; */
-  /* align-items: center;
-  display: grid; */
   font-size: 14px;
   font-weight: 400;
   height: calc(100vh);
@@ -29,7 +26,6 @@
   overflow: hidden;
 }
 
-/* form container styling */
 .right-container {
   margin: 0 auto;
   background: #0a3971;
@@ -54,7 +50,6 @@
   align-items: center;
 }
 
-/* input styling */
 .right-container input {
   background: transparent;
   border: none;
@@ -91,7 +86,7 @@
   align-items: center;
   border-radius: 15px;
 }
-/* button */
+
 .right-container > footer > button {
   border: 1px solid rgba(0, 0, 0, 0.2);
   height: 38px;
@@ -202,7 +197,6 @@ footer > a {
   color: var(--secondary-color);
 }
 
-/* responsive */
 @media (max-width: 540px) {
   .form {
     display: flex;
@@ -218,7 +212,6 @@ footer > a {
   }
 }
 
-/* description  */
 .description-container > input {
   width: 100%;
   padding: 50px;
@@ -244,7 +237,7 @@ footer > a {
   align-items: center;
   padding: 10px;
 }
-*/ .col-1 > input {
+.col-1 > input {
   border: none;
   outline: none;
   color: var(--secondary-color);
@@ -290,7 +283,7 @@ footer > a {
   text-align: center;
   justify-content: center;
 }
-h1 .extra {
+ .extra {
   text-align: center;
   float: center;
   padding-left: 30px;
