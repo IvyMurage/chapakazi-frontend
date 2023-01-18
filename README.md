@@ -21,8 +21,22 @@ To run this project, one must have either of the following;
 
 1. The live Heroku link to this repository available on both the project repository **About** and **at the end of this README file.**
 2. Fork and clone this repository and have Visual Studio Code (Windows) or Code (Linux) and run the following commands in the local project directory :<br>
-`Run "npm install" to install the project dependencies.<br>
- Run "npm install react-router-dom@6.4.3" to install a compatible version of react-router-dom.<br>
- Run "npm start" command in the terminal to get the React App running.`
+Clone the repository
+```
+git clone git@github.com:Murage-Ivy/chapakazi-frontend.git
+```
+Install dependancies
+```
+Run "npm install"
+```
+Install Compatible Version of react-router-dom
+```
+npm install react-router-dom@6.4.3
+```
+Run React App
+```
+npm start
+```
 
 ## Live Page
+
