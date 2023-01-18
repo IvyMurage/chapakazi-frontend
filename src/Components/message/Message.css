@@ -23,8 +23,10 @@
 
 }
 .chat-div{
-    overflow: scroll;
+    overflow: auto;
     height: 92%;
+    scrollbar-width: none;
+
 }
 .sidebar{
     background-color:#0a3971;
@@ -43,7 +45,7 @@
 }
 .sidebar-header{
     font-size: 30px;
-}
+} 
 .chat-user{
     display: flex;
     align-items: center;
@@ -120,9 +122,10 @@
     border-radius: 20%;
 }
 .text-message{
-    overflow: scroll;
+    overflow: auto;
     height: 90%;
     width: 100%;
+    scrollbar-width: none;
 }
 .send-button{
     width: 100px;

@@ -29,7 +29,6 @@ function SideBar(){
     },[])   
     console.log(texts)
     console.log(localStorage.getItem("profileId"))
-    if(clicked === true){ return(<MessageForm handyName={handyman.name} clicked={clicked} setClicked={setClicked}/>)}
    
 
     const myText = texts.filter((txt)=>{
@@ -47,9 +46,9 @@ function SideBar(){
                 <div className="sidebar-top">
                     <h1 className="sidebar-header">CHATS</h1>
                 </div>
-                <div onClick={()=>setClicked(!clicked)} className="chat-div">
+                <div className="chat-div">
                     
-                     <Chat customers={customers} />
+                     <Chat myText={myText} customers={customers} setClicked={setClicked} clicked={clicked} />
                
 
                 </div>

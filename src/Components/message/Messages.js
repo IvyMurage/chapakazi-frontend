@@ -1,11 +1,14 @@
 import React from "react";
 import Text from "./Text";
 
-function Messages(){
+function Messages({message, setClicked, clicked}){
     return(
+        
         <div className="text-veiw">
-                <Text />
-                
+            {message.map((msg)=>(
+                <Text message={msg.message} />
+
+             ))}                 
         </div>
     )
 }

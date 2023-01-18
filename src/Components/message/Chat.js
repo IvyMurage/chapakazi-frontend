@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import ChatDetails from "./ChatDetails";
 import "./Message.css"
-// import MessageForm from "./MessageForm";
+import MessageForm from "./MessageForm";
 // import { Link } from "react-router-dom"
 
 
-function Chat({customers}){
+function Chat({customers, clicked, setClicked, myText}){
 
     console.log(customers)
     const [customer, setCustomer] = useState([])
@@ -29,11 +29,15 @@ function Chat({customers}){
     })
         
     
-    console.log(data)
+    console.log(myText)
+
+
+
+
     return(
         <div>
        {data.map((dt)=>(
-        <ChatDetails name={dt.username} image={dt.image}  />
+        <ChatDetails key={dt.id} id={dt.id} myText={myText} name={dt.username} image={dt.image} clicked={clicked} setClicked={setClicked} />
        ))}
        
         
