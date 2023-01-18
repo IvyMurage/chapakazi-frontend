@@ -11,47 +11,62 @@ function Myjobs() {
   const allJobs = useSelector((state) => state.jobs.jobs);
   const [jobApplication, setJobApplication] = useState([]);
   const [handyman, setHandyman] = useState([]);
+  const [newJobHandymen, setNewJobHandymen] = useState({});
 
-  // useEffect(() => {
-  //   const fetchAll = async () => {
-  //     const response = await fetch(
-  //       "https://chapakazi-server-production.up.railway.app/job_handymen",
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${localStorage.getItem("customer")}`,
-  //         },
-  //       }
-  //     );
+  function rejectApplication(reject) {
+    console.log("hello");
+    console.log(reject);
 
-  //     const data = await response.json();
+    const rejectApplication = async () => {
+      const response = await fetch(
+        `https://chapakazi-server-production.up.railway.app/job_handymen/${reject.id}`,
+        {
+          method: "PATCH",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("customer")}`,
+            "Content-Type": "Application/json",
+          },
+          body: JSON.stringify({ status: "rejected" }),
+        }
+      );
 
-  //     if (response.ok) {
-  //       setJobApplication(data);
-  //     }
-  //   };
-  //   fetchAll();
-  // }, []);
+      const data = await response.json();
 
-  // useEffect(() => {
-  //   const fetchHandyman = async () => {
-  //     const response = await fetch(
-  //       `https://chapakazi-server-production.up.railway.app/handymen`,
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${localStorage.getItem("customer")}`,
-  //         },
-  //       }
-  //     );
+      if (response.ok) {
+        console.log(data);
+        setNewJobHandymen(data);
+      }
+    };
 
-  //     const data = await response.json();
+    rejectApplication();
+  }
 
-  //     if (response.ok) {
-  //       setHandyman(data);
-  //     }
-  //   };
-  //   fetchHandyman();
-  // }, []);
+  function acceptApplication(reject) {
+    console.log("hello");
+    console.log(reject);
+    const acceptApplication = async () => {
+      const response = await fetch(
+        `https://chapakazi-server-production.up.railway.app/job_handymen/${reject.id}`,
+        {
+          method: "PATCH",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("customer")}`,
+            "Content-Type": "Application/json",
+          },
+          body: JSON.stringify({ status: "approved" }),
+        }
+      );
 
+      const data = await response.json();
+
+      if (response.ok) {
+        setNewJobHandymen(data);
+      }
+    };
+    acceptApplication();
+  }
+
+  console.log(newJobHandymen);
   console.log(jobApplication);
   const applicants = jobApplication.map((applicant) => applicant.handyman);
   console.log(applicants);
@@ -60,8 +75,16 @@ function Myjobs() {
     dispatch(fetchJobs(localStorage.getItem("customer")));
   }, [dispatch]);
   const myJobs = allJobs.filter((job) => job.customer.id === customerId);
-console.log(myJobs);
-  const myJobList = myJobs.map((job) => <MyJobCard key={job.id} job={job} />);
+  console.log(myJobs);
+  const myJobList = myJobs.map((job) => (
+    <MyJobCard
+      key={job.id}
+      job={job}
+      rejectApplication={rejectApplication}
+      acceptApplication={acceptApplication}
+      newJobHandymen={newJobHandymen}
+    />
+  ));
 
   return (
     <>

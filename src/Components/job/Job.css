@@ -146,10 +146,9 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
-  
+
   padding: 10px;
 }
-
 
 .applicant {
   display: flex;
@@ -161,8 +160,6 @@
   padding: 10px;
   margin: 0 auto;
   margin-top: 20px;
-
-
 }
 
 .applicant > img {
@@ -177,11 +174,11 @@
 }
 
 .applicants-info > h5 > a {
-  color:var(--primary-color);
+  color: var(--primary-color);
   text-decoration: underline;
 }
 
-.accept-btn{
+.accept-btn {
   color: var(--primary-color);
   background-color: var(--tertiary-color);
   padding: 5px 30px;
@@ -190,9 +187,9 @@
   border-radius: 20px;
 }
 
-.reject-btn{
+.reject-btn {
   border-radius: 50%;
   padding: 10px;
   background-color: red;
-  color:var(--secondary-color)
+  color: var(--secondary-color);
 }
