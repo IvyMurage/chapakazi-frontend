@@ -2,7 +2,7 @@
   "name": "chapakazi-frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://chapakazi-server-production.up.railway.app/",
+  "proxy": "http://127.0.0.1:3000/",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-brands-svg-icons": "^6.2.1",

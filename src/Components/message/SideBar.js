@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Chat from "./Chat";
 import "./Message.css";
-import MessageForm from "./MessageForm";
 
 
 function SideBar(){
@@ -31,10 +30,10 @@ function SideBar(){
     console.log(localStorage.getItem("profileId"))
    
 
-    const myText = texts.filter((txt)=>{
+    const myText = texts?.filter((txt)=>{
         return txt.handyman_id = id
     })
-    const customers = [...new Set(texts.map(txt => txt.customer_id))]
+    const customers = [...new Set(texts?.map(txt => txt.customer_id))]
     console.log(myText)
     console.log(customers)
      

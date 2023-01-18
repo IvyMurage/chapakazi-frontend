@@ -17,10 +17,10 @@
 .chat{
     flex: auto;
     background-color: #f4f4f4;
-    height: 100%;
+    height: 100vh;
     width: 50%;
     position: relative;
-
+    
 }
 .chat-div{
     overflow: auto;
@@ -146,4 +146,7 @@
 }
 .back-button{
     float: left;
+}
+.text-veiw{
+    overflow: auto;
 }

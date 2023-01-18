@@ -18,6 +18,8 @@ import Alert from "./Components/Alert/Alert";
 import Footer from "./Components/Footer/Footer";
 import MyReview from "./Components/myReviews/MyReview";
 import AppliedJob from "./Components/jobPage/AppliedJobs/AppliedJob";
+import MessageContainer from "./Components/message/MessageContainer";
+import MessageForm from "./Components/message/MessageForm";
 
 function App() {
   return (
@@ -41,6 +43,8 @@ function App() {
         <Route path="/registration/form/page" element={<RegistrationCard />} />
         <Route path="/handyman/alert" element={<Alert />} />
         <Route path="/applied/jobs" element={<AppliedJob />} />
+        <Route path="/messages" element={<MessageContainer/>} />
+        <Route path="/messages/:id" element={<MessageForm />} />
       </Routes>
       <Footer />
     </div>
