@@ -308,10 +308,6 @@
 @media screen and (max-width: 900px) {
   .page-top {
     display: block;
-    /* align-items:center; */
-    /* margin-left: 90px;
-    margin-bottom: 100px; */
-    /* float:center; */
   }
 
   .page-top .top-image {
@@ -325,9 +321,6 @@
   }
 }
 
-/* handyman form */
-
-/* responsive */
 @media (min-width: 540px) {
   .handyman-signup,
   .row-5 .col-1 #textarea {
@@ -345,7 +338,6 @@ label {
   padding-top: 2px;
 }
 
-/* handyman cards */
 @media (max-width: 900px) {
   .container {
     width: auto;
