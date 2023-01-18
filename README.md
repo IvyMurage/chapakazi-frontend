@@ -19,7 +19,7 @@
 ## Setup
 To run this project, one must have either of the following;
 
-1. The live Heroku link to this repository available on both the project repository **About** and **at the end of this README file.**
+1. The live **Heroku link** to this repository
 2. Fork and clone this repository and have Visual Studio Code (Windows) or Code (Linux) and run the following commands in the local project directory :<br>
 
 Clone the repository
