@@ -294,7 +294,7 @@
 .handy-page-info > p {
   font-size: 13px;
   margin-top: 20px;
-  color:var(--secondary-color)
+  color: var(--secondary-color);
 }
 
 .handy-page-info > span {
@@ -304,4 +304,65 @@
   display: block;
   width: fit-content;
   border-radius: 5px;
+}
+@media screen and (max-width: 900px) {
+  .page-top {
+    display: block;
+    /* align-items:center; */
+    /* margin-left: 90px;
+    margin-bottom: 100px; */
+    /* float:center; */
+  }
+
+  .page-top .top-image {
+    align-items: center;
+    float: center;
+    position: center;
+  }
+
+  .top-header {
+    text-align: left;
+  }
+}
+
+/* handyman form */
+
+/* responsive */
+@media (min-width: 540px) {
+  .handyman-signup,
+  .row-5 .col-1 #textarea {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .handyman-signup .row-5 .col-1 #textarea {
+    width: auto;
+  }
+  #textarea {
+    width: 100%;
+  }
+}
+label {
+  padding-top: 2px;
+}
+
+/* handyman cards */
+@media (max-width: 900px) {
+  .container {
+    width: auto;
+  }
+  .sidebar-card {
+    display: block;
+    width: auto;
+  }
+  .info {
+    display: block;
+  }
+  .info .info-top {
+    display: flex;
+    font-size: auto;
+    text-align: left;
+  }
+  .info .info-top .rating {
+    display: block;
+  }
 }

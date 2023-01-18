@@ -15,21 +15,38 @@ function MyJobCard({
 }) {
   const dispatch = useDispatch();
 
-  const [handymen, setHandymen] = useState(job.handymen);
-  const [jobHandymen, setjobHandymen] = useState(job.job_handymen);
+  const [handymen] = useState(job.handymen);
+  const [jobHandymen] = useState(job.job_handymen);
 
-  const applicantId = JSON.parse(localStorage.getItem("profileId"));
-  const reject = jobHandymen.find(
-    (applicant) => applicant.handyman_id === applicantId
-  );
-  // console.log(applicantId);
+  const handyman_id = Object.keys(jobHandymen).handyman_id;
+  const arrayUniqueByKey = [
+    ...new Map(jobHandymen.map((item) => [item[handyman_id], item])).values(),
+  ];
+
+  const uniqueHandymen = [
+    ...new Map(handymen.map((item) => [item[handyman_id], item])).values(),
+  ];
+
   function handleDelete(jobId) {
     const token = localStorage.getItem("customer");
     dispatch(removeJobs(jobId, token));
   }
 
-  console.log("yello", job);
-  const jobHandymenList = jobHandymen.map((jobHandyman) => {
+  function getAcceptance(handymanId) {
+    const reject = arrayUniqueByKey.find(
+      (jobHandyman) => jobHandyman.handyman_id === handymanId
+    );
+    acceptApplication(reject);
+  }
+
+  function getReject(handymanId) {
+    const reject = arrayUniqueByKey.find(
+      (jobHandyman) => jobHandyman.handyman_id === handymanId
+    );
+    rejectApplication(reject);
+  }
+
+  const jobHandymenList = arrayUniqueByKey.map((jobHandyman) => {
     if (jobHandyman.id === newJobHandymen.id) {
       return newJobHandymen;
     } else {
@@ -37,7 +54,7 @@ function MyJobCard({
     }
   });
 
-  const applicants = handymen.map((handyman, index) => {
+  const applicants = uniqueHandymen.map((handyman, index) => {
     return (
       <div className="applicant" key={index}>
         <img src={handyman.image} alt={handyman.username} className="" />
@@ -48,20 +65,18 @@ function MyJobCard({
           <span>{handyman.speciality}</span>
           <span>
             {
-              jobHandymenList.find((job) => job.handyman_id === applicantId)
-                .status
+              jobHandymenList.find(
+                (jobHandyman) => jobHandyman.handyman_id === handyman.id
+              ).status
             }
           </span>
         </div>
-        <span
-          className="accept-btn"
-          onClick={() => acceptApplication(reject, setHandymen, setjobHandymen)}
-        >
+        <span className="accept-btn" onClick={() => getAcceptance(handyman.id)}>
           Accept
         </span>
         <FontAwesomeIcon
           icon={faX}
-          onClick={() => rejectApplication(reject)}
+          onClick={() => getReject(handyman.id)}
           className="reject-btn"
         />
       </div>

@@ -49,7 +49,6 @@ export function loginCustomer(customer, navigate) {
     );
 
     const data = await response.json();
-    console.log("This is the data", data);
 
     if (response.ok) {
       dispatch({
@@ -87,7 +86,6 @@ export function updatePassword(customerId, password) {
     const data = await response.json();
     if (response.ok) {
       dispatch({ type: "customer/update", payload: data });
-      console.log(data);
     } else {
       dispatch({ type: "customer/error", payload: data });
     }

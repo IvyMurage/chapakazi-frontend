@@ -9,6 +9,10 @@
   font-size: 100px;
 }
 
+.row-signup{
+  border:1px solid red;
+}
+
 .form {
   /* border:1px solid yellow; */
   /* align-items: center;
@@ -16,7 +20,7 @@
   font-size: 14px;
   font-weight: 400;
   height: calc(100vh);
-  justify-items: center;
+
   background-image: url("/public/images/img1.png");
   background-position: center center;
   background-repeat: no-repeat;
@@ -39,22 +43,20 @@
     21px 21px 15.4px rgba(0, 0, 0, 0.074),
     40.9px 40.9px 33.3px rgba(0, 0, 0, 0.063),
     100px 100px 80px rgba(0, 0, 0, 0.046);
+
+
 }
 
-.right-container .set {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px 0;
-  border-radius: 15px;
-}
+.email{
 
-.right-container .set .email {
+  margin: 0 auto;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  margin-left: 240px;
+  align-items: center;
 }
+
 /* input styling */
 .right-container input {
   background: transparent;
@@ -65,18 +67,8 @@
   border-bottom: 2px solid #fff;
 }
 
-/* .right-container .inputs input {
-  background: transparent;
-  border: none;
-  height: 38px;
-  line-height: 100px;
-  padding-left: 5px;
-  border-bottom: 2px solid #fff;
-} */
 .radio-container input {
   width: 100%;
-
-  /* padding: 55px; */
 }
 .right-container header {
   padding: 40px;
@@ -128,19 +120,13 @@
   display: block;
 }
 
-.set button #next {
-  float: center;
-  align-items: center;
-}
-
 .right-container h1 {
   float: center;
   align-items: center;
+  text-align: center;
   color: #fff;
   font-weight: bold;
-  margin-left: 440px;
-  margin-bottom: 5px;
-  margin-top: 20px;
+  font-size: 40px;
 }
 
 .right-container h2 {
@@ -156,6 +142,12 @@
   margin: 0 auto;
 }
 
+.customer-name{
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 .signup-errors {
   position: relative;
   left: -360px;
@@ -163,16 +155,6 @@
   color: var(--tertiary-color);
   font-size: 15px;
   font-weight: 400;
-}
-.customer-name label,
-.customer-location label,
-.customer-description label {
-  display: block;
-  margin-bottom: 5px;
-  color: #fff;
-  font-weight: 400;
-  font-size: 15px;
-  outline: none;
 }
 
 .radio-container {
@@ -217,21 +199,12 @@ footer > a {
     flex-direction: column;
     width: 100%;
   }
-  .signup-container {
-    display: block;
-    width: 100%;
-  }
 
   .right-container {
     width: 100%;
+    display: block;
     display: flex;
     flex-direction: column;
-  }
-
-  .right-container .set {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
   }
 }
 
@@ -241,6 +214,77 @@ footer > a {
   padding: 50px;
   background-color: #fff;
 }
-.right-container h1 {
-  font-size: 40px;
+
+
+@media (min-width: 540px) {
+  label, input, .customer-input{
+    resize: horizontal;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+
+.row-1,
+.row-2,
+.row-3,
+.row-4 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+} */
+
+
+.col-1 > input {
+  border: none;
+  outline: none;
+  color: var(--secondary-color);
+  padding: 10px 15px;
+  background-color: var(--primary-color);
+  border-bottom: 2px solid var(--tertiary-color);
+}
+
+.col-1 > label {
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.setrow{
+  align-items: center;
+  justify-content: center;
+  float: center;
+}
+
+/* responsive */
+@media only screen and (max-width: 900px) {
+    .form {
+  justify-content: center;
+  }
+}
+
+.form {
+  background-image: url("/public/images/img1.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 24px 12px;
+
+}
+.extra{
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+h1 .extra{
+  text-align: center;
+  float: center;
+  padding-left: 30px;
 }

@@ -49,6 +49,7 @@ function LoginForm() {
       <LandingHeader />
       <div className="login-form-container">
         <form id="login-form" onSubmit={handleSubmit}>
+          <h1 className="extra">Login</h1>
           <div className="row">
             <div className="rows">
               <label> username </label> <br />
