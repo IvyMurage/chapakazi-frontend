@@ -1,14 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 
-function MessageInput(){
+function MessageInput({handyid, customerId}){
+
+    const [message, setMessage] = useState("")
+    const token = localStorage.getItem("handyman")
+
+    function handleSubmit(e){
+        e.preventDefault()
+        const data = {
+            customer_id:`${customerId}`,
+            handyman_id:`${handyid}`,
+            message:`${message}`
+        }
+        fetch("/messages",{
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data),
+        }).then((r)=> r.json())
+        .then((info)=> console.log(info))
+    }
+
     return(
         <div className="input">
             <div className="inputdiv">
                 <form>
-                    <input placeholder="Write a message" className="message-input"/>
+                    <input type="text" value={message} onChange={(e)=> setMessage(e.target.value)} placeholder="Write a message" className="message-input"/>
                 </form>
             </div>
-            <button className="send-button">send</button>
+            <button onClick={handleSubmit} className="send-button">send</button>
         </div>
     )
 }

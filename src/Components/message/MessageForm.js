@@ -47,7 +47,7 @@ console.log(name)
 
           </div>
         </div>
-        <MessageInput/>
+        <MessageInput handyid={handyid} customerId={id} />
     </div>
   );
 }
