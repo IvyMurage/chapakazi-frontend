@@ -33,7 +33,14 @@ function MyReview() {
   return (
     <>
       <Header />
-      <div className="review-container review-handyman">{filterReviews()}</div>
+      <div className="review-container review-handyman job-container">
+        {filterReviews()?.length === 0 ? (
+          <div className="no-jobs" >
+            You Have no reviews
+          </div>
+        ) : null}
+        {filterReviews()}
+      </div>
     </>
   );
 }

@@ -91,7 +91,7 @@ function Myjobs() {
       <br />
       <br />
       <div className="job-container">
-        {displayJobs.length === 0 ? (
+        {displayJobs()?.length === 0 ? (
           <div className="no-jobs">No Jobs Added !!</div>
         ) : null}
         {displayJobs()}
