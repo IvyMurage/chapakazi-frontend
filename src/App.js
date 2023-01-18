@@ -16,20 +16,20 @@ import HandymanProfile from "./Components/handymanProfile/HandymanProfile";
 import RegistrationCard from "./Components/landingPage/registrationContainer/RegistrationCard";
 import Alert from "./Components/Alert/Alert";
 import Footer from "./Components/Footer/Footer";
-
+import MyReview from "./Components/myReviews/MyReview";
 
 function App() {
-
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<LandingPage /> } />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/handymanSignup" element={<HandymanForm />} />
         <Route path="/customerSignup" element={<CustomerForm />} />
         <Route path="/jobform" element={<JobForm />} />
         <Route path="/jobs" element={<JobContainer />} />
         <Route path="/myjobs" element={<Myjobs />} />
-        <Route path="/passwordReset" element={<ResetPassword />} />
+        <Route path="myreviews" element={<MyReview />} />
+        <Route path="/passwordReset/form" element={<ResetPassword />} />
         <Route path="/handymanLogin" element={<LoginForm />} />
         <Route path="/customerLogin" element={<CustomerLogin />} />
         <Route path="/handymanProfiles" element={<HandymanContainer />} />

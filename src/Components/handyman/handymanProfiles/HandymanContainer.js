@@ -21,7 +21,7 @@ function HandymanContainer() {
           <h2>
             Chapakazi Services
             <br />
-            The best Home Services
+            The Best Home Services
           </h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo minima

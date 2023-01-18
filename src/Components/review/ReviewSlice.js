@@ -1,4 +1,4 @@
-export const addReview = (review, token, setTrigger) => {
+export const addReview = (review, token, setTrigger, setReviewCount) => {
   return async function (dispatch) {
     dispatch({
       type: "review/loading",
@@ -22,6 +22,7 @@ export const addReview = (review, token, setTrigger) => {
         type: "review/add",
         payload: data,
       });
+      setReviewCount((prev) => prev = prev + 1);
 
       setTrigger((prev) => !prev);
     } else {
@@ -152,7 +153,7 @@ export default function reviewReducer(state = initialState, action) {
       return {
         ...state,
         reviews: [...state.reviews, action.payload],
-        status: "idle"
+        status: "idle",
       };
 
     case "reviews/loaded":
@@ -202,7 +203,7 @@ export default function reviewReducer(state = initialState, action) {
       return {
         ...state,
         errors: action.payload,
-        status: "idle"
+        status: "idle",
       };
 
     default:

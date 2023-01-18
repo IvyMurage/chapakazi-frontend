@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import LandingHeader from "../LandingTopHeader/LandingHeader";
 import "./Handyman.css";
 import { addhandyman } from "./HandymanSlice";
 
@@ -229,7 +228,6 @@ function HandymanForm() {
           </div>
           <div className="handyman-submit-btn">
             <button>
-              {" "}
               {status === "loading" ? "submitting..." : "submit"}
             </button>
           </div>

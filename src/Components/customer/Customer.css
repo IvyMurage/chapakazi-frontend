@@ -10,8 +10,9 @@
 }
 
 .form {
-  align-items: center;
-  display: grid;
+  /* border:1px solid yellow; */
+  /* align-items: center;
+  display: grid; */
   font-size: 14px;
   font-weight: 400;
   height: calc(100vh);
@@ -21,10 +22,12 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  overflow: hidden;
 }
 
 /* form container styling */
 .right-container {
+  margin: 0 auto;
   background: #0a3971;
   display: grid;
   grid-template-areas: "." ".";

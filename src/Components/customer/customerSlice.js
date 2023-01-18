@@ -21,7 +21,7 @@ export function signupCustomer(customer, navigate) {
         payload: data.customer,
       });
       localStorage.setItem("customer", data.jwt);
-      navigate("/customerLogin");
+      navigate("/handyman/alert");
     } else {
       dispatch({
         type: "customer/error",
@@ -59,12 +59,37 @@ export function loginCustomer(customer, navigate) {
 
       localStorage.setItem("customer", data.jwt);
       localStorage.setItem("customerInfo", data.customer.id);
+
       navigate("/handymanProfiles");
     } else {
       dispatch({
         type: "customer/error",
         payload: data,
       });
+    }
+  };
+}
+
+export function updatePassword(customerId, password) {
+  return async function (dispatch) {
+    dispatch({ type: "customer/loading" });
+    const response = await fetch(
+      `https://chapakazi-server-production.up.railway.app/customers/${customerId}`,
+      {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("customer")}`,
+        },
+        body: JSON.stringify(password),
+      }
+    );
+
+    const data = await response.json();
+    if (response.ok) {
+      dispatch({ type: "customer/update", payload: data });
+      console.log(data);
+    } else {
+      dispatch({ type: "customer/error", payload: data });
     }
   };
 }
@@ -95,6 +120,14 @@ export default function customerReducer(state = initialState, action) {
         ...state,
         status: "loading",
       };
+
+    case "customer/update":
+      return {
+        ...state,
+        customer: { ...state.customer },
+        status: "idle",
+      };
+
     case "customer/error":
       return {
         ...state,
