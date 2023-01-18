@@ -3,11 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchHandyman } from "../../handymanProfile/handymanProfileSlice.js";
 import Header from "../../header/Header.js";
-import { fetchJobs } from "../../job/jobslice.js";
 import "./AppliedJob.css";
 
 function AppliedJob() {
-  const jobInfo = JSON.parse(localStorage.getItem("job"));
   const [jobStatus, setJobStatus] = useState([]);
   const [loading, setLoading] = useState("idle");
   const dispatch = useDispatch();
@@ -50,8 +48,7 @@ function AppliedJob() {
   console.log(newStatus);
 
   const profile = useSelector((state) => state.handymanProfile.handyman);
-  const [jobs, setJobs] = useState(profile.jobs);
-
+  console.log(loading);
   const status = useSelector((state) => state.handymanProfile.status);
   const hand = useSelector((state) => state.handymanProfile.status);
   console.log(profile.jobs);
