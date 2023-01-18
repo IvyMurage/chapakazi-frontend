@@ -1,17 +1,11 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
 import "./JobSearchForm.css";
 
-function JobSearchForm() {
-  const [jobSearch, setJobSearch] = useState("");
-  const jobs = useSelector((state) => state.jobs.jobs);
-  function handleChange(event) {
-    const value = event.target.value;
-    setJobSearch(value);
-    jobs.filter((job) => job.includes(jobSearch));
-  }
+function JobSearchForm({ handleChange, jobSearch }) {
+  console.log(jobSearch);
+
   return (
     <div className="jobSearchContainer">
       <form className="job-search-form">

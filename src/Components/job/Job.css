@@ -65,14 +65,22 @@
   color: red;
   font-size: 15px;
   font-weight: 400;
+  width: fit-content;
+  border-radius: 10px;
+  padding: 5px 20px;
+  margin-top: 20px;
 }
 
-.job-errors::after {
-  content: "❗";
+.jobLogin-errors {
+  color: red;
+  font-size: 15px;
+  font-weight: 400;
   background-color: pink;
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  border-radius: 10px;
+  padding: 5px 20px;
+  margin-top: 20px;
+  text-align: center;
 }
 
 .job-card {
@@ -112,10 +120,13 @@
 }
 .job-container {
   border: 1px solid #c9c7c7;
-  width: 85%;
+  width: 100%;
   margin: 0 auto;
   border-radius: 10px;
   background-color: #083975;
+  margin-bottom: 50px;
+  padding: 15px;
+  height: 100%;
 }
 
 .no-jobs {
@@ -124,4 +135,61 @@
   font-weight: bold;
   color: var(--tertiary-color);
   text-align: center;
+}
+
+#job-title {
+  color: var(--primary-color);
+  text-align: left;
+}
+
+.applicants-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+
+  padding: 10px;
+}
+
+.applicant {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--primary-color);
+  border-radius: 12px;
+  width: 95%;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.applicant > img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.applicants-info > span {
+  display: block;
+  font-size: 12px;
+}
+
+.applicants-info > h5 > a {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.accept-btn {
+  color: var(--primary-color);
+  background-color: var(--tertiary-color);
+  padding: 5px 30px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+.reject-btn {
+  border-radius: 50%;
+  padding: 10px;
+  background-color: red;
+  color: var(--secondary-color);
 }

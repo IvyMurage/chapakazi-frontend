@@ -1,12 +1,24 @@
 import React, { useState } from "react";
+import "./Message.css";
+import MessageInput from "./MessageInput";
+import Messages from "./Messages";
 
-function MessageForm() {
-    const [message, setMessage] = useState("")
+function MessageForm({clicked, setClicked}) {
+    // const [message, setMessage] = useState("")
+    
   return (
-    <div className="message-form">
-      <form id="message-form">
-        <input type="text" placeholder="type message" />
-      </form>
+    
+    <div className="chat">
+      <div className="chatbar">
+        <button onClick={()=>setClicked(!clicked)} className="back-button">back</button>
+        <span className="chat-username">john</span>
+      </div>
+        <div className="text-message">
+          <div>
+          <Messages />
+          </div>
+        </div>
+        <MessageInput/>
     </div>
   );
 }

@@ -1,23 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import Header from "../header/Header";
 import "./Customer.css";
 import { loginCustomer } from "./customerSlice";
-// import { useHistory } from "react-router-dom";
 
 function CustomerLogin() {
   const errors = useSelector((state) => state.customers.errors);
   const customerInfo = useSelector((state) => state.customers);
+  const status = useSelector((state) => state.customers.status);
 
   console.log(customerInfo);
-  // console.log("This is the error:,", errors);
+
   const navigate = useNavigate();
   const [customerLogin, setCustomerLogin] = useState({
     username: "",
     password: "",
   });
-
-  //  const history = useHistory();
+  const [isVisible, setIsVisible] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -36,56 +36,80 @@ function CustomerLogin() {
       password: "",
     });
   }
+  useEffect(() => {
+    if (!errors) {
+      setIsVisible(false);
+    }
+
+    setIsVisible(true);
+    const timer = setInterval(() => {
+      setIsVisible(false);
+    }, 3000);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, [errors]);
 
   return (
-    <div className="form">
-      <div className="right-container" onSubmit={handleFormSubmit}>
-        <h1>Login</h1>
-        <hr />
-        <header>
-          <div className="set">
-            <div className="email">
-              <label>Name</label>
-              <input
-                type="text"
-                name="username"
-                value={customerLogin.username}
-                onChange={handleChange}
-              />
-              <label>Password</label>
-              <input
-                type="password"
-                name="password"
-                autoComplete="current-password"
-                value={customerLogin.password}
-                onChange={handleChange}
-              />
+    <>
+     <Link to="/">
+          <h2 style={{ textAlign: "left", height: "80px", fontSize: "25px" }}>
+            Chapa
+            <span style={{ fontSize: "25px", color: "#feb800" }}>Kazi</span>
+          </h2>
+        </Link>
+      <div className="form">
+        <div className="right-container" onSubmit={handleFormSubmit}>
+          <h1>Login</h1>
+          <hr />
+          <header>
+            <div className="set">
+              <div className="email">
+                <label>Name</label>
+                <input
+                  type="text"
+                  name="username"
+                  value={customerLogin.username}
+                  onChange={handleChange}
+                />
+                <label>Password</label>
+                <input
+                  type="password"
+                  name="password"
+                  autoComplete="current-password"
+                  value={customerLogin.password}
+                  onChange={handleChange}
+                />
+              </div>
             </div>
-          </div>
 
-          {errors.length > 0 ? (
-            <h2 id="login-error">
-              {errors.find((error) =>
-                error.includes("Invalid username or password")
-              )}
-            </h2>
-          ) : null}
-        </header>
+            {isVisible ? (
+              errors.length > 0 ? (
+                <h2 id="login-error">
+                  {errors.find((error) =>
+                    error.includes("Invalid username or password")
+                  )}
+                </h2>
+              ) : null
+            ) : null}
+          </header>
 
-        <footer>
-          <div className="set">
-            <button id="next" type="submit" onClick={handleFormSubmit}>
-              Login
-            </button>
-          </div>
-          <Link to="/customerSignup">
-            <h2 id="login-btn">
-              Do not have an account ? <span className="sign-up">Sign Up</span>
-            </h2>
-          </Link>
-        </footer>
+          <footer>
+            <div className="set">
+              <button id="next" type="submit" onClick={handleFormSubmit}>
+                {status === "loading" ? "Logging in ..." : "Login"}
+              </button>
+            </div>
+            <Link to="/customerSignup">
+              <h2 id="login-btn">
+                Do not have an account ?<span className="sign-up">Sign Up</span>
+              </h2>
+            </Link>
+          </footer>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

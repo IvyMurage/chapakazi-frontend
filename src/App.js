@@ -1,24 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import CustomerForm from "./Components/customer/CustomerForm";
 import LandingPage from "./Components/landingPage/LandingPage";
 import HandymanForm from "./Components/handyman/HandymanForm";
-// import ReviewForm from "./Components/review/ReviewForm";
-// import ReviewContainer from "./Components/review/ReviewContainer";
-// import MessageForm from "./Components/message/MessageForm";
-// import MessageContainer from "./Components/message/MessageContainer";
 import CustomerLogin from "./Components/customer/CustomerLogin";
 import { Route, Routes } from "react-router-dom";
-// import HandymanPage from "./Components/handymanPage/HandymanPage";
 import JobForm from "./Components/job/JobForm";
-import HandymanContainer from "./Components/handyman/HandymanContainer";
-import Header from "./Components/header/Header";
+import HandymanContainer from "./Components/handyman/handymanProfiles/HandymanContainer";
 import JobContainer from "./Components/job/JobContainer";
 import Myjobs from "./Components/myJobs/MyJob";
 import JobPage from "./Components/jobPage/JobPage";
+import LoginForm from "./Components/login/LoginForm";
+import HandymanPage from "./Components/handymanPage/HandymanPage";
+import ResetPassword from "./Components/resetPassword/ResetPassword";
+import HandymanProfile from "./Components/handymanProfile/HandymanProfile";
+import RegistrationCard from "./Components/landingPage/registrationContainer/RegistrationCard";
+import Alert from "./Components/Alert/Alert";
+import Footer from "./Components/Footer/Footer";
+import MyReview from "./Components/myReviews/MyReview";
 
 function App() {
-  // const [trigger, setTrigger] = useState(false);
-
   return (
     <div className="App">
       <Routes>
@@ -28,15 +28,19 @@ function App() {
         <Route path="/jobform" element={<JobForm />} />
         <Route path="/jobs" element={<JobContainer />} />
         <Route path="/myjobs" element={<Myjobs />} />
+        <Route path="myreviews" element={<MyReview />} />
+        <Route path="/passwordReset/form" element={<ResetPassword />} />
+        <Route path="/handymanLogin" element={<LoginForm />} />
         <Route path="/customerLogin" element={<CustomerLogin />} />
         <Route path="/handymanProfiles" element={<HandymanContainer />} />
+        <Route path="/profilepage" element={<HandymanPage />} />
         <Route path="/jobs/:page" component={<JobContainer />} />
         <Route path="/jobs/jobprofile/:page" element={<JobPage />} />
+        <Route path="/handymanProfile" element={<HandymanProfile />} />
+        <Route path="/registration/form/page" element={<RegistrationCard />} />
+        <Route path="/handyman/alert" element={<Alert />} />
       </Routes>
-      {/* <ReviewForm/> */}
-      {/* <ReviewContainer /> */}
-      {/* <MessageContainer /> */}
-      {/* <HandymanForm/> */}
+      <Footer />
     </div>
   );
 }

@@ -1,29 +1,37 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./Review.css";
 import { addReview } from "./ReviewSlice";
-function ReviewForm({ setTrigger }) {
-  const [review, setReview] = useState({
-    comment: "I loved his work",
-  });
 
-  const [token, setToken] = useState("");
-
+function ReviewForm({ setTrigger, profileId }) {
+  const [count, setCount] = useState(0);
+  const [reviewCount, setReviewCount] = useState(0);
   const dispatch = useDispatch();
+  const token = localStorage.getItem("customer");
+  const [review, setReview] = useState({
+    comment: "",
+    handyman_id: `${profileId}`,
+    votes: 0,
+  });
+  const errors = useSelector((state) => state.reviews.errors);
 
   function handleChange(event) {
     const name = event.target.name;
     const value = event.target.value;
     setReview({ ...review, [name]: value });
+    setCount((prevCount) => (prevCount = value.length));
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    setToken((prev) => (prev = localStorage.getItem("token")));
-    dispatch(addReview(review, token));
+    dispatch(addReview(review, token, setTrigger, setReviewCount));
+    setReview({
+      comment: "",
+      handyman_id: `${profileId}`,
+      votes: 0,
+    });
   }
-  console.log(token)
-
+  console.log(reviewCount);
   return (
     <div id="review-form-container">
       <form className="review-form" onSubmit={handleSubmit}>
@@ -37,6 +45,17 @@ function ReviewForm({ setTrigger }) {
           onChange={handleChange}
           name="comment"
         />
+        <span
+          style={{ color: "#feb800", fontWeight: "bold", fontSize: "12px" }}
+        >
+          {count}/259
+        </span>
+        {errors.length > 0
+          ? errors.map((error) => (
+              <span className="review-errors">{error}</span>
+            ))
+          : null}
+
         <div className="review-form-btn">
           <button
             className="btn-review"
@@ -44,7 +63,12 @@ function ReviewForm({ setTrigger }) {
           >
             Cancel
           </button>
-          <button className="btn-review">Submit Review</button>
+          <button
+            className="btn-review"
+            onSubmit={() => setTrigger((prev) => !prev)}
+          >
+            Submit Review
+          </button>
         </div>
       </form>
     </div>

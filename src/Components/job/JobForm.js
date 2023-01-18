@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addJob } from "./jobslice";
 import "./Job.css";
 import { useNavigate } from "react-router-dom";
+import CustomerHeader from "../CustomerHeader/CustomerHeader";
 
 function JobForm() {
   const errors = useSelector((state) => state.jobs.errors);
@@ -32,52 +33,63 @@ function JobForm() {
   }
 
   return (
-    <div className="job-form-container">
-      <form className="job-form" onSubmit={handleSubmit}>
-        <label> Title </label>
-        <br />
-        <input
-          type="text"
-          name="title"
-          onChange={handleChange}
-          value={job.title}
-        />
-        {errors.length > 0 ? (
-          <span className="job-errors">
-            {errors.find((error) => error.includes("Title"))}
-          </span>
-        ) : null}
-        <br />
+    <>
+      <CustomerHeader />
 
-        <label> Budget </label>
-        <br />
-        <input
-          type="text"
-          name="budget"
-          onChange={handleChange}
-          placeholder="$20-$50"
-          value={job.budget}
-        />
-        <label> Description </label>
-        <br />
-        <textarea
-          cols="100"
-          rows="50"
-          name="description"
-          onChange={handleChange}
-          value={job.description}
-        />
-        {errors.length > 0 ? (
-          <span className="job-errors">
-            {errors.find((error) => error.includes("Description"))}
-          </span>
-        ) : null}
-        <br />
+      <div className="job-form-container">
+        <form className="job-form" onSubmit={handleSubmit}>
+          <label> Title </label>
+          <br />
+          <input
+            type="text"
+            name="title"
+            onChange={handleChange}
+            value={job.title}
+          />
+          {errors.length > 0 ? (
+            <span className="job-errors">
+              {errors.find((error) => error.includes("Title"))}
+            </span>
+          ) : null}
+          <br />
 
-        <br />
-        <button id="job-form-btn">Submit</button>
-      </form>
-    </div>
+          <label> Budget </label>
+          <br />
+          <input
+            type="text"
+            name="budget"
+            onChange={handleChange}
+            placeholder="$20-$50"
+            value={job.budget}
+          />
+          <label> Description </label>
+          <br />
+          <textarea
+            cols="100"
+            rows="50"
+            name="description"
+            onChange={handleChange}
+            value={job.description}
+          />
+          {errors.length > 0 ? (
+            <span className="job-errors">
+              {errors.find((error) => error.includes("Description"))}
+            </span>
+          ) : null}
+
+          {errors.length > 0 ? (
+            <span className="jobLogin-errors" >
+              {errors.find((error) => error.includes("Please log in"))}
+            </span>
+          ) : null}
+          <br />
+
+          <br />
+
+          <button id="job-form-btn">Submit</button>
+        </form>
+      </div>
+    </>
   );
 }
 

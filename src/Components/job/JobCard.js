@@ -7,6 +7,7 @@ function JobCard({ job }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  console.log(job);
   function handleJob(jobId) {
     const token = localStorage.getItem("handyman");
     dispatch(fetchJob(jobId, token, navigate));
@@ -14,7 +15,7 @@ function JobCard({ job }) {
 
   return (
     <div className="job-card">
-      <h2> {job.title} </h2> <span> {job.budget} </span>
+      <h2 id="job-title"> {job.title} </h2> <span> {job.budget} </span>
       <p> {job.summary} </p>
       <span id="more" onClick={() => handleJob(job.id)}>
         more...
