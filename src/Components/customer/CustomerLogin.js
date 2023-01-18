@@ -53,7 +53,12 @@ function CustomerLogin() {
 
   return (
     <>
-    {/* <Header/> */}
+     <Link to="/">
+          <h2 style={{ textAlign: "left", height: "80px", fontSize: "25px" }}>
+            Chapa
+            <span style={{ fontSize: "25px", color: "#feb800" }}>Kazi</span>
+          </h2>
+        </Link>
       <div className="form">
         <div className="right-container" onSubmit={handleFormSubmit}>
           <h1>Login</h1>

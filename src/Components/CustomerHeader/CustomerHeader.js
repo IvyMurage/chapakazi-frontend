@@ -9,10 +9,8 @@ import CustomerProfile from "../customerProfile/CustomerProfile";
 import "./CustomerHeader.css";
 
 function CustomerHeader() {
-
   const [trigger, setTrigger] = useState(false);
-  // const customer = useSelector(state => state.customer.logins)
-  // console.log(customer)
+  const customer = JSON.parse(localStorage.getItem("customerInfo"));
 
   return (
     <div className="header">

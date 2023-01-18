@@ -146,7 +146,7 @@ export default function jobReducer(state = initialState, action) {
     case "jobs/add":
       return {
         ...state,
-        jobs: [action.payload, ...state.jobs],
+        jobs: [...state.jobs, action.payload],
       };
 
     case "jobs/remove":

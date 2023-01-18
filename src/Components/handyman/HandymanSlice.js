@@ -21,7 +21,6 @@ export const addhandyman = (handyman, navigate) => {
         payload: data
       })
       localStorage.setItem("handyman", data.jwt)
-
       navigate('/handyman/alert');
     } else {
       dispatch({

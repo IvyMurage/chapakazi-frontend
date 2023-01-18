@@ -16,34 +16,34 @@ import HandymanProfile from "./Components/handymanProfile/HandymanProfile";
 import RegistrationCard from "./Components/landingPage/registrationContainer/RegistrationCard";
 import Alert from "./Components/Alert/Alert";
 import Footer from "./Components/Footer/Footer";
-import MessageContainer from "./Components/message/MessageContainer";
-
+import MyReview from "./Components/myReviews/MyReview";
+import AppliedJob from "./Components/jobPage/AppliedJobs/AppliedJob";
 
 function App() {
-
   return (
     <div className="App">
-    <Routes>
-      <Route path="/" element={<LandingPage /> } />
-      <Route path="/handymanSignup" element={<HandymanForm />} />
-      <Route path="/customerSignup" element={<CustomerForm />} />
-      <Route path="/jobform" element={<JobForm />} />
-      <Route path="/jobs" element={<JobContainer />} />
-      <Route path="/myjobs" element={<Myjobs />} />
-      <Route path="/passwordReset" element={<ResetPassword />} />
-      <Route path="/handymanLogin" element={<LoginForm />} />
-      <Route path="/customerLogin" element={<CustomerLogin />} />
-      <Route path="/handymanProfiles" element={<HandymanContainer />} />
-      <Route path="/profilepage" element={<HandymanPage />} />
-      <Route path="/jobs/:page" component={<JobContainer />} />
-      <Route path="/jobs/jobprofile/:page" element={<JobPage />} />
-      <Route path="/handymanProfile" element={<HandymanProfile />} />
-      <Route path="/registration/form/page" element={<RegistrationCard />} />
-      <Route path="/handyman/alert" element={<Alert />} />
-      <Route path="/messages" element={<MessageContainer />} />
-    </Routes>
-    <Footer />
-  </div>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/handymanSignup" element={<HandymanForm />} />
+        <Route path="/customerSignup" element={<CustomerForm />} />
+        <Route path="/jobform" element={<JobForm />} />
+        <Route path="/jobs" element={<JobContainer />} />
+        <Route path="/myjobs" element={<Myjobs />} />
+        <Route path="myreviews" element={<MyReview />} />
+        <Route path="/passwordReset/form" element={<ResetPassword />} />
+        <Route path="/handymanLogin" element={<LoginForm />} />
+        <Route path="/customerLogin" element={<CustomerLogin />} />
+        <Route path="/handymanProfiles" element={<HandymanContainer />} />
+        <Route path="/profilepage" element={<HandymanPage />} />
+        <Route path="/jobs/:page" component={<JobContainer />} />
+        <Route path="/jobs/jobprofile/:page" element={<JobPage />} />
+        <Route path="/handymanProfile" element={<HandymanProfile />} />
+        <Route path="/registration/form/page" element={<RegistrationCard />} />
+        <Route path="/handyman/alert" element={<Alert />} />
+        <Route path="/applied/jobs" element={<AppliedJob />} />
+      </Routes>
+      <Footer />
+    </div>
   );
 }
 

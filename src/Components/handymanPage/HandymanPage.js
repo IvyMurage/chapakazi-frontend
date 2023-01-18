@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import ReviewContainer from "../review/ReviewContainer";
 import CustomerHeader from "../CustomerHeader/CustomerHeader";
 import "./HandymanPage.css";
+import { Link } from "react-router-dom";
 
 function HandymanPage() {
   const profileId = JSON.parse(localStorage.getItem("profileId"));
@@ -31,7 +32,6 @@ function HandymanPage() {
     fetchProfile();
   }, [profileId, token]);
 
-
   return (
     <div className="handymanpage">
       <CustomerHeader />
@@ -50,7 +50,9 @@ function HandymanPage() {
             </div>
             <div className="call-action">
               <FontAwesomeIcon icon={faHeart} className="action-icon" />
-              <FontAwesomeIcon icon={faMessage} className=" action-icon" />
+              <Link to="/chat">
+                <FontAwesomeIcon icon={faMessage} className=" action-icon" />
+              </Link>
             </div>
           </div>
         </div>
