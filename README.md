@@ -51,7 +51,7 @@ Incase of any enquires or contributions, be sure to email us at:
 + pauline.ndemo@student.moringaschool.com
 + rajab.karume@student.moringaschool.com
 
-## Copyright and License (MIT)
+## Copyright and License
 [MIT](https://)
 
 Copyright (c) 2022 ChapaKazi
