@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# ChapaKazi
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Authors:
+1. [Ivy Murage](https://github.com/Murage-Ivy)
+2. [Lynette Rono](https://github.com/Rlynette)
+3. [Noela Murugi](https://github.com/Noela-Murugi)
+4. [Pauline Ndemo](https://github.com/Paulinendemo)
+5. [Rajab Karume](https://github.com/RajabKarume)
 
-## Available Scripts
+## About
+**Chapakazi** ajira mkononi is a website that connects users with local handymen for a variety of home repair and maintenance tasks. The app allows users to easily browse a directory of handymen in their area, view profiles and ratings for each handyman, and request services directly through the app. It also provides handymen with a platform to manage their business and communicate with customers. This solution ensures users can easily find reliable and experienced handymen and handymen can efficiently manage and grow their business.
 
-In the project directory, you can run:
+## Technologies Used
++ ReactJs
++ Ruby on Rails
++ Css
++ Figma
 
-### `npm start`
+## Setup
+To run this project, one must have either of the following;
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. The live Heroku link to this repository available on both the project repository **About** and **at the end of this README file.**
+2. Fork and clone this repository and have Visual Studio Code (Windows) or Code (Linux) and run the following commands in the local project directory :<br>
+`Run "npm install" to install the project dependencies.<br>
+ Run "npm install react-router-dom@6.4.3" to install a compatible version of react-router-dom.<br>
+ Run "npm start" command in the terminal to get the React App running.`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Live Page
