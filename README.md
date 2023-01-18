@@ -43,3 +43,11 @@ npm start
 
 [Frontend Link](https://chapakazi-frontend.vercel.app/)
 
+## Contact Information
+Incase of any enquires or contributions, be sure to email us at:
++ ivy.murage@student.moringaschool.com
++ lynette.ronnoh@student.moringaschool.com
++ noela.murugi@student.moringaschool.com
++ pauline.ndemo@student.moringaschool.com
++ rajab.karume@student.moringaschool.com
+
