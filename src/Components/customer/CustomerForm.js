@@ -60,7 +60,7 @@ function CustomerForm() {
               height: "80px",
               fontSize: "25px",
               justifySelf: "left",
-              width: "100%"
+              width: "100%",
             }}
           >
             Chapa
@@ -109,64 +109,59 @@ function CustomerForm() {
                   ) : null}
                 </div>
               </div>
-              <div className="set">
-                <div className="customer-name">
-                  <label htmlFor="customer-password"> Password </label>
-                  <input
-                    className="customer-name"
-                    name="password"
-                    type="password"
-                    autoComplete="current-password"
-                    value={formData.password}
-                    onChange={handleInputChange}
-                    required
-                  ></input>
-                  {isVisible ? (
-                    errors.length > 0 ? (
-                      <h2 className="signup-errors">
-                        {errors.find((error) => error.includes("Password"))}
-                      </h2>
-                    ) : null
-                  ) : null}
-                </div>
 
-                <div className="customer-name">
-                  <label htmlFor="customer-password">
-                    Password Confirmation
-                  </label>
-                  <input
-                    className="customer-name"
-                    name="password_confirmation"
-                    type="password"
-                    autoComplete="current-password"
-                    value={formData.password_confirmation}
-                    onChange={handleInputChange}
-                    required
-                  ></input>
-                  {isVisible ? (
-                    errors.length > 0 ? (
-                      <h2 className="signup-errors">
-                        {errors.find((error) =>
-                          error.includes("Password confirmation")
-                        )}
-                      </h2>
-                    ) : null
-                  ) : null}
-                </div>
+              <div className="customer-name">
+                <label htmlFor="customer-password"> Password </label>
+                <input
+                  className="customer-name"
+                  name="password"
+                  type="password"
+                  autoComplete="current-password"
+                  value={formData.password}
+                  onChange={handleInputChange}
+                  required
+                ></input>
+                {isVisible ? (
+                  errors.length > 0 ? (
+                    <h2 className="signup-errors">
+                      {errors.find((error) => error.includes("Password"))}
+                    </h2>
+                  ) : null
+                ) : null}
               </div>
 
-              <div className="set">
-                <div className="customer-name">
-                  <label htmlFor="customer-image"> Image </label>
-                  <input
-                    className="customer-name"
-                    name="image"
-                    type="text"
-                    value={formData.image}
-                    onChange={handleInputChange}
-                    required
-                  ></input>
-                </div>
+              <div className="customer-name">
+                <label htmlFor="customer-password">Password Confirmation</label>
+                <input
+                  className="customer-name"
+                  name="password_confirmation"
+                  type="password"
+                  autoComplete="current-password"
+                  value={formData.password_confirmation}
+                  onChange={handleInputChange}
+                  required
+                ></input>
+                {isVisible ? (
+                  errors.length > 0 ? (
+                    <h2 className="signup-errors">
+                      {errors.find((error) =>
+                        error.includes("Password confirmation")
+                      )}
+                    </h2>
+                  ) : null
+                ) : null}
+              </div>
+
+              <div className="customer-name">
+                <label htmlFor="customer-image"> Image </label>
+                <input
+                  className="customer-name"
+                  name="image"
+                  type="text"
+                  value={formData.image}
+                  onChange={handleInputChange}
+                  required
+                ></input>
               </div>
             </header>
             <footer>

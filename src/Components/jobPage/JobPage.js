@@ -76,22 +76,21 @@ function JobPage() {
           JSON.parse(localStorage.getItem("profileId")) === job.handyman_id &&
           jobInfo.id === job.job_id
       );
-
-      return status;
+      return status
     }
   }
 
-  console.log(jobStatus);
 
   function applicationStatusDisplay() {
-    if (findStatus() === "rejected") {
+    if (findStatus()?.status === "rejected") {
       return <span className="application-status">Application Rejected</span>;
-    } else if (findStatus() === "approved") {
+    } else if (findStatus()?.status === "approved") {
       return <span className="application-status">Application Approved</span>;
     } else {
       return null;
     }
   }
+console.log("This is the one",findStatus())
 
   return (
     <>

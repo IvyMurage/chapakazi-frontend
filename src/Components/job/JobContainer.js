@@ -32,7 +32,8 @@ function JobContainer() {
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-  const jobList = currentJobs.map((job) => <JobCard key={job.id} job={job} />);
+  const jobList = currentJobs?.map((job) => <JobCard key={job.id} job={job} />);
+
 
 
   return (
