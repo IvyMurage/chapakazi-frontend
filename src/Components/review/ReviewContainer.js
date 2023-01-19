@@ -9,7 +9,9 @@ function ReviewContainer({ profileId }) {
   const [trigger, setTrigger] = useState(false);
   const dispatch = useDispatch();
   const token = localStorage.getItem("customer");
+  const [jobStatus, setStatus] = useState([]);
   const customer = localStorage.getItem("customer");
+  const [loading, setLoading] = useState("idle");
   const reviews = useSelector((state) => state.reviews.reviews);
   const [addButton, setAddButton] = useState("");
   function handleReviewAdd() {
@@ -29,6 +31,7 @@ function ReviewContainer({ profileId }) {
   ));
 
   useEffect(() => {
+    setLoading("loading");
     const fetchjobHandymen = async () => {
       const response = await fetch(
         `https://chapakazi-server-production.up.railway.app/job_handymen`,
@@ -42,21 +45,36 @@ function ReviewContainer({ profileId }) {
 
       const data = await response.json();
       if (response.ok) {
+        setLoading("idle");
         console.log(data);
-
-        const status = data.find(
-          (job) =>
-            JSON.parse(localStorage.getItem("profileId")) === job.handyman_id &&
-            job.status === "approved"
-        ).status;
-
-        setAddButton(status);
+        setStatus(data);
       } else {
+        setLoading("idle");
         console.log(data.errors);
       }
     };
     fetchjobHandymen();
   }, []);
+
+  function fetchStatus() {
+    if (loading === "loading") {
+      return null;
+    } else {
+      const status = jobStatus?.find(
+        (job) =>
+          JSON.parse(localStorage.getItem("profileId")) === job.handyman_id &&
+          job.status === "approved"
+      );
+      if (status) {
+        return status.status;
+      } else {
+        return false;
+      }
+    }
+  }
+  console.log(jobStatus);
+  console.log(JSON.parse(localStorage.getItem("profileId")));
+  console.log(fetchStatus());
 
   return (
     <div className="review-container">
@@ -64,7 +82,7 @@ function ReviewContainer({ profileId }) {
         <div className="top-review-header-left">
           <h3>Reviews</h3>
         </div>
-        {addButton === "approved" ? (
+        {fetchStatus() === "approved" ? (
           <div className="top-review-header-right">
             <button onClick={handleReviewAdd}>Add a Review</button>
           </div>
