@@ -31,8 +31,8 @@ function HandymanProfile() {
     dispatch(fetchHandyman(profileId, token));
   }, [profileId, token, dispatch]);
 
-  console.log(profileId);
-  
+  console.log(handymanProfile);
+
   if (status === "loading") {
     return <h2 style={{ fontSize: "30px" }}>Loading...</h2>;
   }
