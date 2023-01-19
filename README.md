@@ -2,7 +2,7 @@
 
 ## Authors:
 1. [Ivy Murage](https://github.com/Murage-Ivy)
-2. [Lynette Rono](https://github.com/Rlynette)
+2. [Lynette Ronnoh](https://github.com/Rlynette)
 3. [Noela Murugi](https://github.com/Noela-Murugi)
 4. [Pauline Ndemo](https://github.com/Paulinendemo)
 5. [Rajab Karume](https://github.com/RajabKarume)
