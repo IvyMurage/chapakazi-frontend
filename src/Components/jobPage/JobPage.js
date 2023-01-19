@@ -76,10 +76,9 @@ function JobPage() {
           JSON.parse(localStorage.getItem("profileId")) === job.handyman_id &&
           jobInfo.id === job.job_id
       );
-      return status
+      return status;
     }
   }
-
 
   function applicationStatusDisplay() {
     if (findStatus()?.status === "rejected") {
@@ -90,7 +89,7 @@ function JobPage() {
       return null;
     }
   }
-console.log("This is the one",findStatus())
+  console.log("This is the one", findStatus());
 
   return (
     <>
