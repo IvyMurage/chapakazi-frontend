@@ -10,10 +10,9 @@ function ReviewContainer({ profileId }) {
   const dispatch = useDispatch();
   const token = localStorage.getItem("customer");
   const [jobStatus, setStatus] = useState([]);
-  const customer = localStorage.getItem("customer");
   const [loading, setLoading] = useState("idle");
   const reviews = useSelector((state) => state.reviews.reviews);
-  const [addButton, setAddButton] = useState("");
+  
   function handleReviewAdd() {
     setTrigger((prevState) => !prevState);
   }
