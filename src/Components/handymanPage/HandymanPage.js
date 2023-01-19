@@ -8,29 +8,39 @@ import { Link } from "react-router-dom";
 
 function HandymanPage() {
   const profileId = JSON.parse(localStorage.getItem("profileId"));
-  // console.log(profileId);
   const [profile, setProfile] = useState({});
+  const [loading, setLoading] = useState("idle");
   const [errors, setError] = useState([]);
   const token = localStorage.getItem("customer");
 
   useEffect(() => {
+    setLoading("loading");
     const fetchProfile = async () => {
-      const response = await fetch(`handymen/${profileId}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await fetch(
+        `https://chapakazi-server-production.up.railway.app/handymen/${profileId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       const data = await response.json();
       if (response.ok) {
+        setLoading("idle");
         setProfile(data);
       } else {
         setError(data.errors);
+        setLoading("idle");
       }
     };
 
     fetchProfile();
   }, [profileId, token]);
+
+  if (loading === "loading") {
+    return <h2 className="no-jobs">Loading...</h2>;
+  }
 
   return (
     <div className="handymanpage">
