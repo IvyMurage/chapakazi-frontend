@@ -19,7 +19,7 @@ function JobContainer() {
     setJobSearch(value);
   }
 
-  const jobs = jobsInfo.filter((job) => job.title.includes(jobSearch));
+  const jobs = jobsInfo?.filter((job) => job.title.includes(jobSearch));
 
   useEffect(() => {
     dispatch(fetchJobs(localStorage.getItem("handyman")));
@@ -28,15 +28,14 @@ function JobContainer() {
   const indexOfLastPost = currentPage * jobsPerPage;
   const indexOfFirstPost = indexOfLastPost - jobsPerPage;
   const currentJobs = jobs.slice(indexOfFirstPost, indexOfLastPost);
-  // console.log(jobs)
+
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-  const jobList = currentJobs.map((job) => <JobCard key={job.id} job={job} />);
+  const jobList = currentJobs?.map((job) => <JobCard key={job.id} job={job} />);
 
-  // if (status === "loading") {
-  //   return <h2> Loading... </h2>;
-  // }
+
+
   return (
     <>
       <Header />

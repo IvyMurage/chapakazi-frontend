@@ -1,5 +1,5 @@
 .my-jobs-container {
-  height: 90vh;
+  height: 100vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding: 20px;
@@ -11,6 +11,7 @@
   border: 1px solid var(--secondary-color);
   height: fit-content;
   padding: 20px;
+  margin-top: 20px;
 }
 .my-jobs-card > p {
   font-size: 15px;

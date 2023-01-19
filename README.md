@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# ChapaKazi
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Authors:
+1. [Ivy Murage](https://github.com/Murage-Ivy)
+2. [Lynette Rono](https://github.com/Rlynette)
+3. [Noela Murugi](https://github.com/Noela-Murugi)
+4. [Pauline Ndemo](https://github.com/Paulinendemo)
+5. [Rajab Karume](https://github.com/RajabKarume)
 
-## Available Scripts
+## About
+**Chapakazi** ajira mkononi is a website that connects users with local handymen for a variety of home repair and maintenance tasks. The app allows users to easily browse a directory of handymen in their area, view profiles and ratings for each handyman, and request services directly through the app. It also provides handymen with a platform to manage their business and communicate with customers. This solution ensures users can easily find reliable and experienced handymen and handymen can efficiently manage and grow their business.
 
-In the project directory, you can run:
+## Technologies Used
++ ReactJs
++ Ruby on Rails
++ Css
++ Figma
 
-### `npm start`
+## Setup
+To run this project, one must have either of the following;
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. The live **Heroku link** to this repository
+2. Fork and clone this repository and have Visual Studio Code (Windows) or Code (Linux) and run the following commands in the local project directory :<br>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Clone the repository
+```
+git clone git@github.com:Murage-Ivy/chapakazi-frontend.git
+```
+Install dependancies
+```
+Run "npm install"
+```
+Install Compatible Version of react-router-dom
+```
+npm install react-router-dom@6.4.3
+```
+Run React App
+```
+npm start
+```
 
-### `npm test`
+## Live Page
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[Frontend Link](https://chapakazi-frontend.vercel.app/)
 
-### `npm run build`
+## Contact Information
+Incase of any enquires or contributions, be sure to email us at:
++ ivy.murage@student.moringaschool.com
++ lynette.ronnoh@student.moringaschool.com
++ noela.murugi@student.moringaschool.com
++ pauline.ndemo@student.moringaschool.com
++ rajab.karume@student.moringaschool.com
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Copyright and License
+[MIT](https://)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Copyright (c) 2022 ChapaKazi
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-### `npm run eject`
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

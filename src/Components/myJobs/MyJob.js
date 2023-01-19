@@ -9,14 +9,14 @@ function Myjobs() {
   const dispatch = useDispatch();
   const customerId = JSON.parse(localStorage.getItem("customerInfo"));
   const allJobs = useSelector((state) => state.jobs.jobs);
-  const [jobApplication, setJobApplication] = useState([]);
-  const [handyman, setHandyman] = useState([]);
+  const status = useSelector((state) => state.jobs.status);
   const [newJobHandymen, setNewJobHandymen] = useState({});
 
-  function rejectApplication(reject) {
-    console.log("hello");
-    console.log(reject);
+  useEffect(() => {
+    dispatch(fetchJobs(localStorage.getItem("customer")));
+  }, [dispatch]);
 
+  function rejectApplication(reject) {
     const rejectApplication = async () => {
       const response = await fetch(
         `https://chapakazi-server-production.up.railway.app/job_handymen/${reject.id}`,
@@ -42,8 +42,6 @@ function Myjobs() {
   }
 
   function acceptApplication(reject) {
-    console.log("hello");
-    console.log(reject);
     const acceptApplication = async () => {
       const response = await fetch(
         `https://chapakazi-server-production.up.railway.app/job_handymen/${reject.id}`,
@@ -66,36 +64,37 @@ function Myjobs() {
     acceptApplication();
   }
 
-  console.log(newJobHandymen);
-  console.log(jobApplication);
-  const applicants = jobApplication.map((applicant) => applicant.handyman);
-  console.log(applicants);
-
-  useEffect(() => {
-    dispatch(fetchJobs(localStorage.getItem("customer")));
-  }, [dispatch]);
   const myJobs = allJobs.filter((job) => job.customer.id === customerId);
-  console.log(myJobs);
-  const myJobList = myJobs.map((job) => (
-    <MyJobCard
-      key={job.id}
-      job={job}
-      rejectApplication={rejectApplication}
-      acceptApplication={acceptApplication}
-      newJobHandymen={newJobHandymen}
-    />
-  ));
 
+  function displayJobs() {
+    if (status === "loading") {
+      return <h2 className="one">Loading...</h2>;
+    } else {
+      const myJobList = myJobs?.map((job) => (
+        <MyJobCard
+          key={job.id}
+          job={job}
+          rejectApplication={rejectApplication}
+          acceptApplication={acceptApplication}
+          newJobHandymen={newJobHandymen}
+        />
+      ));
+      return myJobList;
+    }
+  }
+  console.log(myJobs);
+
+  console.log(newJobHandymen);
   return (
     <>
       <CustomerHeader />
       <br />
       <br />
       <div className="job-container">
-        {myJobList.length === 0 ? (
+        {displayJobs()?.length === 0 ? (
           <div className="no-jobs">No Jobs Added !!</div>
         ) : null}
-        {myJobList}
+        {displayJobs()}
       </div>
     </>
   );

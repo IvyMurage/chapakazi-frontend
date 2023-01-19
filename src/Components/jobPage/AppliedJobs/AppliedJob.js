@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { fetchHandyman } from "../../handymanProfile/handymanProfileSlice.js";
 import Header from "../../header/Header.js";
-import { fetchJobs } from "../../job/jobslice.js";
 import "./AppliedJob.css";
 
 function AppliedJob() {
-  const jobInfo = JSON.parse(localStorage.getItem("job"));
   const [jobStatus, setJobStatus] = useState([]);
   const [loading, setLoading] = useState("idle");
   const dispatch = useDispatch();
   const token = localStorage.getItem("handyman");
+  const profileId = JSON.parse(localStorage.getItem("profileId"));
   useEffect(() => {
     const fetchjobHandymen = async () => {
       setLoading("loading");
@@ -27,10 +27,9 @@ function AppliedJob() {
       const data = await response.json();
       if (response.ok) {
         setLoading("idle");
-        // console.log(data);
-        const status = data.find(
+        const status = data.filter(
           (job) =>
-            JSON.parse(localStorage.getItem("profileId")) === job.handyman_id 
+            JSON.parse(localStorage.getItem("profileId")) === job.handyman_id
         );
         setJobStatus(status);
       } else {
@@ -39,30 +38,45 @@ function AppliedJob() {
       }
     };
     fetchjobHandymen();
-  }, [jobInfo.id]);
+  }, []);
 
   useEffect(() => {
-    dispatch(fetchJobs(token));
-  }, [dispatch, token]);
+    dispatch(fetchHandyman(profileId, token));
+  }, [dispatch, token, profileId]);
 
-  const jobs = useSelector((state) => state.jobs.jobs);
-  const appliedJobs = jobs.filter((job) => job.id === jobStatus.job_id);
-  const appliedJobsList = appliedJobs.map((job) => (
-    <div key={job.id} className="my-jobs-card">
-      <h3>{job.title}</h3>
-      <p>{job.summary}</p>
+  const newStatus = jobStatus?.filter((job) => job.handyman_id === profileId);
+  console.log(newStatus);
 
-      <span>
-        <Link to="/jobs/jobprofile/:page">more... </Link>
-      </span>
-    </div>
-  ));
-  console.log(appliedJobs);
+  const profile = useSelector((state) => state.handymanProfile.handyman);
+  console.log(loading);
+  const status = useSelector((state) => state.handymanProfile.status);
+  const hand = useSelector((state) => state.handymanProfile.status);
+  console.log(profile.jobs);
+  console.log(hand);
+
+  function getJobs() {
+    if (status === "loading") {
+      return <h1 className="one">Loading...</h1>;
+    } else {
+      const appliedJobsList = profile.jobs?.map((job, index) => (
+        <div key={index} className="my-jobs-card">
+          <h3>{job.title}</h3>
+          <p>{job.summary}</p>
+
+          <span>
+            <Link to="/jobs/jobprofile/:page">more... </Link>
+          </span>
+        </div>
+      ));
+      return appliedJobsList;
+    }
+  }
+
   return (
     <>
       <Header />
       <h1 className="one">Applied Jobs</h1>
-      <div className="my-jobs-container">{appliedJobsList}</div>;
+      <div className="my-jobs-container">{getJobs()}</div>;
     </>
   );
 }

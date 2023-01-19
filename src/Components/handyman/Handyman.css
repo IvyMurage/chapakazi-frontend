@@ -294,7 +294,7 @@
 .handy-page-info > p {
   font-size: 13px;
   margin-top: 20px;
-  color:var(--secondary-color)
+  color: var(--secondary-color);
 }
 
 .handy-page-info > span {

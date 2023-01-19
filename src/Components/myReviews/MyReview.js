@@ -8,23 +8,39 @@ function MyReview() {
   const dispatch = useDispatch();
   const handymanId = JSON.parse(localStorage.getItem("profileId"));
   const allReviews = useSelector((state) => state.reviews.reviews);
-  console.log(allReviews);
+  const status = useSelector((state) => state.reviews.status);
 
   useEffect(() => {
     dispatch(fetchReviews(localStorage.getItem("handyman")));
   }, [dispatch]);
 
-  const myReviews = allReviews.filter(
-    (review) => review.handyman_id === handymanId
-  );
-  console.log(myReviews);
-  const reviewList = myReviews.map((review) => (
-    <MyReviewCard key={review.id} review={review} />
-  ));
+  function filterReviews() {
+    if (status === "loading") {
+      return <h2 className="loading"> Loading...</h2>;
+    } else {
+      const myReviews = allReviews?.filter(
+        (review) => review.handyman_id === handymanId
+      );
+
+      const reviewList = myReviews?.map((review) => (
+        <MyReviewCard key={review.id} review={review} />
+      ));
+
+      return reviewList;
+    }
+  }
+
   return (
     <>
       <Header />
-      <div className="review-container review-handyman">{reviewList}</div>
+      <div className="review-container review-handyman job-container">
+        {filterReviews()?.length === 0 ? (
+          <div className="no-jobs" >
+            You Have no reviews
+          </div>
+        ) : null}
+        {filterReviews()}
+      </div>
     </>
   );
 }

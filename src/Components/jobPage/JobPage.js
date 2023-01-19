@@ -8,9 +8,9 @@ import "./JobPage.css";
 function JobPage() {
   const jobInfo = JSON.parse(localStorage.getItem("job"));
   const [apply, setApply] = useState(false);
-  const [jobStatus, setJobStatus] = useState([]);
   const [loading, setLoading] = useState("idle");
-  const [applicationStatus, setApplicationStatus] = useState({});
+  const [jobStatus, setJobStatus] = useState([]);
+
   function applyJob() {
     const fetchjobHandymen = async () => {
       const response = await fetch(
@@ -56,13 +56,8 @@ function JobPage() {
       const data = await response.json();
       if (response.ok) {
         setLoading("idle");
-        // console.log(data);
-        const status = data.find(
-          (job) =>
-            JSON.parse(localStorage.getItem("profileId")) === job.handyman_id &&
-            jobInfo.id === job.job_id
-        );
-        setApplicationStatus(status);
+        console.log(data);
+        setJobStatus(data);
         setApply(false);
       } else {
         setLoading("idle");
@@ -72,21 +67,30 @@ function JobPage() {
     fetchjobHandymen();
   }, [jobInfo.id]);
 
-  // console.log(jobInfo.id);
-  // console.log("handyman", JSON.parse(localStorage.getItem("profileId")));
-  console.log(applicationStatus);
+  function findStatus() {
+    if (loading === "loading") {
+      return "this";
+    } else {
+      const status = jobStatus?.find(
+        (job) =>
+          JSON.parse(localStorage.getItem("profileId")) === job.handyman_id &&
+          jobInfo.id === job.job_id
+      );
+      return status;
+    }
+  }
 
   function applicationStatusDisplay() {
-    if (applicationStatus === "rejected") {
+    if (findStatus()?.status === "rejected") {
       return <span className="application-status">Application Rejected</span>;
-    } else if (applicationStatus === "approved") {
+    } else if (findStatus()?.status === "approved") {
       return <span className="application-status">Application Approved</span>;
     } else {
       return null;
     }
   }
+  console.log("This is the one", findStatus());
 
-  // console.log(applicationStatus);
   return (
     <>
       <Header />

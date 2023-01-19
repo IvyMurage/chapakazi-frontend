@@ -53,29 +53,28 @@ function CustomerForm() {
   return (
     <>
       <div className="form">
-  
-        <div className="signup-container">
         <Link to="/">
           <h2
             style={{
               textAlign: "left",
               height: "80px",
               fontSize: "25px",
-     
+              justifySelf: "left",
+              width: "100%",
             }}
           >
             Chapa
             <span style={{ fontSize: "25px", color: "#feb800" }}>Kazi</span>
           </h2>
         </Link>
+        <div className="signup-container">
           <div className="right-container" onSubmit={handleFormSubmit}>
             <header>
-              <div className="set">
+              <div className="row-sigup">
                 <div className="customer-name">
                   <label htmlFor="customer-name"> Name </label>
                   <input
                     className="customer-name"
-                    //   placeholder="Name..."
                     name="username"
                     type="text"
                     value={formData.name}
@@ -91,7 +90,7 @@ function CustomerForm() {
                   ) : null}
                 </div>
 
-                <div className="customer-location">
+                <div className="customer-name">
                   <label htmlFor="customer-venue"> Location </label>
                   <input
                     id="customer-venue"
@@ -110,64 +109,59 @@ function CustomerForm() {
                   ) : null}
                 </div>
               </div>
-              <div className="set">
-                <div className="customer-name">
-                  <label htmlFor="customer-password"> Password </label>
-                  <input
-                    className="customer-name"
-                    name="password"
-                    type="password"
-                    autoComplete="current-password"
-                    value={formData.password}
-                    onChange={handleInputChange}
-                    required
-                  ></input>
-                  {isVisible ? (
-                    errors.length > 0 ? (
-                      <h2 className="signup-errors">
-                        {errors.find((error) => error.includes("Password"))}
-                      </h2>
-                    ) : null
-                  ) : null}
-                </div>
 
-                <div className="customer-name">
-                  <label htmlFor="customer-password">
-                    Password Confirmation
-                  </label>
-                  <input
-                    className="customer-name"
-                    name="password_confirmation"
-                    type="password"
-                    autoComplete="current-password"
-                    value={formData.password_confirmation}
-                    onChange={handleInputChange}
-                    required
-                  ></input>
-                  {isVisible ? (
-                    errors.length > 0 ? (
-                      <h2 className="signup-errors">
-                        {errors.find((error) =>
-                          error.includes("Password confirmation")
-                        )}
-                      </h2>
-                    ) : null
-                  ) : null}
-                </div>
+              <div className="customer-name">
+                <label htmlFor="customer-password"> Password </label>
+                <input
+                  className="customer-name"
+                  name="password"
+                  type="password"
+                  autoComplete="current-password"
+                  value={formData.password}
+                  onChange={handleInputChange}
+                  required
+                ></input>
+                {isVisible ? (
+                  errors.length > 0 ? (
+                    <h2 className="signup-errors">
+                      {errors.find((error) => error.includes("Password"))}
+                    </h2>
+                  ) : null
+                ) : null}
               </div>
 
-              <div className="set">
-                <div className="customer-name">
-                  <label htmlFor="customer-image"> Image </label>
-                  <input
-                    className="customer-name"
-                    name="image"
-                    type="text"
-                    value={formData.image}
-                    onChange={handleInputChange}
-                    required
-                  ></input>
-                </div>
+              <div className="customer-name">
+                <label htmlFor="customer-password">Password Confirmation</label>
+                <input
+                  className="customer-name"
+                  name="password_confirmation"
+                  type="password"
+                  autoComplete="current-password"
+                  value={formData.password_confirmation}
+                  onChange={handleInputChange}
+                  required
+                ></input>
+                {isVisible ? (
+                  errors.length > 0 ? (
+                    <h2 className="signup-errors">
+                      {errors.find((error) =>
+                        error.includes("Password confirmation")
+                      )}
+                    </h2>
+                  ) : null
+                ) : null}
+              </div>
+
+              <div className="customer-name">
+                <label htmlFor="customer-image"> Image </label>
+                <input
+                  className="customer-name"
+                  name="image"
+                  type="text"
+                  value={formData.image}
+                  onChange={handleInputChange}
+                  required
+                ></input>
               </div>
             </header>
             <footer>
