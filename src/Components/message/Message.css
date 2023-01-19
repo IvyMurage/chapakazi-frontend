@@ -16,13 +16,14 @@
 .chat {
   flex: auto;
   background-color: #f4f4f4;
-  height: 100%;
+  height: 100vh;
   width: 50%;
   position: relative;
 }
 .chat-div {
-  overflow: scroll;
+  overflow: auto;
   height: 92%;
+  scrollbar-width: none;
 }
 .sidebar {
   background-color: #0a3971;
@@ -112,9 +113,10 @@
   border-radius: 20%;
 }
 .text-message {
-  overflow: scroll;
+  overflow: auto;
   height: 90%;
   width: 100%;
+  scrollbar-width: none;
 }
 .send-button {
   width: 100px;
@@ -135,4 +137,7 @@
 }
 .back-button {
   float: left;
+}
+.text-veiw {
+  overflow: auto;
 }

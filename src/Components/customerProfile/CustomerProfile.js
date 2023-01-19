@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./CustomerProfile.css";
 
 function CustomerProfile() {
@@ -60,6 +60,9 @@ function CustomerProfile() {
           <button className="customer-reset" onClick={resetPassword}>
             Reset Password
           </button>
+          <Link to="/messages">
+          <button >message</button>
+          </Link>
         </div>
       </div>
     </>

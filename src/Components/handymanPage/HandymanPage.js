@@ -44,6 +44,9 @@ function HandymanPage() {
 
   return (
     <div className="handymanpage">
+      {errors?.length > 0 ? (
+        <div className="error">{errors.join("/")}</div>
+      ) : null}
       <CustomerHeader />
       <div className="top-handyman-section">
         <div className="left-section-handyman">
@@ -60,7 +63,7 @@ function HandymanPage() {
             </div>
             <div className="call-action">
               <FontAwesomeIcon icon={faHeart} className="action-icon" />
-              <Link to="/chat">
+              <Link to="/messages">
                 <FontAwesomeIcon icon={faMessage} className=" action-icon" />
               </Link>
             </div>

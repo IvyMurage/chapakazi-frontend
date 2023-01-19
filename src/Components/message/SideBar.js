@@ -1,40 +1,56 @@
 import React, { useState, useEffect } from "react";
 import Chat from "./Chat";
 import "./Message.css";
-import MessageForm from "./MessageForm";
 
+function SideBar() {
+  const [texts, setTexts] = useState([]);
+  const [handyman, setHandyman] = useState([]);
+  const [clicked, setClicked] = useState(false);
 
-function SideBar(){
+  const token = localStorage.getItem("handyman");
+  const id = localStorage.getItem("profileId");
 
-    const [friends, setFriends] = useState([])
-    const [chat, setChat] = useState([])
-    const [clicked, setClicked] = useState(false)
-    // useEffect(()=>{
-    //     fetch("http://localhost:3000/friends")
-    //     .then((r)=>r.json())
-    //     .then((data)=> setFriends(data) ) 
-    // },[])   
-    // console.log(friends)
+  useEffect(() => {
+    fetch(`https://chapakazi-server-production.up.railway.app/handymen/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "Application/json",
+      },
+    },[])
+      .then((r) => r.json())
+      .then((user) => setHandyman(user));
+  }, [token, id]);
+  console.log(handyman);
+  useEffect(() => {
+    fetch("https://chapakazi-server-production.up.railway.app/messages")
+      .then((r) => r.json())
+      .then((data) => setTexts(data));
+  }, []);
+  console.log(texts);
+  console.log(localStorage.getItem("profileId"));
 
-    if(clicked === true){ return(<MessageForm clicked={clicked} setClicked={setClicked}/>)}
+  const myText = texts?.filter((txt) => {
+    return (txt.handyman_id = id);
+  });
+  const customers = [...new Set(texts?.map((txt) => txt.customer_id))];
+  console.log(myText);
+  console.log(customers);
 
-
-
-
-    return(
-            
-            <div className="sidebar">
-                <div className="sidebar-top">
-                    <h1 className="sidebar-header">CHATS</h1>
-                </div>
-                <div onClick={()=>setClicked(!clicked)} className="chat-div">
-                {friends.map((friend)=>(
-                <Chat name={friend.name} image={friend.picture} chat={friends.chatlog} clicked={clicked}/>
-
-                ))}
-                </div>
-            </div>
-    )
+  return (
+    <div className="sidebar">
+      <div className="sidebar-top">
+        <h1 className="sidebar-header">CHATS</h1>
+      </div>
+      <div className="chat-div">
+        <Chat
+          myText={myText}
+          customers={customers}
+          setClicked={setClicked}
+          clicked={clicked}
+        />
+      </div>
+    </div>
+  );
 }
 
-export default SideBar
+export default SideBar;
