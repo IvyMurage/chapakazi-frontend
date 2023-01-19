@@ -21,6 +21,8 @@ function MessageInput({ handyid, customerId }) {
     })
       .then((r) => r.json())
       .then((info) => console.log(info));
+
+    setMessage("");
   }
 
   return (

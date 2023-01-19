@@ -28,9 +28,7 @@ function MessageForm() {
       .then((user) => setCustomerMessage(user.messages));
   }, [token, id]);
   console.log(customerMessage);
-  const filteredMessages = customerMessage
-    .filter((message) => message.handyman_id === handyid)
-    .map((message) => message);
+  const filteredMessages = customerMessage?.filter((message) => message.handyman_id === handyid)?.map((message) => message);
   console.log(filteredMessages);
   console.log(handyid);
   console.log(name);
