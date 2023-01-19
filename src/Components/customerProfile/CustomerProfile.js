@@ -60,7 +60,7 @@ function CustomerProfile() {
           <button className="customer-reset" onClick={resetPassword}>
             Reset Password
           </button>
-          <Link to="/message">
+          <Link to="/messages">
           <button >message</button>
           </Link>
         </div>

@@ -50,7 +50,7 @@ function HandymanPage() {
             </div>
             <div className="call-action">
               <FontAwesomeIcon icon={faHeart} className="action-icon" />
-              <Link to="/chat">
+              <Link to="/messages">
                 <FontAwesomeIcon icon={faMessage} className=" action-icon" />
               </Link>
             </div>
